@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Entregas rápidas e confiáveis em Serra, Vitória, Vila Velha e Cariacica. Atendemos toda a Grande Vitória e região, além de empresas de São Paulo e todo Brasil.">
-  <meta name="keywords" content="motoboy, entrega expressa, Serra, Vitória, São Paulo, Grande Vitória">
+  <meta name="title" content="Speedboy Express – Entregas Rápidas e Serviços para Empresas em Grande Vitória">
+  <meta name="description" content="Serviço de motoboy especializado em entregas rápidas, despachos de encomendas e atendimento a empresas de fora em Serra, Vitória, Vila Velha, Cariacica e toda a Grande Vitória. Atendemos empresas de São Paulo e todo o Brasil.">
+  <meta name="keywords" content="motoboy, entrega expressa, despacho de encomendas, serviços para empresas, Serra, Vitória, São Paulo, Grande Vitória, serviços de motoboy, entregas rápidas">
+  <meta property="og:title" content="Speedboy Express – Entregas Rápidas e Serviços para Empresas em Grande Vitória">
+  <meta property="og:description" content="Seu parceiro confiável para entregas rápidas, despachos seguros e serviços para empresas em toda a Grande Vitória. Contate-nos pelo WhatsApp!">
   <meta property="og:image" content="https://i.imgur.com/mUsPz90.jpeg">
-  <title>Speedboy Express – Entregas rápidas em Grande Vitória</title>
+  <meta property="og:url" content="https://speedboymotoboy.github.io/speedboy-site/">
+  <title>Speedboy Express – Entregas Rápidas e Serviços para Empresas em Grande Vitória</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,20 +52,20 @@
     .section { padding: 3rem 1rem; max-width: 900px; margin: auto; }
     .section h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; color: var(--primary-color); }
     .section p { font-size: 1.1rem; line-height: 1.6; text-align: center; }
-    .services-grid {
+    .services-grid, .differentials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
-    .service-card {
+    .service-card, .differential-card {
       background: #f9f9f9;
       padding: 1.5rem;
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .service-card i {
+    .service-card i, .differential-card i {
       font-size: 2rem;
       color: var(--secondary-color);
       margin-bottom: 1rem;
@@ -158,68 +162,61 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      box-shadow: none; /* Removed shadow to avoid extra line */
       transition: transform 0.3s;
     }
     .whatsapp-float:hover { transform: scale(1.1); }
-    /* Formulário de Contato */
-    .contact-form {
-      background: #f9f9f9;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 2rem auto;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      background: var(--secondary-color);
-      color: var(--white);
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .contact-form button:hover {
-      background: #e55a00;
-    }
-    /* Responsividade */
+    /* Media Queries for Mobile */
     @media (max-width: 600px) {
-      .gallery img { width: 200px; height: 133px; }
       header { min-height: 300px; }
       header h1 { font-size: 2rem; }
       header p { font-size: 1rem; }
+      .gallery img { width: 200px; height: 133px; }
+      .cta { padding: 1rem 2rem; font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
   <header data-aos="fade-down">
     <h1>Speedboy Express</h1>
-    <p>Entregas rápidas e confiáveis em Serra, Vitória, Vila Velha, Cariacica e região – Atendemos toda a Grande Vitória e empresas de todo Brasil</p>
-    <a href="https://wa.me/5527999165959?text=Olá!%20Gostaria%20de%20falar%20sobre%20uma%20entrega" class="cta">Fale Conosco no WhatsApp</a>
+    <p>Seu parceiro confiável para entregas rápidas, despachos seguros e serviços para empresas em Serra, Vitória, Vila Velha, Cariacica e toda a Grande Vitória.</p>
+    <a href="https://wa.me/5527999165959?text=Olá Luan, gostaria de fazer um orçamento 📝" class="cta">Fazer Orçamento no WhatsApp</a>
   </header>
 
   <section class="section" data-aos="fade-up">
     <h2>Sobre Nós</h2>
     <img src="https://i.imgur.com/uobtZ3a.jpeg" alt="Equipe Speedboy Express" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px;">
-    <p>A Speedboy Express é uma empresa de motoboy sediada em Serra, ES, especializada em entregas rápidas e confiáveis. Com anos de experiência, atendemos toda a Grande Vitória e região, além de empresas de fora, como São Paulo, que precisam de representação local ágil e segura. Nossa missão é oferecer um serviço de alta qualidade, com pontualidade, discrição e preço justo.</p>
+    <p>A Speedboy Express é uma empresa de motoboy sediada em Serra, ES, especializada em entregas rápidas, despachos de encomendas e serviços para empresas de outras regiões. Com anos de experiência, atendemos toda a Grande Vitória e empresas de São Paulo e todo o Brasil que precisam de um parceiro local confiável. Nossa missão é oferecer serviços de alta qualidade com pontualidade, discrição e segurança.</p>
   </section>
 
   <section class="section" data-aos="fade-up">
-    <h2>Por que escolher a Speedboy Express?</h2>
-    <p>Com atendimento personalizado e uma equipe experiente, garantimos entregas rápidas em Serra, Vitória, Vila Velha, Cariacica e região. Somos a escolha ideal para empresas de São Paulo e outras cidades que buscam um parceiro confiável para retiradas e entregas locais, com total transparência e compromisso com o prazo.</p>
+    <h2>Por que escolher a Speedboy?</h2>
+    <div class="differentials-grid">
+      <div class="differential-card">
+        <i class="fas fa-clock"></i>
+        <h3>Rapidez</h3>
+        <p>Entregas e despachos realizados com agilidade para atender às suas necessidades urgentes.</p>
+      </div>
+      <div class="differential-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Confiança</h3>
+        <p>Compromisso com prazos e qualidade em cada serviço, seja entrega ou atendimento a empresas.</p>
+      </div>
+      <div class="differential-card">
+        <i class="fas fa-lock"></i>
+        <h3>Segurança</h3>
+        <p>Transporte seguro e discreto para documentos, encomendas e serviços empresariais.</p>
+      </div>
+      <div class="differential-card">
+        <i class="fas fa-globe"></i>
+        <h3>Parceiro Local</h3>
+        <p>Atuamos como seu parceiro local, cuidando de suas demandas em Serra, Vitória e região.</p>
+      </div>
+    </div>
   </section>
 
   <section class="section" data-aos="fade-up">
-    <h2>Serviços de Entrega</h2>
+    <h2>Serviços de Entrega e Atendimento a Empresas</h2>
     <div class="services-grid">
       <div class="service-card">
         <i class="fas fa-file-alt"></i>
@@ -229,7 +226,7 @@
       <div class="service-card">
         <i class="fas fa-box"></i>
         <h3>Entrega Expressa de Objetos e Pequenos Volumes</h3>
-        <p>Perfeito para entregas urgentes dentro e fora da cidade.</p>
+        <p>Ideal para entregas urgentes dentro e fora da cidade.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-pills"></i>
@@ -244,7 +241,7 @@
       <div class="service-card">
         <i class="fas fa-shopping-bag"></i>
         <h3>Compras Personalizadas</h3>
-        <p>Fazemos a compra e entregamos até você, com praticidade.</p>
+        <p>Realizamos compras e entregamos com praticidade.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-envelope"></i>
@@ -254,12 +251,12 @@
       <div class="service-card">
         <i class="fas fa-clock"></i>
         <h3>Entrega Agendada</h3>
-        <p>Agende o horário ideal para a entrega ou coleta de seu item.</p>
+        <p>Agende o horário ideal para entrega ou coleta.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-gift"></i>
         <h3>Distribuição de Brindes e Convites</h3>
-        <p>Ideal para ações promocionais e eventos corporativos.</p>
+        <p>Perfeito para ações promocionais e eventos corporativos.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-clipboard"></i>
@@ -269,12 +266,17 @@
       <div class="service-card">
         <i class="fas fa-balance-scale"></i>
         <h3>Protocolo de Processos em Fórum</h3>
-        <p>Levamos seu processo até o fórum com responsabilidade e agilidade.</p>
+        <p>Levamos seu processo ao fórum com responsabilidade.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-globe"></i>
-        <h3>Atendemos Empresas de Fora da Região</h3>
-        <p>Representamos empresas de outras cidades com responsabilidade e compromisso.</p>
+        <h3>Atendimento a Empresas de Fora</h3>
+        <p>Atuamos como seu parceiro local para retiradas, entregas e despachos.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-truck"></i>
+        <h3>Despacho de Encomendas</h3>
+        <p>Envio seguro e rápido de encomendas para toda a região e além.</p>
       </div>
     </div>
   </section>
@@ -284,17 +286,17 @@
     <div class="testimonials">
       <div class="testimonial-card">
         <img src="https://i.imgur.com/jkhms2K.jpeg" alt="Cliente Barbara Dias">
-        <p>"Me ajudou muito, mesmo eu não sendo de Vitória ele me atendeu perfeitamente pelo WhatsApp. Ágil, gentil e com preço justo. Pode confiar!"</p>
+        <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
         <p class="author">- Barbara Dias</p>
       </div>
       <div class="testimonial-card">
         <img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Cliente Isadora Ferreira">
-        <p>"Excelente, a entrega chegou rapidinho 🎉"</p>
+        <p>"Excelente serviço, a entrega chegou rapidinho! 🎉"</p>
         <p class="author">- Isadora Ferreira</p>
       </div>
       <div class="testimonial-card">
         <img src="https://i.imgur.com/Hr71goK.jpeg" alt="Cliente Daniela Martins">
-        <p>"Agilidade, eficiência, pontualidade, organização, atenção aos detalhes e compromisso com os clientes."</p>
+        <p>"Agilidade, eficiência, pontualidade e atenção aos detalhes. Um serviço de confiança!"</p>
         <p class="author">- Daniela Martins</p>
       </div>
     </div>
@@ -302,7 +304,7 @@
 
   <section class="map-section" data-aos="fade-up">
     <h2>Nossa Cobertura: Toda a Grande Vitória e Região</h2>
-    <p>Atendemos toda a Grande Vitória (Serra, Vitória, Vila Velha, Cariacica e região) com rapidez e confiabilidade, além de aceitarmos demandas de empresas de São Paulo e outras regiões do Brasil que precisam de um parceiro local.</p>
+    <p>Atendemos toda a Grande Vitória (Serra, Vitória, Vila Velha, Cariacica e arredores) com rapidez e confiabilidade. Também aceitamos demandas de empresas de São Paulo e outras regiões do Brasil que precisam de um parceiro local eficiente para entregas, despachos e serviços empresariais.</p>
     <img src="https://i.imgur.com/AeVfyrt.jpeg" alt="Grande Vitória" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px;">
     <div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden;">
       <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=speedboy+motoboy&z=10&output=embed"></iframe>
@@ -311,24 +313,14 @@
   </section>
 
   <section class="section" data-aos="fade-up">
-    <h2>Entre em Contato</h2>
-    <form class="contact-form" action="https://formspree.io/f/seu-id" method="POST">
-      <input type="text" name="name" placeholder="Seu Nome" required>
-      <input type="email" name="email" placeholder="Seu Email" required>
-      <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <section class="section" data-aos="fade-up">
     <h2>Perguntas Frequentes</h2>
     <div class="faq">
-      <h3>Como funciona o serviço de entrega?</h3>
-      <p>Você nos contata via WhatsApp, informa o serviço desejado, e nós cuidamos do resto com agilidade!</p>
+      <h3>Como funciona o serviço de entrega e despacho?</h3>
+      <p>Entre em contato via WhatsApp, informe o serviço desejado (entrega, despacho ou atendimento a empresas), e nossa equipe cuidará de tudo com agilidade.</p>
       <h3>Quais áreas vocês atendem?</h3>
-      <p>Atendemos toda a Grande Vitória (Serra, Vitória, Vila Velha, Cariacica e região) e aceitamos demandas de outras cidades.</p>
-      <h3>Aceitam demandas de empresas de fora?</h3>
-      <p>Sim, atendemos empresas de São Paulo e outras regiões que precisam de serviços locais confiáveis.</p>
+      <p>Atendemos toda a Grande Vitória (Serra, Vitória, Vila Velha, Cariacica e arredores) e aceitamos demandas de empresas de outras regiões.</p>
+      <h3>Vocês atendem empresas de outras regiões?</h3>
+      <p>Sim, oferecemos serviços para empresas de São Paulo e outras cidades que precisam de um parceiro local confiável.</p>
     </div>
   </section>
 
@@ -350,11 +342,11 @@
       <a href="#">Contato</a>
     </div>
     <p>Toda a Grande Vitória (Serra – Vitória – Vila Velha – Cariacica) e Região</p>
-    <p>Entre em contato: <a href="https://wa.me/5527999165959" style="color:#25D366;">WhatsApp</a> | <a href="https://www.instagram.com/speedboy_motoboy?igsh=MXZ0YmNha3hmMmpidA==" style="color:#f58c20;">Instagram</a> | <a href="mailto:speedboymotoboy@gmail.com" style="color:#f58c20;">Email</a></p>
+    <p>Entre em contato: <a href="https://wa.me/5527999165959?text=Olá Luan, gostaria de fazer um orçamento 📝" style="color:#25D366;">WhatsApp</a> | <a href="https://www.instagram.com/speedboy_motoboy?igsh=MXZ0YmNha3hmMmpidA==" style="color:#f58c20;">Instagram</a> | <a href="mailto:speedboymotoboy@gmail.com" style="color:#f58c20;">Email</a></p>
     <small>Speedboy Express © 2025</small>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5527999165959?text=Olá!%20Gostaria%20de%20falar%20sobre%20uma%20entrega" target="_blank">
+  <a class="whatsapp-float" href="https://wa.me/5527999165959?text=Olá Luan, gostaria de fazer um orçamento 📝" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
 
