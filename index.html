@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- Google Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DC8TS8D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5DC8TS8D');
+  </script>
+  <!-- End Google Tag -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Motoboy em Serra, ES, para entregas rápidas e despachos seguros. Atendemos Vitória, Vila Velha, Cariacica e toda a Grande Vitória, além de empresas de São Paulo e Brasil.">
+  <meta name="description" content="Motoboy em Serra, ES, para entregas rápidas e seguras. Atendemos Grande Vitória, São Paulo e Brasil. Contato: WhatsApp +55 27 99916-5959.">
   <meta name="keywords" content="motoboy Serra, entregas rápidas Serra, motoboy Grande Vitória, entrega expressa, despacho de encomendas, serviços para empresas, Vitória, Vila Velha, Cariacica">
   <meta property="og:title" content="Motoboy Serra: Entregas Rápidas na Grande Vitória - Speedboy">
   <meta property="og:description" content="Precisa de um motoboy em Serra, ES? Fazemos entregas rápidas e despachos seguros em toda a Grande Vitória. Fale conosco pelo WhatsApp!">
@@ -35,7 +44,8 @@
       flex-direction: column;
       justify-content: center;
     }
-    header h1, header p { text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
+    header h1 { font-weight: 700; font-size: 2.5rem; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
+    header p { text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
     .cta {
       display: inline-block;
       margin-top: 1.5rem;
@@ -48,7 +58,7 @@
       transition: background 0.3s;
     }
     .cta:hover { background-color: #e55a00; }
-    .section { padding: 3rem 1rem; max-width: 900px; margin: auto; }
+    .section { padding: 2rem; max-width: 900px; margin: auto; background-color: #f5f5f5; border-radius: 8px; }
     .section h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; color: var(--primary-color); }
     .section p { font-size: 1.1rem; line-height: 1.6; text-align: center; }
     .services-grid, .differentials-grid {
@@ -58,7 +68,7 @@
       margin-top: 20px;
     }
     .service-card, .differential-card {
-      background: #f9f9f9;
+      background: #fff;
       padding: 1.5rem;
       border-radius: 8px;
       text-align: center;
@@ -76,11 +86,12 @@
       flex-wrap: wrap;
     }
     .testimonial-card {
-      background: #f9f9f9;
+      background: #fff;
       padding: 1rem;
       border-radius: 8px;
       max-width: 300px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .testimonial-card img {
       border-radius: 50%;
@@ -114,10 +125,12 @@
       border-radius: 8px;
     }
     .map-section {
-      padding: 3rem 1rem;
+      padding: 2rem;
       max-width: 1000px;
       margin: auto;
       text-align: center;
+      background-color: #f5f5f5;
+      border-radius: 8px;
     }
     .map-section img {
       width: 100%;
@@ -163,6 +176,7 @@
       justify-content: center;
       box-shadow: none;
       transition: transform 0.3s;
+      text-decoration: none;
     }
     .whatsapp-float:hover { transform: scale(1.1); }
     @media (max-width: 600px) {
@@ -184,7 +198,7 @@
   <section class="section" data-aos="fade-up" id="inicio">
     <h2>Sobre Nós</h2>
     <img src="https://i.imgur.com/uobtZ3a.jpeg" alt="Equipe da Speedboy Motoboy em ação" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px;">
-    <p>A Speedboy Motoboy é uma empresa de motoboy sediada em Serra, ES, especializada em entregas rápidas, despachos de encomendas e serviços para empresas de outras regiões. Com anos de experiência, atendemos toda a Grande Vitória e empresas de São Paulo e todo o Brasil que precisam de um parceiro local confiável. Nossa missão é oferecer serviços de alta qualidade com pontualidade, discrição e segurança.</p>
+    <p>A Speedboy Motoboy é uma empresa licenciada sediada em Serra, ES, especializada em entregas rápidas, despachos de encomendas e serviços para empresas de outras regiões. Com mais de 5 anos de experiência, atendemos toda a Grande Vitória e empresas de São Paulo e todo o Brasil que precisam de um parceiro local confiável. Nossa missão é oferecer serviços de alta qualidade com pontualidade, discrição e segurança.</p>
   </section>
 
   <section class="section" data-aos="fade-up" id="sobre-nos">
@@ -193,7 +207,7 @@
       <div class="differential-card">
         <i class="fas fa-clock"></i>
         <h3>Rapidez</h3>
-        <p>Entregas e despachos realizados com agilidade para atender às suas necessidades urgentes.</p>
+        <p>Entregas e despachos realizados com agilidade para atender suas necessidades urgentes.</p>
       </div>
       <div class="differential-card">
         <i class="fas fa-shield-alt"></i>
@@ -285,7 +299,7 @@
       <div class="testimonial-card">
         <img src="https://i.imgur.com/jkhms2K.jpeg" alt="Foto da cliente Bárbara Dias">
         <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
-        <p class="author">Bárbara Dias</p>
+        <p class="author">Bárbara Dias - Cliente Corporativo</p>
       </div>
       <div class="testimonial-card">
         <img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Foto da cliente Isadora Ferreira">
@@ -301,8 +315,11 @@
   </section>
 
   <section class="map-section" data-aos="fade-up" id="contato">
-    <h2>Nossa Cobertura: Toda a Grande Vitória e Região</h2>
-    <p>Atendemos toda a Grande Vitória (Serra, Vitória, Vila Velha, Cariacica e arredores) com rapidez e confiabilidade. Também aceitamos demandas de empresas de São Paulo e outras regiões do Brasil que precisam de um parceiro local eficiente para entregas, despachos e serviços empresariais.</p>
+    <h2>Entre em Contato</h2>
+    <p><i class="fas fa-phone"></i> Telefone: +55 27 99916-5959</p>
+    <p><i class="fas fa-envelope"></i> E-mail: speedboymotoboy@gmail.com</p>
+    <p><i class="fas fa-clock"></i> Horário: Seg-Sex, 8h-18h</p>
+    <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento%20📝" class="cta">Fale pelo WhatsApp</a>
     <img src="https://i.imgur.com/AeVfyrt.jpeg" alt="Mapa da região da Grande Vitória">
     <iframe loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=speedboy+motoboy&z=10&output=embed"></iframe>
   </section>
@@ -331,7 +348,7 @@
   <footer>
     <div class="links">
       <a href="#inicio">Início</a>
-      <a href="#sobre-nos">Sobre Nós</a>
+      <a href="#sobre-nos">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
