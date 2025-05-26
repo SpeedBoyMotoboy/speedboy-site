@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,10 +11,11 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Motoboy em Serra, ES, para entregas rápidas e seguras. Atendemos Grande Vitória, São Paulo e Brasil. Contato: WhatsApp +55 27 99916-5959.">
-  <meta name="keywords" content="motoboy Serra, entregas rápidas Serra, motoboy Grande Vitória, entrega expressa, despacho de encomendas, serviços para empresas, Vitória, Vila Velha, Cariacica">
-  <meta property="og:title" content="Motoboy Serra: Entregas Rápidas na Grande Vitória - Speedboy">
-  <meta property="og:description" content="Precisa de um motoboy em Serra, ES? Fazemos entregas rápidas e despachos seguros em toda a Grande Vitória. Fale conosco pelo WhatsApp!">
+  <meta name="title" content="Motoboy Serra ES - Entregas Rápidas | Speedboy Motoboy">
+  <meta name="description" content="Motoboy em Serra, ES, para entregas rápidas e seguras. Atendemos Serra, Vitória, Vila Velha, Cariacica e empresas de São Paulo. Ligue: +55 27 99916-5959!">
+  <meta name="keywords" content="motoboy Serra ES, entregas rápidas Serra, motoboy Grande Vitória, entrega expressa, despacho encomendas, motoboy barato Serra">
+  <meta property="og:title" content="Motoboy Serra ES - Entregas Rápidas | Speedboy Motoboy">
+  <meta property="og:description" content="Precisa de um motoboy em Serra, ES? A Speedboy Motoboy oferece entregas rápidas e seguras na Grande Vitória. Solicite orçamento agora!">
   <meta property="og:image" content="https://i.imgur.com/R6T1goC.png">
   <meta property="og:url" content="https://speedboymotoboy.github.io/speedboy-site/">
   <!-- Favicon Configuration -->
@@ -22,7 +23,7 @@
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="https://i.imgur.com/R6T1goC.png" sizes="180x180" />
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="192x192" />
-  <title>Motoboy Serra: Entregas Rápidas na Grande Vitória - Speedboy</title>
+  <title>Motoboy Serra ES - Entregas Rápidas | Speedboy Motoboy</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,10 +32,24 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "LocalBusiness",
       "name": "Speedboy Motoboy",
+      "description": "Motoboy em Serra, ES, especializado em entregas rápidas e seguras na Grande Vitória.",
       "url": "https://speedboymotoboy.github.io/speedboy-site/",
       "logo": "https://i.imgur.com/R6T1goC.png",
+      "telephone": "+5527999165959",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Serra",
+        "addressRegion": "ES",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -20.1986,
+        "longitude": -40.2525
+      },
       "sameAs": [
         "https://wa.me/5527999165959",
         "https://www.instagram.com/speedboy_motoboy?igsh=MXZ0YmNha3hmMmpidA=="
@@ -52,7 +67,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Roboto', sans-serif; background: var(--bg-color); color: var(--text-color); }
     header {
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.imgur.com/mUsPz90.jpeg') center/cover no-repeat;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/mUsPz90.jpeg') center/cover no-repeat;
       color: var(--white);
       padding: 2rem 1rem;
       text-align: center;
@@ -60,22 +75,46 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
     }
-    header h1 { font-weight: 700; font-size: 2.5rem; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
-    header p { text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
+    header h1 { font-weight: 700; font-size: 2.5rem; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); }
+    header p { text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); margin-bottom: 1.5rem; font-size: 1.2rem; }
     .cta {
       display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      padding: 1rem 2rem;
       background-color: var(--secondary-color);
       color: var(--white);
       font-weight: bold;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
+      border-radius: 10px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .cta:hover { background-color: #e55a00; }
-    .section { padding: 2rem; max-width: 900px; margin: auto; background-color: #f5f5f5; border-radius: 8px; }
+    .cta:hover { background-color: #e55a00; transform: scale(1.05); }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 48, 135, 0.9);
+      padding: 1rem;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--white);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--secondary-color); }
+    .section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
     .section h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; color: var(--primary-color); }
     .section p { font-size: 1.1rem; line-height: 1.6; text-align: center; }
     .services-grid, .differentials-grid {
@@ -89,10 +128,12 @@
       padding: 1.5rem;
       border-radius: 8px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
     }
+    .service-card:hover, .differential-card:hover { transform: translateY(-5px); }
     .service-card i, .differential-card i {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--secondary-color);
       margin-bottom: 1rem;
     }
@@ -104,64 +145,50 @@
     }
     .testimonial-card {
       background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
+      padding: 1.5rem;
+      border-radius: 10px;
       max-width: 300px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
     }
+    .testimonial-card:hover { transform: translateY(-5px); }
     .testimonial-card img {
       border-radius: 50%;
       margin-bottom: 1rem;
       width: 100px;
       height: 100px;
       object-fit: cover;
+      border: 2px solid var(--secondary-color);
     }
-    .author {
-      font-weight: bold;
-      margin-top: 0.5rem;
-    }
-    .faq h3 {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-      color: var(--primary-color);
-    }
-    .faq p {
-      margin-top: 0.5rem;
-    }
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+    .author { font-weight: bold; margin-top: 0.5rem; color: var(--primary-color); }
+    .faq h3 { margin-top: 1.5rem; font-size: 1.2rem; color: var(--primary-color); }
+    .faq p { margin-top: 0.5rem; }
+    .gallery { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
     .gallery img {
       width: 300px;
       height: 200px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
+      transition: transform 0.3s;
     }
+    .gallery img:hover { transform: scale(1.05); }
     .map-section {
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
       text-align: center;
-      background-color: #f5f5f5;
-      border-radius: 8px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    .map-section img {
-      width: 100%;
-      max-width: 500px;
-      margin: 1rem auto;
-      display: block;
-      border-radius: 8px;
-    }
+    .map-section img { width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px; }
     .map-section iframe {
       width: 100%;
       height: 400px;
       border: 0;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     footer {
       background: var(--primary-color);
@@ -187,11 +214,11 @@
       border-radius: 50%;
       text-align: center;
       font-size: 30px;
-      z-index: 100;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s;
       text-decoration: none;
     }
@@ -201,20 +228,57 @@
       header h1 { font-size: 2rem; }
       header p { font-size: 1rem; }
       .gallery img { width: 200px; height: 133px; }
-      .cta { padding: 1rem 2rem; font-size: 1.1rem; }
+      .cta { padding: 0.75rem 1.5rem; font-size: 1rem; }
+      nav { padding: 0.5rem; }
+      nav a { margin: 0 0.5rem; }
     }
+    /* Formulário de Contato */
+    .contact-form {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .contact-form label { display: block; margin-bottom: 0.5rem; color: var(--primary-color); }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact-form button {
+      padding: 0.75rem 1.5rem;
+      background-color: var(--secondary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover { background-color: #e55a00; }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#sobre-nos">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
   <header data-aos="fade-down">
-    <h1>Speedboy Motoboy</h1>
-    <p>Seu motoboy em Serra, ES, para entregas rápidas e despachos seguros na Grande Vitória.</p>
-    <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Fazer Orçamento no WhatsApp</a>
+    <h1>Speedboy Motoboy - Motoboy em Serra, ES</h1>
+    <p>Entregas Rápidas e Seguras na Grande Vitória e Além!</p>
+    <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Solicite um Orçamento Agora</a>
   </header>
 
   <section class="section" data-aos="fade-up" id="inicio">
-    <h2>Sobre Nós</h2>
-    <img src="https://i.imgur.com/uobtZ3a.jpeg" alt="Equipe da Speedboy Motoboy em ação" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px;">
+    <h2>Sobre a Speedboy Motoboy</h2>
+    <img src="https://i.imgur.com/uobtZ3a.jpeg" alt="Equipe da Speedboy Motoboy em ação" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px;" loading="lazy" width="500" height="333">
     <p>A Speedboy Motoboy é uma empresa licenciada sediada em Serra, ES, especializada em entregas rápidas, despachos de encomendas e serviços para empresas de outras regiões. Com experiência consolidada, atendemos clientes na Grande Vitória e empresas de outras regiões que precisam de um parceiro local confiável. Nossa missão é oferecer serviços de alta qualidade com pontualidade, discrição e segurança.</p>
   </section>
 
@@ -224,47 +288,47 @@
       <div class="differential-card">
         <i class="fas fa-clock"></i>
         <h3>Rapidez</h3>
-        <p>Entregas e despachos realizados com agilidade para atender suas necessidades urgentes.</p>
+        <p>Entregas em menos de 1 hora em Serra, ES!</p>
       </div>
       <div class="differential-card">
         <i class="fas fa-shield-alt"></i>
         <h3>Confiança</h3>
-        <p>Compromisso com prazos e qualidade em cada serviço, seja entrega ou atendimento a empresas.</p>
+        <p>100% de pontualidade garantida.</p>
       </div>
       <div class="differential-card">
         <i class="fas fa-lock"></i>
         <h3>Segurança</h3>
-        <p>Transporte seguro e discreto para documentos, encomendas e serviços empresariais.</p>
+        <p>Transporte seguro para documentos e encomendas.</p>
       </div>
       <div class="differential-card">
         <i class="fas fa-globe"></i>
         <h3>Parceiro Local</h3>
-        <p>Atuamos como seu parceiro local, cuidando de suas demandas em Serra, Vitória e região.</p>
+        <p>Serviço dedicado para a Grande Vitória.</p>
       </div>
     </div>
   </section>
 
   <section class="section" data-aos="fade-up" id="servicos">
-    <h2>Serviços de Entrega e Atendimento a Empresas</h2>
+    <h2>Serviços de Motoboy em Serra, ES</h2>
     <div class="services-grid">
       <div class="service-card">
         <i class="fas fa-file-alt"></i>
-        <h3>Coleta e Entrega Rápida de Documentos</h3>
+        <h3>Coleta e Entrega de Documentos</h3>
         <p>Movimentação segura e ágil de documentos importantes.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-box"></i>
-        <h3>Entrega Expressa de Objetos e Pequenos Volumes</h3>
+        <h3>Entrega Expressa</h3>
         <p>Ideal para entregas urgentes dentro e fora da cidade.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-pills"></i>
-        <h3>Entregas de Medicamentos</h3>
+        <h3>Entrega de Medicamentos</h3>
         <p>Transporte rápido, com total cuidado e discrição.</p>
       </div>
       <div class="service-card">
         <i class="fas fa-building"></i>
-        <h3>Serviços Bancários e de Cartório</h3>
+        <h3>Serviços Bancários</h3>
         <p>Pagamentos, autenticações, registros e retirada de documentos.</p>
       </div>
       <div class="service-card">
@@ -274,57 +338,28 @@
       </div>
       <div class="service-card">
         <i class="fas fa-envelope"></i>
-        <h3>Coletas e Entregas de Malotes</h3>
+        <h3>Coletas de Malotes</h3>
         <p>Pontualidade e organização para empresas e escritórios.</p>
       </div>
-      <div class="service-card">
-        <i class="fas fa-clock"></i>
-        <h3>Entrega Agendada</h3>
-        <p>Agende o horário ideal para entrega ou coleta.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-gift"></i>
-        <h3>Distribuição de Brindes e Convites</h3>
-        <p>Perfeito para ações promocionais e eventos corporativos.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-clipboard"></i>
-        <h3>Entrega de Notificações Extrajudiciais</h3>
-        <p>Entregas sigilosas com registro de coleta.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-balance-scale"></i>
-        <h3>Protocolo de Processos em Fórum</h3>
-        <p>Levamos seu processo ao fórum com responsabilidade.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-globe"></i>
-        <h3>Atendimento a Empresas de Fora</h3>
-        <p>Atuamos como seu parceiro local para retiradas, entregas e despachos.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-truck"></i>
-        <h3>Despacho de Encomendas</h3>
-        <p>Envio seguro e rápido de encomendas para toda a região e além.</p>
-      </div>
     </div>
+    <a href="#contato" class="cta" style="display: block; text-align: center; margin-top: 1.5rem;">Veja Todos os Serviços</a>
   </section>
 
   <section class="section" data-aos="fade-up" id="depoimentos">
     <h2>Depoimentos</h2>
     <div class="testimonials">
       <div class="testimonial-card">
-        <img src="https://i.imgur.com/jkhms2K.jpeg" alt="Foto da cliente Bárbara Dias">
+        <img src="https://i.imgur.com/jkhms2K.jpeg" alt="Foto da cliente Bárbara Dias" loading="lazy" width="100" height="100">
         <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
         <p class="author">Bárbara Dias - Cliente Corporativo</p>
       </div>
       <div class="testimonial-card">
-        <img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Foto da cliente Isadora Ferreira">
+        <img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Foto da cliente Isadora Ferreira" loading="lazy" width="100" height="100">
         <p>"Excelente serviço, a entrega chegou rápido!"</p>
         <p class="author">Isadora Ferreira</p>
       </div>
       <div class="testimonial-card">
-        <img src="https://i.imgur.com/Hr71goK.jpeg" alt="Foto da cliente Daniela Martins">
+        <img src="https://i.imgur.com/Hr71goK.jpeg" alt="Foto da cliente Daniela Martins" loading="lazy" width="100" height="100">
         <p>"Agilidade, eficiência, pontualidade e atenção aos detalhes. Um serviço de confiança!"</p>
         <p class="author">Daniela Martins</p>
       </div>
@@ -337,8 +372,21 @@
     <p><i class="fas fa-phone"></i> Telefone: +55 27 99916-5959</p>
     <p><i class="fas fa-envelope"></i> E-mail: speedboymotoboy@gmail.com</p>
     <p><i class="fas fa-clock"></i> Horário: Seg-Sex, 8h-18h</p>
+    <div class="contact-form">
+      <form action="https://formsubmit.co/speedboymotoboy@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Novo Orçamento - Speedboy Motoboy">
+        <input type="hidden" name="_captcha" value="false">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Enviar Orçamento</button>
+      </form>
+    </div>
     <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Fale pelo WhatsApp</a>
-    <img src="https://i.imgur.com/AeVfyrt.jpeg" alt="Mapa da região da Grande Vitória">
+    <img src="https://i.imgur.com/AeVfyrt.jpeg" alt="Mapa da região da Grande Vitória" loading="lazy" width="500" height="333">
     <iframe loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=speedboy+motoboy&z=10&output=embed"></iframe>
   </section>
 
@@ -357,9 +405,9 @@
   <section class="section" data-aos="fade-up" id="galeria">
     <h2>Galeria</h2>
     <div class="gallery">
-      <img src="https://i.imgur.com/ILupMOh.jpeg" alt="Motoboy entregando documentos na Grande Vitória">
-      <img src="https://i.imgur.com/eVGM97i.jpeg" alt="Motoboy da Speedboy Motoboy em ação">
-      <img src="https://i.imgur.com/mJqAraw.jpeg" alt="Cliente satisfeito recebendo entrega da Speedboy Motoboy">
+      <img src="https://i.imgur.com/ILupMOh.jpeg" alt="Motoboy entregando documentos na Grande Vitória" loading="lazy" width="300" height="200">
+      <img src="https://i.imgur.com/eVGM97i.jpeg" alt="Motoboy da Speedboy Motoboy em ação" loading="lazy" width="300" height="200">
+      <img src="https://i.imgur.com/mJqAraw.jpeg" alt="Cliente satisfeito recebendo entrega da Speedboy Motoboy" loading="lazy" width="300" height="200">
     </div>
   </section>
 
