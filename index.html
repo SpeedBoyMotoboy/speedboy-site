@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,10 +13,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="title" content="Motoboy Serra ES - Entregas Rápidas | Speedboy Motoboy">
-  <meta name="description" content="Motoboy em Serra, ES, para entregas rápidas e seguras. Atendemos Serra, Vitória, Vila Velha, Cariacica e empresas de São Paulo. Ligue: +55 27 99916-5959!">
-  <meta name="keywords" content="motoboy Serra ES, entregas rápidas Serra, motoboy Grande Vitória, entrega expressa, despacho encomendas, motoboy barato Serra">
+  <meta name="description" content="Motoboy em Serra, ES, para entregas rápidas e seguras. Atendemos Serra, Vitória, Vila Velha, Cariacica, Aracruz, Colatina, Linhares e empresas de São Paulo. Ligue: +55 27 99916-5959!">
+  <meta name="keywords" content="motoboy Serra ES, entregas rápidas Serra, motoboy Grande Vitória, entrega expressa, despacho encomendas, motoboy barato Serra, motoboy aracruz, motoboy colatina, motoboy linhares, frete agregado vitoria linhares">
   <meta property="og:title" content="Motoboy Serra ES - Entregas Rápidas | Speedboy Motoboy">
-  <meta property="og:description" content="Precisa de um motoboy em Serra, ES? A Speedboy Motoboy oferece entregas rápidas e seguras na Grande Vitória. Solicite orçamento agora!">
+  <meta property="og:description" content="Precisa de um motoboy em Serra, ES? A Speedboy Motoboy oferece entregas rápidas e seguras na Grande Vitória, incluindo rotas para Aracruz, Colatina e Linhares. Solicite orçamento agora!">
   <meta property="og:image" content="https://i.imgur.com/R6T1goC.png">
   <meta property="og:url" content="https://speedboymotoboy.github.io/speedboy-site/">
   <!-- Favicon Configuration -->
@@ -24,38 +25,12 @@
   <link rel="apple-touch-icon" href="https://i.imgur.com/R6T1goC.png" sizes="180x180" />
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="192x192" />
   <title>Motoboy Serra ES - Entregas Rápidas | Speedboy Motoboy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Speedboy Motoboy",
-      "description": "Motoboy em Serra, ES, especializado em entregas rápidas e seguras na Grande Vitória.",
-      "url": "https://speedboymotoboy.github.io/speedboy-site/",
-      "logo": "https://i.imgur.com/R6T1goC.png",
-      "telephone": "+5527999165959",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Serra",
-        "addressRegion": "ES",
-        "addressCountry": "BR"
-      },
-      "openingHours": "Mo-Fr 08:00-18:00",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -20.1986,
-        "longitude": -40.2525
-      },
-      "sameAs": [
-        "https://wa.me/5527999165959",
-        "https://www.instagram.com/speedboy_motoboy?igsh=MXZ0YmNha3hmMmpidA=="
-      ]
-    }
-  </script>
+  <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
       --primary-color: #003087;
@@ -66,6 +41,7 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Roboto', sans-serif; background: var(--bg-color); color: var(--text-color); }
+    html { scroll-behavior: smooth; }
     header {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/mUsPz90.jpeg') center/cover no-repeat;
       color: var(--white);
@@ -100,13 +76,21 @@
       padding: 1rem;
       z-index: 1000;
     }
+    .nav-toggle { display: block; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    .nav-menu { display: none; list-style: none; padding: 0; margin: 0; }
+    .nav-menu.show { display: block; }
+    .nav-menu li { display: block; margin: 0.5rem 0; }
     nav a {
       color: var(--white);
-      margin: 0 1rem;
       text-decoration: none;
       font-weight: 500;
     }
     nav a:hover { color: var(--secondary-color); }
+    @media (min-width: 768px) {
+      .nav-toggle { display: none; }
+      .nav-menu { display: flex; justify-content: center; }
+      .nav-menu li { margin: 0 1rem; display: inline; }
+    }
     .section {
       padding: 2rem;
       max-width: 900px;
@@ -230,7 +214,6 @@
       .gallery img { width: 200px; height: 133px; }
       .cta { padding: 0.75rem 1.5rem; font-size: 1rem; }
       nav { padding: 0.5rem; }
-      nav a { margin: 0 0.5rem; }
     }
     /* Formulário de Contato */
     .contact-form {
@@ -262,156 +245,191 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#sobre-nos">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#contato">Contato</a>
+  <nav role="navigation">
+    <button class="nav-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+    <ul class="nav-menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre-nos">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#rotas">Rotas</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
   </nav>
 
-  <header data-aos="fade-down">
+  <header role="banner" data-aos="fade-down">
     <h1>Speedboy Motoboy - Motoboy em Serra, ES</h1>
     <p>Entregas Rápidas e Seguras na Grande Vitória e Além!</p>
     <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Solicite um Orçamento Agora</a>
   </header>
 
-  <section class="section" data-aos="fade-up" id="inicio">
-    <h2>Sobre a Speedboy Motoboy</h2>
-    <img src="https://i.imgur.com/uobtZ3a.jpeg" alt="Equipe da Speedboy Motoboy em ação" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block; border-radius: 8px;" loading="lazy" width="500" height="333">
-    <p>A Speedboy Motoboy é uma empresa licenciada sediada em Serra, ES, especializada em entregas rápidas, despachos de encomendas e serviços para empresas de outras regiões. Com experiência consolidada, atendemos clientes na Grande Vitória e empresas de outras regiões que precisam de um parceiro local confiável. Nossa missão é oferecer serviços de alta qualidade com pontualidade, discrição e segurança.</p>
-  </section>
+  <main role="main">
+    <section class="section" data-aos="fade-up" id="inicio">
+      <h2>Sobre a Speedboy Motoboy</h2>
+      <picture>
+        <source srcset="https://i.imgur.com/uobtZ3a.webp" type="image/webp">
+        <img src="https://i.imgur.com/uobtZ3a.jpeg" alt="Equipe da Speedboy Motoboy em ação" loading="lazy" width="500" height="333">
+      </picture>
+      <p>A Speedboy Motoboy é uma empresa licenciada sediada em Serra, ES, especializada em entregas rápidas, despachos de encomendas e serviços para empresas de outras regiões. Com experiência consolidada, atendemos clientes na Grande Vitória e empresas de outras regiões que precisam de um parceiro local confiável. Nossa missão é oferecer serviços de alta qualidade com pontualidade, discrição e segurança.</p>
+    </section>
 
-  <section class="section" data-aos="fade-up" id="sobre-nos">
-    <h2>Por que Escolher a Speedboy Motoboy?</h2>
-    <div class="differentials-grid">
-      <div class="differential-card">
-        <i class="fas fa-clock"></i>
-        <h3>Rapidez</h3>
-        <p>Entregas em menos de 1 hora em Serra, ES!</p>
+    <section class="section" data-aos="fade-up" id="sobre-nos">
+      <h2>Por que Escolher a Speedboy Motoboy?</h2>
+      <div class="differentials-grid">
+        <div class="differential-card">
+          <i class="fas fa-clock"></i>
+          <h3>Rapidez</h3>
+          <p>Entregas em menos de 1 hora em Serra, ES!</p>
+        </div>
+        <div class="differential-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Confiança</h3>
+          <p>100% de pontualidade garantida.</p>
+        </div>
+        <div class="differential-card">
+          <i class="fas fa-lock"></i>
+          <h3>Segurança</h3>
+          <p>Transporte seguro para documentos e encomendas.</p>
+        </div>
+        <div class="differential-card">
+          <i class="fas fa-globe"></i>
+          <h3>Parceiro Local</h3>
+          <p>Serviço dedicado para a Grande Vitória.</p>
+        </div>
       </div>
-      <div class="differential-card">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Confiança</h3>
-        <p>100% de pontualidade garantida.</p>
-      </div>
-      <div class="differential-card">
-        <i class="fas fa-lock"></i>
-        <h3>Segurança</h3>
-        <p>Transporte seguro para documentos e encomendas.</p>
-      </div>
-      <div class="differential-card">
-        <i class="fas fa-globe"></i>
-        <h3>Parceiro Local</h3>
-        <p>Serviço dedicado para a Grande Vitória.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" data-aos="fade-up" id="servicos">
-    <h2>Serviços de Motoboy em Serra, ES</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <i class="fas fa-file-alt"></i>
-        <h3>Coleta e Entrega de Documentos</h3>
-        <p>Movimentação segura e ágil de documentos importantes.</p>
+    <section class="section" data-aos="fade-up" id="servicos">
+      <h2>Serviços de Motoboy em Serra, ES</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-file-alt"></i>
+          <h3>Coleta e Entrega de Documentos</h3>
+          <p>Movimentação segura e ágil de documentos importantes.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-box"></i>
+          <h3>Entrega Expressa</h3>
+          <p>Ideal para entregas urgentes dentro e fora da cidade.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-pills"></i>
+          <h3>Entrega de Medicamentos</h3>
+          <p>Transporte rápido, com total cuidado e discrição.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-building"></i>
+          <h3>Serviços Bancários</h3>
+          <p>Pagamentos, autenticações, registros e retirada de documentos.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-shopping-bag"></i>
+          <h3>Compras Personalizadas</h3>
+          <p>Realizamos compras e entregamos com praticidade.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Coletas de Malotes</h3>
+          <p>Pontualidade e organização para empresas e escritórios.</p>
+        </div>
       </div>
-      <div class="service-card">
-        <i class="fas fa-box"></i>
-        <h3>Entrega Expressa</h3>
-        <p>Ideal para entregas urgentes dentro e fora da cidade.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-pills"></i>
-        <h3>Entrega de Medicamentos</h3>
-        <p>Transporte rápido, com total cuidado e discrição.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-building"></i>
-        <h3>Serviços Bancários</h3>
-        <p>Pagamentos, autenticações, registros e retirada de documentos.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-shopping-bag"></i>
-        <h3>Compras Personalizadas</h3>
-        <p>Realizamos compras e entregamos com praticidade.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-envelope"></i>
-        <h3>Coletas de Malotes</h3>
-        <p>Pontualidade e organização para empresas e escritórios.</p>
-      </div>
-    </div>
-    <a href="#contato" class="cta" style="display: block; text-align: center; margin-top: 1.5rem;">Veja Todos os Serviços</a>
-  </section>
+      <a href="#contato" class="cta" style="display: block; text-align: center; margin-top: 1.5rem;">Veja Todos os Serviços</a>
+    </section>
 
-  <section class="section" data-aos="fade-up" id="depoimentos">
-    <h2>Depoimentos</h2>
-    <div class="testimonials">
-      <div class="testimonial-card">
-        <img src="https://i.imgur.com/jkhms2K.jpeg" alt="Foto da cliente Bárbara Dias" loading="lazy" width="100" height="100">
-        <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
-        <p class="author">Bárbara Dias - Cliente Corporativo</p>
+    <section class="section" data-aos="fade-up" id="rotas">
+      <h2>Rotas Especiais com Frete Agregado</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-route"></i>
+          <h3>Vitória → Aracruz → Colatina → Linhares</h3>
+          <p>📦 Coleta em toda a Grande Vitória para entregas nessas rotas.</p>
+          <p>🕐 Saída toda terça-feira às 07h | Retorno às 15h.</p>
+          <p>📄 Preço de frete agregado para documentos e objetos até 20cm, garantindo economia e eficiência.</p>
+          <p>📲 Chame no WhatsApp: (27) 99916-5959 para mais detalhes ou agendamento.</p>
+        </div>
       </div>
-      <div class="testimonial-card">
-        <img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Foto da cliente Isadora Ferreira" loading="lazy" width="100" height="100">
-        <p>"Excelente serviço, a entrega chegou rápido!"</p>
-        <p class="author">Isadora Ferreira</p>
+    </section>
+
+    <section class="section" data-aos="fade-up" id="depoimentos">
+      <h2>Depoimentos</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          <img src="https://i.imgur.com/jkhms2K.jpeg" alt="Foto da cliente Bárbara Dias" loading="lazy" width="100" height="100">
+          <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
+          <p class="author">Bárbara Dias - Cliente Corporativo</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Foto da cliente Isadora Ferreira" loading="lazy" width="100" height="100">
+          <p>"Excelente serviço, a entrega chegou rápido!"</p>
+          <p class="author">Isadora Ferreira</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://i.imgur.com/Hr71goK.jpeg" alt="Foto da cliente Daniela Martins" loading="lazy" width="100" height="100">
+          <p>"Agilidade, eficiência, pontualidade e atenção aos detalhes. Um serviço de confiança!"</p>
+          <p class="author">Daniela Martins</p>
+        </div>
       </div>
-      <div class="testimonial-card">
-        <img src="https://i.imgur.com/Hr71goK.jpeg" alt="Foto da cliente Daniela Martins" loading="lazy" width="100" height="100">
-        <p>"Agilidade, eficiência, pontualidade e atenção aos detalhes. Um serviço de confiança!"</p>
-        <p class="author">Daniela Martins</p>
+    </section>
+
+    <section class="map-section" data-aos="fade-up" id="contato">
+      <h2>Entre em Contato</h2>
+      <p>Atendemos clientes na Grande Vitória e empresas de outras regiões com rapidez e confiabilidade.</p>
+      <p><i class="fas fa-phone"></i> Telefone: +55 27 99916-5959</p>
+      <p><i class="fas fa-envelope"></i> E-mail: speedboymotoboy@gmail.com</p>
+      <p><i class="fas fa-clock"></i> Horário: Seg-Sex, 8h-18h</p>
+      <div class="contact-form">
+        <form action="https://formsubmit.co/speedboymotoboy@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Novo Orçamento - Speedboy Motoboy">
+          <input type="hidden" name="_captcha" value="false">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" required aria-required="true">
+          <label for="phone">Telefone:</label>
+          <input type="tel" id="phone" name="phone" required aria-required="true">
+          <label for="message">Mensagem:</label>
+          <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+          <button type="submit" aria-label="Enviar Orçamento">Enviar Orçamento</button>
+        </form>
       </div>
-    </div>
-  </section>
+      <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Fale pelo WhatsApp</a>
+      <picture>
+        <source srcset="https://i.imgur.com/AeVfyrt.webp" type="image/webp">
+        <img src="https://i.imgur.com/AeVfyrt.jpeg" alt="Mapa da região da Grande Vitória" loading="lazy" width="500" height="333">
+      </picture>
+      <iframe loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Serra,ES&z=10&output=embed"></iframe>
+    </section>
 
-  <section class="map-section" data-aos="fade-up" id="contato">
-    <h2>Entre em Contato</h2>
-    <p>Atendemos clientes na Grande Vitória e empresas de outras regiões com rapidez e confiabilidade.</p>
-    <p><i class="fas fa-phone"></i> Telefone: +55 27 99916-5959</p>
-    <p><i class="fas fa-envelope"></i> E-mail: speedboymotoboy@gmail.com</p>
-    <p><i class="fas fa-clock"></i> Horário: Seg-Sex, 8h-18h</p>
-    <div class="contact-form">
-      <form action="https://formsubmit.co/speedboymotoboy@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Novo Orçamento - Speedboy Motoboy">
-        <input type="hidden" name="_captcha" value="false">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="phone">Telefone:</label>
-        <input type="tel" id="phone" name="phone" required>
-        <label for="message">Mensagem:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        <button type="submit">Enviar Orçamento</button>
-      </form>
-    </div>
-    <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Fale pelo WhatsApp</a>
-    <img src="https://i.imgur.com/AeVfyrt.jpeg" alt="Mapa da região da Grande Vitória" loading="lazy" width="500" height="333">
-    <iframe loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=speedboy+motoboy&z=10&output=embed"></iframe>
-  </section>
+    <section class="section" data-aos="fade-up" id="faq">
+      <h2>Perguntas Frequentes</h2>
+      <div class="faq">
+        <h3>Como funciona o serviço de entrega e despacho?</h3>
+        <p>Entre em contato via WhatsApp, informe o serviço desejado (entrega, despacho ou atendimento a empresas), e nossa equipe cuidará de tudo com agilidade.</p>
+        <h3>Quais áreas vocês atendem?</h3>
+        <p>Atendemos clientes na Grande Vitória e empresas de outras regiões.</p>
+        <h3>Vocês atendem empresas de outras regiões?</h3>
+        <p>Sim, oferecemos serviços para empresas que precisam de um parceiro local confiável.</p>
+      </div>
+    </section>
 
-  <section class="section" data-aos="fade-up" id="faq">
-    <h2>Perguntas Frequentes</h2>
-    <div class="faq">
-      <h3>Como funciona o serviço de entrega e despacho?</h3>
-      <p>Entre em contato via WhatsApp, informe o serviço desejado (entrega, despacho ou atendimento a empresas), e nossa equipe cuidará de tudo com agilidade.</p>
-      <h3>Quais áreas vocês atendem?</h3>
-      <p>Atendemos clientes na Grande Vitória e empresas de outras regiões.</p>
-      <h3>Vocês atendem empresas de outras regiões?</h3>
-      <p>Sim, oferecemos serviços para empresas que precisam de um parceiro local confiável.</p>
-    </div>
-  </section>
+    <section class="section" data-aos="fade-up" id="galeria">
+      <h2>Galeria</h2>
+      <div class="gallery">
+        <picture>
+          <source srcset="https://i.imgur.com/ILupMOh.webp" type="image/webp">
+          <img src="https://i.imgur.com/ILupMOh.jpeg" alt="Motoboy entregando documentos na Grande Vitória" loading="lazy" width="300" height="200">
+        </picture>
+        <picture>
+          <source srcset="https://i.imgur.com/eVGM97i.webp" type="image/webp">
+          <img src="https://i.imgur.com/eVGM97i.jpeg" alt="Motoboy da Speedboy Motoboy em ação" loading="lazy" width="300" height="200">
+        </picture>
+        <picture>
+          <source srcset="https://i.imgur.com/mJqAraw.webp" type="image/webp">
+          <img src="https://i.imgur.com/mJqAraw.jpeg" alt="Cliente satisfeito recebendo entrega da Speedboy Motoboy" loading="lazy" width="300" height="200">
+        </picture>
+      </div>
+    </section>
+  </main>
 
-  <section class="section" data-aos="fade-up" id="galeria">
-    <h2>Galeria</h2>
-    <div class="gallery">
-      <img src="https://i.imgur.com/ILupMOh.jpeg" alt="Motoboy entregando documentos na Grande Vitória" loading="lazy" width="300" height="200">
-      <img src="https://i.imgur.com/eVGM97i.jpeg" alt="Motoboy da Speedboy Motoboy em ação" loading="lazy" width="300" height="200">
-      <img src="https://i.imgur.com/mJqAraw.jpeg" alt="Cliente satisfeito recebendo entrega da Speedboy Motoboy" loading="lazy" width="300" height="200">
-    </div>
-  </section>
-
-  <footer>
+  <footer role="contentinfo">
     <div class="links">
       <a href="#inicio">Início</a>
       <a href="#sobre-nos">Sobre</a>
@@ -425,13 +443,44 @@
     <small>Speedboy Motoboy © 2025</small>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank">
+  <a class="whatsapp-float" href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" aria-label="Falar pelo WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000 });
+    document.querySelector('.nav-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-menu').classList.toggle('show');
+    });
+  </script>
+  <script type="application/ld+json" defer>
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Speedboy Motoboy",
+      "description": "Motoboy em Serra, ES, especializado em entregas rápidas e seguras na Grande Vitória, incluindo rotas para Aracruz, Colatina e Linhares.",
+      "url": "https://speedboymotoboy.github.io/speedboy-site/",
+      "logo": "https://i.imgur.com/R6T1goC.png",
+      "telephone": "+5527999165959",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Serra",
+        "addressRegion": "ES",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -20.1986,
+        "longitude": -40.2525
+      },
+      "sameAs": [
+        "https://wa.me/5527999165959",
+        "https://www.instagram.com/speedboy_motoboy?igsh=MXZ0YmNha3hmMmpidA=="
+      ]
+    }
   </script>
 </body>
 </html>
+```
