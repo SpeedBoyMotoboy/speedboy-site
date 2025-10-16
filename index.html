@@ -11,10 +11,10 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Motoboy Serra ES - Speedboy Motoboy 5 Estrelas">
+  <meta name="title" content="Motoboy Serra ES - Speedboy Motoboy">
   <meta name="description" content="Speedboy Motoboy, 5 estrelas no Google, oferece entregas rápidas e seguras em Serra, ES, Grande Vitória, Aracruz, Colatina, Linhares e para empresas de São Paulo. Despachos em aeroportos, entregas longas, notificações extrajudiciais, cartórios e mais. Ligue: +55 27 99916-5959!">
   <meta name="keywords" content="motoboy Serra ES, speedboy motoboy, entregas rápidas Serra, motoboy 5 estrelas ES, motoboy Grande Vitória, entrega expressa, despacho encomendas, motoboy aracruz, motoboy colatina, motoboy linhares, despachos aeroporto ES, entregas longas ES, notificações extrajudiciais ES, burocracias cartório Serra, tirar fotos lugares Serra">
-  <meta property="og:title" content="Motoboy Serra ES - Speedboy Motoboy 5 Estrelas">
+  <meta property="og:title" content="Motoboy Serra ES - Speedboy Motoboy">
   <meta property="og:description" content="Speedboy Motoboy, avaliado 5 estrelas no Google, oferece entregas rápidas e seguras em Serra, ES, e Grande Vitória. Despachos em aeroportos, entregas longas, notificações extrajudiciais e cartórios. Solicite orçamento agora!">
   <meta property="og:image" content="https://i.imgur.com/R6T1goC.png">
   <meta property="og:url" content="https://speedboymotoboy.github.io/speedboy-site/">
@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="https://i.imgur.com/R6T1goC.png" sizes="180x180" />
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="192x192" />
-  <title>Motoboy Serra ES - Speedboy Motoboy 5 Estrelas</title>
+  <title>Motoboy Serra ES - Speedboy Motoboy</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +72,12 @@
       --white: #fff;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background: var(--bg-color); color: var(--text-color); }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      background: var(--bg-color); 
+      color: var(--text-color); 
+      padding-top: 60px; /* Ajuste para evitar sobreposição do menu fixo */
+    }
     header {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/mUsPz90.jpeg') center/cover no-repeat;
       color: var(--white);
@@ -103,15 +108,20 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 48, 135, 0.9);
+      background: rgba(0, 48, 135, 0.95);
       padding: 1rem;
       z-index: 1000;
+      height: 60px; /* Altura fixa para consistência */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     nav a {
       color: var(--white);
       margin: 0 1rem;
       text-decoration: none;
       font-weight: 500;
+      font-size: 1rem;
     }
     nav a:hover { color: var(--secondary-color); }
     .section {
@@ -231,13 +241,14 @@
     }
     .whatsapp-float:hover { transform: scale(1.1); }
     @media (max-width: 600px) {
+      body { padding-top: 50px; }
+      nav { height: 50px; padding: 0.5rem; }
+      nav a { margin: 0 0.5rem; font-size: 0.9rem; }
       header { min-height: 300px; }
       header h1 { font-size: 2rem; }
       header p { font-size: 1rem; }
       .gallery img { width: 200px; height: 133px; }
       .cta { padding: 0.75rem 1.5rem; font-size: 1rem; }
-      nav { padding: 0.5rem; }
-      nav a { margin: 0 0.5rem; }
     }
   </style>
 </head>
@@ -252,7 +263,7 @@
   </nav>
 
   <header data-aos="fade-down">
-    <h1>Speedboy Motoboy - Motoboy 5 Estrelas em Serra, ES</h1>
+    <h1>Speedboy Motoboy - Serra, ES</h1>
     <p>Entregas Rápidas e Seguras na Grande Vitória e Além! Avaliação 5 Estrelas no Google!</p>
     <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="cta">Solicite um Orçamento Agora</a>
   </header>
