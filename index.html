@@ -44,6 +44,8 @@
   <!-- Preconnect / Font preload -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Favicon -->
   <link rel="icon" href="https://i.imgur.com/R6T1goC.png" sizes="32x32" type="image/png">
@@ -123,12 +125,14 @@
     .section{background:#fff;padding:1.4rem 1.2rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);margin-bottom:1.2rem}
     .section h2{color:var(--p);font-size:1.6rem;margin-bottom:.6rem;text-align:center}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-    .card{padding:1rem;border-radius:8px;background:#fafafa;box-shadow:0 6px 14px rgba(0,0,0,.04);text-align:center}
+    .card{padding:1rem;border-radius:8px;background:#fafafa;box-shadow:0 6px 14px rgba(0,0,0,.04);text-align:center;transition:transform .3s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
     .card i{font-size:1.6rem;color:var(--s);margin-bottom:.6rem;display:inline-block}
     .testimonials{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-    .testimonial{max-width:300px;padding:1rem;border-radius:10px;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.06);text-align:center}
+    .testimonial{max-width:300px;padding:1rem;border-radius:10px;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.06);text-align:center;transition:transform .3s ease}
+    .testimonial:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
     footer{background:var(--p);color:var(--white);padding:1.2rem;text-align:center;border-top-left-radius:12px;border-top-right-radius:12px}
-    .whatsapp-float{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25d366;color:#fff;z-index:1400;box-shadow:0 8px 18px rgba(0,0,0,.18);text-decoration:none}
+    .whatsapp-float{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25d366;color:#fff;z-index:1400;box-shadow:0 8px 18px rgba(0,0,0,.18);text-decoration:none;transition:transform .3s ease}
     .call-float{position:fixed;width:56px;height:56px;bottom:18px;right:80px;background:#007bff;color:#fff;border-radius:50%;display:none;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.18);text-decoration:none;z-index:1400}
     .call-float svg{width:24px;height:24px}
     .call-float:hover,.whatsapp-float:hover{transform:scale(1.1)}
@@ -137,6 +141,7 @@
     @media(max-width:600px){nav a{font-size:.9rem;padding:8px}header{min-height:300px}body{padding-top:56px}.call-float{display:flex}}
     a:focus{outline:3px solid rgba(0,48,135,.12);outline-offset:3px}
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 <body>
   <!-- Navigation -->
@@ -152,7 +157,7 @@
   </nav>
 
   <!-- Header / Hero -->
-  <header id="inicio" role="banner" aria-label="Speedboy Motoboy">
+  <header id="inicio" role="banner" aria-label="Speedboy Motoboy" data-aos="fade-down">
     <h1>Speedboy Motoboy — Entregas Rápidas e Seguras em Serra, ES</h1>
     <p>Avaliação 5 estrelas no Google! Atuação em Serra (Laranjeiras, Civit, Jacaraípe, Nova Almeida) e Grande Vitória.</p>
     <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20gostaria%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener">Solicite um Orçamento</a>
@@ -160,7 +165,7 @@
 
   <main>
     <!-- Sobre -->
-    <section class="section" id="sobre" aria-labelledby="sobre-title">
+    <section class="section" id="sobre" aria-labelledby="sobre-title" data-aos="fade-up">
       <h2 id="sobre-title">Sobre a Speedboy Motoboy</h2>
       <picture>
         <source srcset="https://i.imgur.com/uobtZ3a.jpeg" type="image/jpeg">
@@ -170,52 +175,68 @@
     </section>
 
     <!-- Diferenciais -->
-    <section class="section" id="diferenciais" aria-labelledby="diff-title">
+    <section class="section" id="diferenciais" aria-labelledby="diff-title" data-aos="fade-up">
       <h2 id="diff-title">Por que escolher a Speedboy?</h2>
       <div class="grid">
-        <div class="card"><i aria-hidden="true">⏱️</i><h3>Rapidez</h3><p>Entregas ágeis com prioridade para ordens urgentes.</p></div>
-        <div class="card"><i aria-hidden="true">🔐</i><h3>Segurança</h3><p>Manuseio discreto e transporte seguro de documentos e remessas.</p></div>
-        <div class="card"><i aria-hidden="true">⭐</i><h3>Reputação</h3><p>Avaliação 5 estrelas e depoimentos de clientes satisfeitos.</p></div>
-        <div class="card"><i aria-hidden="true">📍</i><h3>Cobertura Local</h3><p>Atuação consolidada na Grande Vitória com rotas otimizadas.</p></div>
+        <div class="card">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          <h3>Rapidez</h3>
+          <p>Entregas ágeis com prioridade para ordens urgentes.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          <h3>Segurança</h3>
+          <p>Manuseio discreto e transporte seguro de documentos e remessas.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <h3>Reputação</h3>
+          <p>Avaliação 5 estrelas e depoimentos de clientes satisfeitos.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <h3>Cobertura Local</h3>
+          <p>Atuação consolidada na Grande Vitória com rotas otimizadas.</p>
+        </div>
       </div>
     </section>
 
     <!-- Serviços -->
-    <section class="section" id="servicos" aria-labelledby="servicos-title">
+    <section class="section" id="servicos" aria-labelledby="servicos-title" data-aos="fade-up">
       <h2 id="servicos-title">Serviços de Motoboy</h2>
       <div class="grid">
         <div class="card">
-          <i aria-hidden="true">📄</i>
+          <i class="fas fa-file-alt" aria-hidden="true"></i>
           <h3>Coleta e entrega de documentos</h3>
           <p>Movimentação segura de documentos importantes.</p>
           <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20quero%20or%C3%A7amento%20para%20entrega%20de%20documentos" style="font-size:0.9rem;padding:0.6rem 1.2rem;margin-top:0.6rem" target="_blank" rel="noopener">Orçar Entrega</a>
         </div>
         <div class="card">
-          <i aria-hidden="true">📦</i>
+          <i class="fas fa-box" aria-hidden="true"></i>
           <h3>Entrega expressa</h3>
           <p>Para urgências dentro e fora da cidade.</p>
           <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20quero%20or%C3%A7amento%20para%20entrega%20expressa" style="font-size:0.9rem;padding:0.6rem 1.2rem;margin-top:0.6rem" target="_blank" rel="noopener">Orçar Entrega</a>
         </div>
         <div class="card">
-          <i aria-hidden="true">✈️</i>
+          <i class="fas fa-plane" aria-hidden="true"></i>
           <h3>Despachos em aeroportos</h3>
           <p>Retiradas e envios com prioridade e protocolo.</p>
           <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20quero%20or%C3%A7amento%20para%20despachos%20em%20aeroportos" style="font-size:0.9rem;padding:0.6rem 1.2rem;margin-top:0.6rem" target="_blank" rel="noopener">Orçar Despacho</a>
         </div>
         <div class="card">
-          <i aria-hidden="true">🚑</i>
+          <i class="fas fa-pills" aria-hidden="true"></i>
           <h3>Entrega de medicamentos</h3>
           <p>Sigilo e cuidado no transporte farmacêutico.</p>
           <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20quero%20or%C3%A7amento%20para%20entrega%20de%20medicamentos" style="font-size:0.9rem;padding:0.6rem 1.2rem;margin-top:0.6rem" target="_blank" rel="noopener">Orçar Entrega</a>
         </div>
         <div class="card">
-          <i aria-hidden="true">🏛️</i>
+          <i class="fas fa-gavel" aria-hidden="true"></i>
           <h3>Serviços cartoriais</h3>
           <p>Autenticações, retiradas e protocolos em cartório.</p>
           <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20quero%20or%C3%A7amento%20para%20servi%C3%A7os%20cartoriais" style="font-size:0.9rem;padding:0.6rem 1.2rem;margin-top:0.6rem" target="_blank" rel="noopener">Orçar Serviço</a>
         </div>
         <div class="card">
-          <i aria-hidden="true">📷</i>
+          <i class="fas fa-camera" aria-hidden="true"></i>
           <h3>Tirar fotos de locais</h3>
           <p>Verificação visual com envio imediato ao cliente.</p>
           <a class="cta" href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan,%20quero%20or%C3%A7amento%20para%20tirar%20fotos%20de%20locais" style="font-size:0.9rem;padding:0.6rem 1.2rem;margin-top:0.6rem" target="_blank" rel="noopener">Orçar Serviço</a>
@@ -224,7 +245,7 @@
     </section>
 
     <!-- Depoimentos -->
-    <section class="section" id="depoimentos" aria-labelledby="depo-title">
+    <section class="section" id="depoimentos" aria-labelledby="depo-title" data-aos="fade-up">
       <h2 id="depo-title">Depoimentos</h2>
       <div class="testimonials" role="list">
         <article class="testimonial" role="listitem">
@@ -246,7 +267,7 @@
     </section>
 
     <!-- Contato / Local -->
-    <section class="section" id="contato" aria-labelledby="contato-title">
+    <section class="section" id="contato" aria-labelledby="contato-title" data-aos="fade-up">
       <h2 id="contato-title">Contato e Local de Atendimento</h2>
       <p style="text-align:center">Atendemos Serra (Laranjeiras, Civit, Jacaraípe, Nova Almeida), Vitória, Vila Velha, Cariacica, Aracruz, Colatina, Linhares e região metropolitana. Horário: Seg–Sex 08:00–18:00.</p>
       <p style="text-align:center;margin-top:.8rem"><strong>WhatsApp:</strong> <a href="https://wa.me/5527999165959" target="_blank" rel="noopener">+55 27 99916-5959</a> | <strong>E-mail:</strong> speedboymotoboy@gmail.com</p>
@@ -256,7 +277,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
+    <section class="section" id="faq" aria-labelledby="faq-title" data-aos="fade-up">
       <h2 id="faq-title">Perguntas Frequentes</h2>
       <div>
         <h3 style="margin-top:10px">Como funciona o serviço?</h3>
@@ -292,11 +313,12 @@
     </svg>
   </a>
 
-  <!-- Lightweight deferred JS -->
+  <!-- AOS -->
+  <script async src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
+    AOS.init({duration:1000,offset:50,once:true});
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
     // Smooth scroll for internal links
     (function(){
       function supportsSmoothScroll(){ return 'scrollBehavior' in document.documentElement.style; }
@@ -313,6 +335,18 @@
         });
       }
     })();
-
     // Track WhatsApp button clicks
-    document.querySelector('.whatsapp-float').addEvent
+    document.querySelector('.whatsapp-float').addEventListener('click', function() {
+      gtag('event', 'click_whatsapp', {'event_category': 'engagement', 'event_label': 'WhatsApp Button'});
+    });
+    // Accessibility: focus outline on keyboard navigation
+    (function(){
+      var body = document.body;
+      function handleFirstTab(e){
+        if(e.key === 'Tab'){ body.classList.add('user-is-tabbing'); window.removeEventListener('keydown', handleFirstTab); }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
