@@ -23,7 +23,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="16x16" />
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="https://i.imgur.com/R6T1goC.png" sizes="180x180" />
+  <link rel="apple-touch-action" href="https://i.imgur.com/R6T1goC.png" sizes="180x180" />
   <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png" sizes="192x192" />
   <title>Speedboy Motoboy | Entregas Rápidas em Serra, ES</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -78,7 +78,10 @@
       font-family: 'Roboto', sans-serif; 
       background: var(--bg-color); 
       color: var(--text-color); 
-      padding-top: 70px; /* Correção para menu fixo não cobrir o banner */
+      padding-top: 70px; /* Correção: Evita que o menu fixe cubra o banner */
+    }
+    @media (max-width: 600px) {
+      body { padding-top: 60px; }
     }
     header {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/mUsPz90.jpeg') center/cover no-repeat;
@@ -113,6 +116,7 @@
       background: rgba(0, 48, 135, 0.9);
       padding: 1rem;
       z-index: 1000;
+      height: 60px; /* Altura fixa para evitar variações */
     }
     nav a {
       color: var(--white);
@@ -254,6 +258,7 @@
     <a href="#inicio">Início</a>
     <a href="#sobre-nos">Sobre</a>
     <a href="#servicos">Serviços</a>
+    <a href="#galpoes">Galpões & Pontos</a>
     <a href="#depoimentos">Depoimentos</a>
     <a href="#contato">Contato</a>
     <a href="#faq">FAQ</a>
