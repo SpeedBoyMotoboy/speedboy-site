@@ -1,101 +1,269 @@
-SPEEDBOY
-Início Serviços Empresas Blog Contato Orçamento
-Início Serviços Empresas Blog Contato Orçamento Empresarial
-Soluções Empresariais
-Motoboy para Empresas
-Planos mensais, nota fiscal, relatório de entregas e suporte prioritário para sua empresa na Grande Vitória.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Speedboy Motoboy oferece planos mensais para empresas em Serra e Grande Vitória ES. Nota fiscal, relatório de entregas, malotes e mais. CNPJ ativo. Fale conosco!">
+  <meta property="og:title" content="Motoboy para Empresas em Serra ES - Speedboy Motoboy">
+  <meta property="og:image" content="https://i.imgur.com/R6T1goC.png">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png">
+  <title>Motoboy para Empresas em Serra ES - Speedboy Motoboy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .plans-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .plan-card { background: #fff; border: 2px solid #e8e5df; border-radius: 12px; padding: 2.5rem 2rem; text-align: center; position: relative; transition: all 0.3s; }
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .plan-card.featured { border-color: var(--orange); box-shadow: 0 8px 32px rgba(255,84,0,0.2); }
+    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 20px; white-space: nowrap; }
+    .plan-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .plan-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; color: var(--orange); line-height: 1; margin: 1rem 0 0.3rem; }
+    .plan-price small { font-size: 1rem; font-weight: 600; color: var(--gray); }
+    .plan-note { color: var(--gray); font-size: 0.8rem; margin-bottom: 1.5rem; }
+    .plan-features { list-style: none; margin: 1.5rem 0; text-align: left; }
+    .plan-features li { display: flex; align-items: center; gap: 0.6rem; color: var(--gray); font-size: 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid #f0eeea; }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li i { color: var(--orange); font-size: 0.85rem; flex-shrink: 0; }
+    .plan-features li.no i { color: #ccc; }
+    .plan-features li.no { color: #bbb; }
 
-Início › Para Empresas
-Por que terceirizar
-Reduza custos, aumente a produtividade
-Manter um motoboy CLT custa em média R$ 3.500/mês com encargos. Com a Speedboy você paga só pelo que usa.
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .why-card { padding: 2rem; }
+    .why-icon { width: 56px; height: 56px; background: rgba(0,31,107,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+    .why-icon i { font-size: 1.4rem; color: var(--blue); }
+    .why-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .why-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
 
-Economia real
-Sem encargos trabalhistas, FGTS, férias, 13º ou equipamentos. Você paga apenas pelo serviço prestado.
+    .logos-section { background: var(--light-gray); padding: 3rem 2rem; text-align: center; }
+    .logos-section p { color: var(--gray); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .logos-placeholder { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .logo-slot { width: 120px; height: 60px; background: #e8e5df; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 0.75rem; font-weight: 600; }
 
-Nota fiscal garantida
-Empresa regularizada com CNPJ ativo. Emitimos NF para todos os serviços, facilitando sua contabilidade.
+    .contact-empresa { background: var(--blue); padding: 5rem 2rem; text-align: center; }
+    .contact-empresa h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem,4vw,3rem); color: #fff; text-transform: uppercase; margin-bottom: 1rem; }
+    .contact-empresa p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem; }
+    .contact-empresa .actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-Relatório mensal
-Receba um relatório detalhado com todas as entregas realizadas no mês para controle interno.
+    @media(max-width:900px) { .plans-grid, .why-grid { grid-template-columns: 1fr; } }
+    @media(max-width:600px) { .plans-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">SPEED<span>BOY</span></a>
+  <div class="nav-links">
+    <a href="index.html">Início</a>
+    <a href="index.html#servicos">Serviços</a>
+    <a href="empresas.html">Empresas</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="index.html#contato">Contato</a>
+    <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20sou%20de%20uma%20empresa%20e%20quero%20saber%20sobre%20planos%20mensais." class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> Orçamento</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Início</a>
+  <a href="index.html#servicos" onclick="closeMobile()">Serviços</a>
+  <a href="empresas.html" onclick="closeMobile()">Empresas</a>
+  <a href="blog/index.html" onclick="closeMobile()">Blog</a>
+  <a href="index.html#contato" onclick="closeMobile()">Contato</a>
+  <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20sou%20de%20uma%20empresa%20e%20quero%20saber%20sobre%20planos%20mensais." target="_blank" style="color:#25D366"><i class="fab fa-whatsapp"></i> Orçamento Empresarial</a>
+</div>
 
-Suporte prioritário
-Clientes empresariais têm atendimento preferencial com tempo de resposta reduzido.
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,84,0,.15);border:1px solid rgba(255,84,0,.5);color:#ff9a6b;padding:.35rem .9rem;border-radius:20px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem"><i class="fas fa-building" style="font-size:.75rem"></i> Soluções Empresariais</div>
+    <h1>Motoboy para <span>Empresas</span></h1>
+    <p>Planos mensais, nota fiscal, relatório de entregas e suporte prioritário para sua empresa na Grande Vitória.</p>
+  </div>
+</div>
 
-Rotas otimizadas
-Planejamos as rotas da sua empresa para maximizar eficiência e reduzir o custo por entrega.
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Início</a>
+    <span>›</span>
+    <strong>Para Empresas</strong>
+  </div>
+</div>
 
-Parceria de longo prazo
-Conhecemos o seu negócio e adaptamos o serviço conforme sua empresa cresce.
+<!-- POR QUE TERCEIRIZAR -->
+<div class="sw sw-white">
+  <div class="sw-inner">
+    <span class="section-label">Por que terceirizar</span>
+    <h2 class="section-title">Reduza custos, <span>aumente a produtividade</span></h2>
+    <p class="section-sub">Manter um motoboy CLT custa em média R$ 3.500/mês com encargos. Com a Speedboy você paga só pelo que usa.</p>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h3>Economia real</h3>
+        <p>Sem encargos trabalhistas, FGTS, férias, 13º ou equipamentos. Você paga apenas pelo serviço prestado.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon"><i class="fas fa-file-invoice"></i></div>
+        <h3>Nota fiscal garantida</h3>
+        <p>Empresa regularizada com CNPJ ativo. Emitimos NF para todos os serviços, facilitando sua contabilidade.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Relatório mensal</h3>
+        <p>Receba um relatório detalhado com todas as entregas realizadas no mês para controle interno.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-headset"></i></div>
+        <h3>Suporte prioritário</h3>
+        <p>Clientes empresariais têm atendimento preferencial com tempo de resposta reduzido.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon"><i class="fas fa-route"></i></div>
+        <h3>Rotas otimizadas</h3>
+        <p>Planejamos as rotas da sua empresa para maximizar eficiência e reduzir o custo por entrega.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Parceria de longo prazo</h3>
+        <p>Conhecemos o seu negócio e adaptamos o serviço conforme sua empresa cresce.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-Planos e preços
-Planos para sua empresa
-Valores de referência. Entre em contato para um orçamento personalizado.
+<!-- PLANOS -->
+<div class="sw" style="background:var(--cream)">
+  <div class="sw-inner">
+    <span class="section-label">Planos e preços</span>
+    <h2 class="section-title">Planos para <span>sua empresa</span></h2>
+    <p class="section-sub">Valores de referência. Entre em contato para um orçamento personalizado.</p>
+    <div class="plans-grid">
+      <div class="plan-card reveal">
+        <div class="plan-name">Básico</div>
+        <div class="plan-price">Sob <small>consulta</small></div>
+        <p class="plan-note">Ideal para pequenas empresas</p>
+        <ul class="plan-features">
+          <li><i class="fas fa-check"></i> Até 20 entregas/mês</li>
+          <li><i class="fas fa-check"></i> Área da Grande Vitória</li>
+          <li><i class="fas fa-check"></i> Nota fiscal</li>
+          <li><i class="fas fa-check"></i> Atendimento via WhatsApp</li>
+          <li class="no"><i class="fas fa-times"></i> Relatório mensal</li>
+          <li class="no"><i class="fas fa-times"></i> Motoboy dedicado</li>
+        </ul>
+        <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20quero%20saber%20sobre%20o%20plano%20Básico%20para%20empresas." class="btn-outline" style="width:100%;justify-content:center" target="_blank">Solicitar Orçamento</a>
+      </div>
+      <div class="plan-card featured reveal reveal-delay-1">
+        <div class="plan-badge">Mais popular</div>
+        <div class="plan-name">Profissional</div>
+        <div class="plan-price">Sob <small>consulta</small></div>
+        <p class="plan-note">Ideal para médias empresas</p>
+        <ul class="plan-features">
+          <li><i class="fas fa-check"></i> Até 60 entregas/mês</li>
+          <li><i class="fas fa-check"></i> Grande Vitória + interior</li>
+          <li><i class="fas fa-check"></i> Nota fiscal</li>
+          <li><i class="fas fa-check"></i> Relatório mensal</li>
+          <li><i class="fas fa-check"></i> Atendimento prioritário</li>
+          <li class="no"><i class="fas fa-times"></i> Motoboy dedicado</li>
+        </ul>
+        <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20quero%20saber%20sobre%20o%20plano%20Profissional%20para%20empresas." class="btn-primary" style="width:100%;justify-content:center" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+      </div>
+      <div class="plan-card reveal reveal-delay-2">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">Sob <small>consulta</small></div>
+        <p class="plan-note">Para grandes operações</p>
+        <ul class="plan-features">
+          <li><i class="fas fa-check"></i> Entregas ilimitadas</li>
+          <li><i class="fas fa-check"></i> Todo o ES + rotas longas</li>
+          <li><i class="fas fa-check"></i> Nota fiscal</li>
+          <li><i class="fas fa-check"></i> Relatório detalhado</li>
+          <li><i class="fas fa-check"></i> Atendimento prioritário</li>
+          <li><i class="fas fa-check"></i> Motoboy dedicado</li>
+        </ul>
+        <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20quero%20saber%20sobre%20o%20plano%20Enterprise%20para%20empresas." class="btn-outline" style="width:100%;justify-content:center" target="_blank">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-Básico
-Sob consulta
-Ideal para pequenas empresas
+<!-- SEGMENTOS -->
+<div class="sw sw-white">
+  <div class="sw-inner">
+    <span class="section-label">Quem atendemos</span>
+    <h2 class="section-title">Segmentos que <span>atendemos</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2.5rem">
+      <div style="background:var(--light-gray);border-radius:8px;padding:1.5rem;text-align:center" class="reveal">
+        <i class="fas fa-balance-scale" style="font-size:1.8rem;color:var(--orange);margin-bottom:.8rem;display:block"></i>
+        <h3 style="font-weight:700;font-size:.95rem;color:var(--blue)">Escritórios Jurídicos</h3>
+        <p style="color:var(--gray);font-size:.82rem;margin-top:.3rem">Processos, notificações e cartório</p>
+      </div>
+      <div style="background:var(--light-gray);border-radius:8px;padding:1.5rem;text-align:center" class="reveal reveal-delay-1">
+        <i class="fas fa-heartbeat" style="font-size:1.8rem;color:var(--orange);margin-bottom:.8rem;display:block"></i>
+        <h3 style="font-weight:700;font-size:.95rem;color:var(--blue)">Clínicas e Farmácias</h3>
+        <p style="color:var(--gray);font-size:.82rem;margin-top:.3rem">Medicamentos e exames</p>
+      </div>
+      <div style="background:var(--light-gray);border-radius:8px;padding:1.5rem;text-align:center" class="reveal reveal-delay-2">
+        <i class="fas fa-shopping-cart" style="font-size:1.8rem;color:var(--orange);margin-bottom:.8rem;display:block"></i>
+        <h3 style="font-weight:700;font-size:.95rem;color:var(--blue)">E-commerce</h3>
+        <p style="color:var(--gray);font-size:.82rem;margin-top:.3rem">Entregas de produtos online</p>
+      </div>
+      <div style="background:var(--light-gray);border-radius:8px;padding:1.5rem;text-align:center" class="reveal">
+        <i class="fas fa-industry" style="font-size:1.8rem;color:var(--orange);margin-bottom:.8rem;display:block"></i>
+        <h3 style="font-weight:700;font-size:.95rem;color:var(--blue)">Indústrias</h3>
+        <p style="color:var(--gray);font-size:.82rem;margin-top:.3rem">Malotes e documentos fiscais</p>
+      </div>
+      <div style="background:var(--light-gray);border-radius:8px;padding:1.5rem;text-align:center" class="reveal reveal-delay-1">
+        <i class="fas fa-landmark" style="font-size:1.8rem;color:var(--orange);margin-bottom:.8rem;display:block"></i>
+        <h3 style="font-weight:700;font-size:.95rem;color:var(--blue)">Contabilidades</h3>
+        <p style="color:var(--gray);font-size:.82rem;margin-top:.3rem">Documentos e obrigações fiscais</p>
+      </div>
+      <div style="background:var(--light-gray);border-radius:8px;padding:1.5rem;text-align:center" class="reveal reveal-delay-2">
+        <i class="fas fa-store" style="font-size:1.8rem;color:var(--orange);margin-bottom:.8rem;display:block"></i>
+        <h3 style="font-weight:700;font-size:.95rem;color:var(--blue)">Comércio Local</h3>
+        <p style="color:var(--gray);font-size:.82rem;margin-top:.3rem">Entregas e coletas diárias</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-Até 20 entregas/mês
-Área da Grande Vitória
-Nota fiscal
-Atendimento via WhatsApp
-Relatório mensal
-Motoboy dedicado
-Solicitar Orçamento
-Mais popular
-Profissional
-Sob consulta
-Ideal para médias empresas
+<!-- CTA FINAL -->
+<div class="contact-empresa">
+  <h2>Pronto para otimizar a <span>logística</span> da sua empresa?</h2>
+  <p>Fale com a gente agora. Resposta em minutos pelo WhatsApp.</p>
+  <div class="actions">
+    <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20sou%20gestor%20de%20uma%20empresa%20e%20quero%20conhecer%20os%20planos%20mensais." class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Falar com Especialista</a>
+    <a href="mailto:speedboymotoboy@gmail.com" class="btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff"><i class="fas fa-envelope"></i> Enviar E-mail</a>
+  </div>
+</div>
 
-Até 60 entregas/mês
-Grande Vitória + interior
-Nota fiscal
-Relatório mensal
-Atendimento prioritário
-Motoboy dedicado
-Solicitar Orçamento
-Enterprise
-Sob consulta
-Para grandes operações
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.6rem">SPEED<span>BOY</span></a>
+      <p>Motoboy 5 estrelas em Serra, ES. Soluções para empresas na Grande Vitória.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Páginas</h4>
+      <a href="index.html">Início</a>
+      <a href="index.html#servicos">Serviços</a>
+      <a href="empresas.html">Para Empresas</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5527999165959" target="_blank"><i class="fab fa-whatsapp"></i> +55 27 99916-5959</a>
+      <a href="mailto:speedboymotoboy@gmail.com"><i class="fas fa-envelope"></i> speedboymotoboy@gmail.com</a>
+      <a href="https://www.instagram.com/speedboy_motoboy?igsh=MXZ0YmNha3hmMmpidA==" target="_blank"><i class="fab fa-instagram"></i> @speedboy_motoboy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>Speedboy Motoboy © 2025 — Soluções para Empresas</small>
+    <span class="cnpj">CNPJ: 46.178.859/0001-96</span>
+  </div>
+</footer>
 
-Entregas ilimitadas
-Todo o ES + rotas longas
-Nota fiscal
-Relatório detalhado
-Atendimento prioritário
-Motoboy dedicado
-Solicitar Orçamento
-Quem atendemos
-Segmentos que atendemos
-Escritórios Jurídicos
-Processos, notificações e cartório
-
-Clínicas e Farmácias
-Medicamentos e exames
-
-E-commerce
-Entregas de produtos online
-
-Indústrias
-Malotes e documentos fiscais
-
-Contabilidades
-Documentos e obrigações fiscais
-
-Comércio Local
-Entregas e coletas diárias
-
-Pronto para otimizar a logística da sua empresa?
-Fale com a gente agora. Resposta em minutos pelo WhatsApp.
-
-Falar com Especialista
-Enviar E-mail
-SPEEDBOY
-Motoboy 5 estrelas em Serra, ES. Soluções para empresas na Grande Vitória.
-
-Páginas
-Início Serviços Para Empresas Blog Contato
-Contato
-+55 27 99916-5959 speedboymotoboy@gmail.com @speedboy_motoboy
-Speedboy Motoboy © 2025 — Soluções para Empresas CNPJ: 46.178.859/0001-96
+<a class="whatsapp-float" href="https://wa.me/5527999165959?text=Olá%20Luan,%20sou%20de%20uma%20empresa%20e%20quero%20saber%20sobre%20planos%20mensais." target="_blank" aria-label="WhatsApp">
+  <div class="pulse"></div>
+  <i class="fab fa-whatsapp"></i>
+</a>
+<script src="assets/main.js"></script>
+</body>
+</html>
