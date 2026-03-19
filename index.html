@@ -91,13 +91,14 @@
     /* CAROUSEL */
     .carousel-wrap { margin-top: 3rem; position: relative; }
     .carousel-track { display: flex; gap: 1.5rem; overflow: hidden; }
-    .carousel-track .testimonial-card { min-width: calc(33.333% - 1rem); flex-shrink: 0; transition: transform 0.4s ease; background: #fff; border-radius: 8px; padding: 2rem; position: relative; border: 1px solid #e8e5df; }
+    .carousel-track .testimonial-card { min-width: calc(33.333% - 1rem); flex-shrink: 0; background: #fff; border-radius: 8px; padding: 2rem; position: relative; border: 1px solid #e8e5df; }
     .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem; }
     .carousel-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--blue); background: #fff; color: var(--blue); cursor: pointer; font-size: 1rem; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
     .carousel-btn:hover { background: var(--blue); color: #fff; }
-    .carousel-dots { display: flex; gap: 0.5rem; }
-    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; cursor: pointer; transition: background 0.2s, transform 0.2s; border: none; }
+    .carousel-dots { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; cursor: pointer; transition: background 0.2s, transform 0.2s; border: none; padding: 0; }
     .carousel-dot.active { background: var(--orange); transform: scale(1.3); }
+    .t-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
     @media(max-width:900px) { .carousel-track .testimonial-card { min-width: calc(50% - 0.75rem); } }
     @media(max-width:600px) { .carousel-track .testimonial-card { min-width: 100%; } }
     .quote-mark { font-family: Georgia, serif; font-size: 5rem; line-height: 0.6; color: var(--orange); opacity: 0.15; position: absolute; top: 1.5rem; right: 1.5rem; }
@@ -324,9 +325,136 @@
     <h2 class="section-title">Avaliações reais no <span>Google</span></h2>
     <p class="section-sub">Mais de 50 clientes satisfeitos. Avaliação 5 estrelas no Google.</p>
 
-    <!-- Elfsight Google Reviews -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-e8fb8360-a1e3-48d6-9883-8c550b976449" data-elfsight-app-lazy style="margin-top:2rem"></div>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"O Luan é um profissional extremamente trabalhador, honesto e respeitador. Sempre que preciso, ele está disponível. Além da rapidez no serviço, também transmite muita confiança. Super recomendo!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#e53935">R</div><div><strong>Ritiele Jordao</strong><span>Cliente Google</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Serviço excelente, extremamente organizado e de confiança. Indico! Estou em PE, contratei com pé atrás e não me arrependi. Ajudou demais!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#1565c0">C</div><div><strong>Compras Worktech</strong><span>Cliente Corporativo</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"SPEEDBOY MOTOBOY foi a que ofereceu o melhor atendimento. A entrega foi super rápida. Serviço de entrega com qualidade e confiança. Super recomendo!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#2e7d32">L</div><div><strong>Leandro Ramos</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Luan é o motoboy mais responsável e educado que já conheci. Resolve tudo de maneira rápida. Muito profissionalismo e competência! Parabéns!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#6a1b9a">R</div><div><strong>Regina Schunk</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"O Luan me atendeu super bem! Rapidez e eficiência na coleta e entrega do material."</p>
+          <div class="t-author"><div class="t-avatar" style="background:#ff6f00">B</div><div><strong>Bruna Dias</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Ótima prestação de serviço para empresa. Rapidez e eficiência nos serviços prestados!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#00838f">M</div><div><strong>Marcos Costa da Conceicao</strong><span>Cliente Corporativo</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Me atendeu super bem, me socorreu rápido. Sou de 2500 km de distância dele, na base da confiança mesmo, foi e deu tudo certo. Muito recomendado!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#ad1457">L</div><div><strong>Larissa Brizola</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Atendimento de excelência! Rápido, seguro e confiável. SPEEDBOY MOTOBOY, super indico!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#4527a0">M</div><div><strong>Monica</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Sempre muito rápido e cuidadoso! Super indico. 🚀"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#00695c">M</div><div><strong>Marina Serrano</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Me ajudou muito, mesmo eu não sendo de Vitória ele me atendeu perfeitamente pelo WhatsApp. Ágil, gentil e com preço justo. Pode confiar!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#e53935">B</div><div><strong>Bárbara Dias</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Atendimento impecável. Super recomendo!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#c62828">R</div><div><strong>Riziane Oliveira Santos</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Muito bom, me salvou muito. Trouxe uma peça que eu precisava para arrumar meu carro em tempo recorde. Recomendo!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#1b5e20">J</div><div><strong>Jeffao Colino</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"O melhor serviço de motoboy!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#bf360c">A</div><div><strong>Administrativo Café Caramello</strong><span>Cliente Corporativo</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Agilidade, eficiência, pontualidade, organização, atenção aos detalhes e compromisso com os clientes."</p>
+          <div class="t-author"><div class="t-avatar" style="background:#4a148c">D</div><div><strong>Daniela S.S. Martins</strong><span>Local Guide · 45 avaliações</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Entregas rápidas e de confiança. Entrega pra mim a muito tempo e sempre com pontualidade e compromisso."</p>
+          <div class="t-author"><div class="t-avatar" style="background:#e65100">R</div><div><strong>Raquel Assis</strong><span>Local Guide · 24 avaliações</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Excelente, a entrega chegou rapidinho! 🎉"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#0277bd">I</div><div><strong>Isadora Vieira Ferreira</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Excelente, indico o serviço!"</p>
+          <div class="t-author"><div class="t-avatar" style="background:#558b2f">P</div><div><strong>Priscila Moraes</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="moveCarousel(-1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Proximo"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -471,32 +599,46 @@
 
 <script src="assets/main.js"></script>
 <script>
-  // ── CAROUSEL ──
   const track = document.getElementById('carouselTrack');
-  const dotsContainer = document.getElementById('carouselDots');
+  const dotsWrap = document.getElementById('carouselDots');
   if (track) {
-    const cards = track.querySelectorAll('.testimonial-card');
+    const cards = Array.from(track.querySelectorAll('.testimonial-card'));
     let current = 0;
-    let perView = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
-    const total = Math.ceil(cards.length / perView);
-    for (let i = 0; i < total; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.onclick = () => goTo(i);
-      dotsContainer.appendChild(dot);
-    }
-    function goTo(n) {
-      current = Math.max(0, Math.min(n, total - 1));
-      const cardWidth = cards[0].offsetWidth + 24;
-      track.style.transform = `translateX(-${current * cardWidth * perView}px)`;
-      track.style.transition = 'transform 0.4s ease';
-      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
-    }
-    window.moveCarousel = (dir) => goTo(current + 1 < total ? (dir > 0 ? current + 1 : current - 1) : 0);
-    setInterval(() => goTo(current + 1 < total ? current + 1 : 0), 4500);
-    let startX = 0;
-    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-    track.addEventListener('touchend', e => { const diff = startX - e.changedTouches[0].clientX; if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1); });
+    const getPerView = () => window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    let perView = getPerView();
+    let total = Math.ceil(cards.length / perView);
+
+    const buildDots = () => {
+      perView = getPerView();
+      total = Math.ceil(cards.length / perView);
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.onclick = () => goTo(i);
+        dotsWrap.appendChild(d);
+      }
+    };
+
+    const goTo = (n) => {
+      current = (n + total) % total;
+      const cardW = cards[0].offsetWidth + 24;
+      track.style.transform = `translateX(-${current * cardW * perView}px)`;
+      track.style.transition = 'transform 0.45s ease';
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    };
+
+    window.moveCarousel = (dir) => goTo(current + dir);
+    buildDots();
+    window.addEventListener('resize', () => { buildDots(); goTo(0); });
+
+    // Autoplay
+    setInterval(() => goTo(current + 1), 4500);
+
+    // Touch swipe
+    let sx = 0;
+    track.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
+    track.addEventListener('touchend', e => { if (Math.abs(sx - e.changedTouches[0].clientX) > 50) moveCarousel(sx > e.changedTouches[0].clientX ? 1 : -1); });
   }
 </script>
 </body>
