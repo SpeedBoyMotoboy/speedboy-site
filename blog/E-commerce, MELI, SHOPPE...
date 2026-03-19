@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Speedboy Motoboy coleta mercadorias da Shopee, Mercado Livre e outros marketplaces em galpões logísticos e entrega nos pontos de coleta em Serra e Grande Vitória ES.">
+  <meta property="og:title" content="Coleta Shopee e Mercado Livre em Serra ES - Speedboy Motoboy">
+  <meta property="og:description" content="Coletamos seus pacotes da Shopee e Mercado Livre em galpões logísticos e entregamos nos pontos de coleta. Rápido, seguro e sem complicação!">
+  <meta property="og:image" content="https://i.imgur.com/R6T1goC.png">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/R6T1goC.png">
+  <title>Coleta Shopee e Mercado Livre em Serra ES - Speedboy Motoboy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+    .article-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; color: var(--gray); font-size: 0.85rem; }
+    .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
+    .article-meta i { color: var(--orange); }
+    .article-body h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--blue); text-transform: uppercase; margin: 2.5rem 0 1rem; }
+    .article-body h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--blue); margin: 2rem 0 0.8rem; }
+    .article-body p { color: #444; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.2rem; }
+    .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.5rem; color: #444; }
+    .article-body li { margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem; }
+    .article-body strong { color: var(--blue); }
+    .highlight-box { background: rgba(0,31,107,0.05); border-left: 4px solid var(--orange); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; }
+    .highlight-box p { margin: 0; color: var(--blue); font-weight: 600; }
+    .marketplace-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin: 2rem 0; }
+    .marketplace-card { background: var(--light-gray); border-radius: 8px; padding: 1.5rem; text-align: center; }
+    .marketplace-card i { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+    .marketplace-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.3rem; }
+    .marketplace-card p { color: var(--gray); font-size: 0.82rem; margin: 0; }
+    .steps { counter-reset: step; list-style: none; margin: 1.5rem 0; padding: 0; }
+    .steps li { counter-increment: step; display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.2rem; font-size: 1.05rem; color: #444; line-height: 1.7; }
+    .steps li::before { content: counter(step); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 700; font-size: 0.9rem; margin-top: 2px; }
+    .cta-inline { background: var(--blue); border-radius: 12px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+    .cta-inline h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; color: #fff; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .cta-inline p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; }
+    .related-posts { border-top: 1px solid #e8e5df; padding-top: 2rem; margin-top: 2rem; }
+    .related-posts h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--blue); text-transform: uppercase; margin-bottom: 1.2rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+    .related-card { background: var(--light-gray); border-radius: 8px; padding: 1.2rem; text-decoration: none; transition: all 0.2s; }
+    .related-card:hover { background: rgba(255,84,0,0.08); }
+    .related-card span { display: block; font-size: 0.72rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
+    .related-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--blue); text-transform: uppercase; line-height: 1.2; }
+    @media(max-width:600px) { .related-grid, .marketplace-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="../index.html" class="nav-logo">SPEED<span>BOY</span></a>
+  <div class="nav-links">
+    <a href="../index.html">Inicio</a>
+    <a href="../index.html#servicos">Servicos</a>
+    <a href="../empresas.html">Empresas</a>
+    <a href="index.html">Blog</a>
+    <a href="../index.html#contato">Contato</a>
+    <a href="https://wa.me/5527999165959?text=Ola%20Luan,%20gostaria%20de%20fazer%20um%20orcamento." class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> Orcamento</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html" onclick="closeMobile()">Inicio</a>
+  <a href="../index.html#servicos" onclick="closeMobile()">Servicos</a>
+  <a href="../empresas.html" onclick="closeMobile()">Empresas</a>
+  <a href="index.html" onclick="closeMobile()">Blog</a>
+  <a href="../index.html#contato" onclick="closeMobile()">Contato</a>
+  <a href="https://wa.me/5527999165959" target="_blank" style="color:#25D366"><i class="fab fa-whatsapp"></i> Orcamento</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,84,0,.15);border:1px solid rgba(255,84,0,.5);color:#ff9a6b;padding:.35rem .9rem;border-radius:20px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">
+      <i class="fas fa-box" style="font-size:.75rem"></i> E-commerce
+    </div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem)">Coleto seus pacotes da Shopee e Mercado Livre em <span>Serra, ES</span></h1>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Inicio</a>
+    <span>›</span>
+    <a href="index.html">Blog</a>
+    <span>›</span>
+    <strong>E-commerce</strong>
+  </div>
+</div>
+
+<div style="background:#fff">
+  <div class="article-body">
+    <div class="article-meta">
+      <span><i class="fas fa-tag"></i> E-commerce</span>
+      <span><i class="fas fa-calendar"></i> Marco 2026</span>
+      <span><i class="fas fa-clock"></i> 5 min de leitura</span>
+    </div>
+
+    <p>Vende pela Shopee, Mercado Livre ou outro marketplace e nao tem como levar seus pacotes ate o ponto de coleta? A <strong>Speedboy Motoboy</strong> resolve isso pra voce! Coletamos suas mercadorias diretamente no galpao logistico ou no seu endereco e levamos ate o ponto de entrega ou agencia mais proximo.</p>
+
+    <h2>O que fazemos por voce</h2>
+    <div class="marketplace-cards">
+      <div class="marketplace-card">
+        <i class="fas fa-store" style="color:#ee4d2d"></i>
+        <h3>Shopee</h3>
+        <p>Coleta no galpao Shopee e entrega no ponto indicado</p>
+      </div>
+      <div class="marketplace-card">
+        <i class="fas fa-shopping-cart" style="color:#fff159;background:#2d3277;border-radius:8px;padding:0.3rem"></i>
+        <h3>Mercado Livre</h3>
+        <p>Coleta MELI e entrega em agencias parceiras</p>
+      </div>
+      <div class="marketplace-card">
+        <i class="fas fa-box-open" style="color:var(--orange)"></i>
+        <h3>Outros</h3>
+        <p>Amazon, Magalu, Shein e demais plataformas</p>
+      </div>
+    </div>
+
+    <h2>Como funciona o servico</h2>
+    <ol class="steps">
+      <li>Voce vende seus produtos online normalmente e gera as etiquetas de envio;</li>
+      <li>Entra em contato com a Speedboy pelo WhatsApp e agenda a coleta;</li>
+      <li>Nosso motoboy vai ate voce ou ate o galpao logistico retirar os pacotes;</li>
+      <li>Levamos tudo ate o ponto de coleta, agencia ou hub mais proximo;</li>
+      <li>Voce recebe confirmacao da entrega e pode acompanhar pelo proprio marketplace.</li>
+    </ol>
+
+    <div class="highlight-box">
+      <p>📦 Ideal para vendedores que acumulam varios pacotes por semana e precisam de agilidade sem depender de carro ou mototaxi particular.</p>
+    </div>
+
+    <h2>Coleta em galpoes logisticos</h2>
+    <p>Muitos vendedores de marketplace recebem mercadorias diretamente de fornecedores em <strong>galpoes e centros de distribuicao</strong> na Grande Vitoria. A Speedboy faz a coleta nesses locais e leva diretamente para o seu endereco ou para o cliente final.</p>
+    <p>Atendemos galpoes em Serra, Cariacica, Vila Velha e demais cidades da Grande Vitoria. Consulte disponibilidade para outras regioes do ES.</p>
+
+    <h2>Por que usar a Speedboy para suas entregas de marketplace?</h2>
+    <ul>
+      <li><strong>Economia de tempo</strong> — voce foca em vender, nos cuidamos da logistica;</li>
+      <li><strong>Sem depender de carro</strong> — ideal para quem nao tem veiculo proprio;</li>
+      <li><strong>Agilidade</strong> — enviamos seus pacotes no mesmo dia;</li>
+      <li><strong>Seguranca</strong> — empresa licenciada com CNPJ ativo e 5 estrelas no Google;</li>
+      <li><strong>Flexibilidade</strong> — agendamos conforme sua rotina de vendas.</li>
+    </ul>
+
+    <h2>Para vendedores com alto volume</h2>
+    <p>Se voce vende bastante e precisa de coletas frequentes — diarias ou semanais — temos <strong>planos mensais especiais</strong> com valor fixo para deixar sua operacao ainda mais organizada e economica. Entre em contato para montar um plano sob medida.</p>
+
+    <div class="cta-inline">
+      <h3>Quer que a gente colete seus pacotes?</h3>
+      <p>Fale pelo WhatsApp agora e agende sua primeira coleta. Rapido e sem burocracia!</p>
+      <a href="https://wa.me/5527999165959?text=Ola%20Luan,%20vendo%20em%20marketplace%20e%20preciso%20de%20coleta%20dos%20meus%20pacotes." class="btn-primary" target="_blank">
+        <i class="fab fa-whatsapp"></i> Agendar Coleta Agora
+      </a>
+    </div>
+
+    <div class="related-posts">
+      <h3>Leia tambem</h3>
+      <div class="related-grid">
+        <a href="motoboy-empresas-grande-vitoria.html" class="related-card"><span>Empresas</span><h4>Por que sua empresa precisa de motoboy terceirizado</h4></a>
+        <a href="como-enviar-documentos-cartorio-serra.html" class="related-card"><span>Dicas</span><h4>Como enviar documentos ao cartorio sem sair de casa</h4></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="nav-logo" style="font-size:1.6rem">SPEED<span>BOY</span></a>
+      <p>Motoboy 5 estrelas em Serra, ES. Entregas rapidas na Grande Vitoria.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Paginas</h4>
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#servicos">Servicos</a>
+      <a href="../empresas.html">Para Empresas</a>
+      <a href="index.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5527999165959" target="_blank"><i class="fab fa-whatsapp"></i> +55 27 99916-5959</a>
+      <a href="mailto:speedboymotoboy@gmail.com"><i class="fas fa-envelope"></i> speedboymotoboy@gmail.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>Speedboy Motoboy &copy; 2026</small>
+    <span class="cnpj">CNPJ: 46.178.859/0001-96</span>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5527999165959?text=Ola%20Luan,%20gostaria%20de%20fazer%20um%20orcamento." target="_blank">
+  <div class="pulse"></div>
+  <i class="fab fa-whatsapp"></i>
+</a>
+<script src="../assets/main.js"></script>
+</body>
+</html>
+
