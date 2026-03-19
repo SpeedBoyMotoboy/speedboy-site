@@ -88,10 +88,18 @@
     .cidade-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.3rem; }
     .cidade-card p { font-size: 0.8rem; color: var(--gray); }
 
-    /* DEPOIMENTOS */
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
-    .testimonial-card { background: #fff; border-radius: 8px; padding: 2rem; position: relative; border: 1px solid #e8e5df; transition: all 0.3s; }
-    .testimonial-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.1); transform: translateY(-4px); }
+    /* CAROUSEL */
+    .carousel-wrap { margin-top: 3rem; position: relative; }
+    .carousel-track { display: flex; gap: 1.5rem; overflow: hidden; }
+    .carousel-track .testimonial-card { min-width: calc(33.333% - 1rem); flex-shrink: 0; transition: transform 0.4s ease; background: #fff; border-radius: 8px; padding: 2rem; position: relative; border: 1px solid #e8e5df; }
+    .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem; }
+    .carousel-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--blue); background: #fff; color: var(--blue); cursor: pointer; font-size: 1rem; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .carousel-btn:hover { background: var(--blue); color: #fff; }
+    .carousel-dots { display: flex; gap: 0.5rem; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; cursor: pointer; transition: background 0.2s, transform 0.2s; border: none; }
+    .carousel-dot.active { background: var(--orange); transform: scale(1.3); }
+    @media(max-width:900px) { .carousel-track .testimonial-card { min-width: calc(50% - 0.75rem); } }
+    @media(max-width:600px) { .carousel-track .testimonial-card { min-width: 100%; } }
     .quote-mark { font-family: Georgia, serif; font-size: 5rem; line-height: 0.6; color: var(--orange); opacity: 0.15; position: absolute; top: 1.5rem; right: 1.5rem; }
     .stars { color: #ffd700; font-size: 0.9rem; margin-bottom: 1rem; }
     .testimonial-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; font-style: italic; }
@@ -234,7 +242,7 @@
         <span class="section-label">Quem somos</span>
         <h2 class="section-title">Empresa licenciada,<br><span>confiança garantida</span></h2>
         <p>A <strong>Speedboy Motoboy</strong> é uma empresa licenciada sediada em Serra, ES, especializada em entregas rápidas e seguras. Nossa avaliação 5 estrelas no Google reflete o compromisso com a excelência.</p>
-        <p>Atendemos <strong>Serra, Vitória, Vila Velha, Cariacica, Aracruz, Colatina e Linhares</strong>, além de empresas de outras regiões que precisam de um parceiro local confiável no Espírito Santo.</p>
+        <p>Atendemos <strong>todo o Espírito Santo</strong> — Grande Vitória, interior e litoral. De Serra a Vitória, de Vila Velha ao norte do ES, estamos prontos para ir onde você precisar. Também atendemos empresas de outras regiões do Brasil que precisam de um parceiro local confiável no ES.</p>
         <div class="pills">
           <span class="pill"><i class="fas fa-check-circle"></i> Empresa Licenciada</span>
           <span class="pill"><i class="fas fa-map-marker-alt"></i> Serra, ES</span>
@@ -277,9 +285,10 @@
       <div class="service-card reveal"><div class="service-icon"><i class="fas fa-camera"></i></div><div class="service-text"><h3>Verificação Visual</h3><p>Tiramos fotos de locais e enviamos para você via WhatsApp.</p></div></div>
       <div class="service-card reveal"><div class="service-icon"><i class="fas fa-pills"></i></div><div class="service-text"><h3>Entrega de Medicamentos</h3><p>Rápido, com total cuidado e discrição garantidos.</p></div></div>
       <div class="service-card reveal"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><div class="service-text"><h3>Compras Personalizadas</h3><p>Realizamos compras e entregamos com praticidade.</p></div></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-store"></i></div><div class="service-text"><h3>E-commerce</h3><p>Entregamos seus produtos vendidos online com rapidez e segurança para seus clientes.</p></div></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-warehouse"></i></div><div class="service-text"><h3>Coleta em Galpões Logísticos</h3><p>Retiramos mercadorias em galpões e centros de distribuição e levamos até o destino final.</p></div></div>
       <div class="service-card reveal"><div class="service-icon"><i class="fas fa-envelope"></i></div><div class="service-text"><h3>Coleta de Malotes</h3><p>Pontualidade e organização para empresas e escritórios.</p></div></div>
     </div>
-    <div style="text-align:center;margin-top:3rem">
       <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento Agora</a>
     </div>
   </div>
@@ -289,16 +298,14 @@
 <div class="sw sw-white" id="cidades">
   <div class="sw-inner">
     <span class="section-label">Onde atuamos</span>
-    <h2 class="section-title">Atendemos <span>sua cidade</span></h2>
-    <p class="section-sub">Cobertura completa na Grande Vitória e cidades do interior do Espírito Santo.</p>
+    <h2 class="section-title">Atendemos <span>todo o ES</span></h2>
+    <p class="section-sub">Grande Vitória, interior e litoral. Se precisar, a Speedboy chega lá.</p>
     <div class="cidades-grid">
       <a href="cidades/motoboy-serra-es.html" class="cidade-card reveal"><i class="fas fa-map-marker-alt"></i><h3>Serra</h3><p>Sede da Speedboy</p></a>
       <a href="cidades/motoboy-vitoria-es.html" class="cidade-card reveal reveal-delay-1"><i class="fas fa-map-marker-alt"></i><h3>Vitória</h3><p>Capital do ES</p></a>
       <a href="cidades/motoboy-vila-velha-es.html" class="cidade-card reveal reveal-delay-2"><i class="fas fa-map-marker-alt"></i><h3>Vila Velha</h3><p>Grande Vitória</p></a>
       <a href="cidades/motoboy-cariacica-es.html" class="cidade-card reveal"><i class="fas fa-map-marker-alt"></i><h3>Cariacica</h3><p>Grande Vitória</p></a>
-      <a href="cidades/motoboy-aracruz-es.html" class="cidade-card reveal reveal-delay-1"><i class="fas fa-map-marker-alt"></i><h3>Aracruz</h3><p>Norte do ES</p></a>
-      <a href="cidades/motoboy-colatina-es.html" class="cidade-card reveal reveal-delay-2"><i class="fas fa-map-marker-alt"></i><h3>Colatina</h3><p>Interior do ES</p></a>
-      <a href="cidades/motoboy-linhares-es.html" class="cidade-card reveal"><i class="fas fa-map-marker-alt"></i><h3>Linhares</h3><p>Norte do ES</p></a>
+      <div class="cidade-card reveal reveal-delay-1" style="cursor:default"><i class="fas fa-map"></i><h3>Todo o ES</h3><p>Consulte disponibilidade</p></div>
     </div>
   </div>
 </div>
@@ -315,24 +322,58 @@
   <div class="sw-inner">
     <span class="section-label">O que dizem sobre nós</span>
     <h2 class="section-title">Depoimentos de <span>clientes</span></h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="quote-mark">"</div>
-        <div class="stars">★★★★★</div>
-        <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
-        <div class="t-author"><img src="https://i.imgur.com/jkhms2K.jpeg" alt="Bárbara Dias" loading="lazy" width="48" height="48"><div><strong>Bárbara Dias</strong><span>Cliente Corporativo</span></div></div>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Me ajudou muito, mesmo eu não sendo de Vitória. Atendimento perfeito pelo WhatsApp, ágil, gentil e com preço justo. Recomendo!"</p>
+          <div class="t-author"><img src="https://i.imgur.com/jkhms2K.jpeg" alt="Bárbara Dias" loading="lazy" width="48" height="48"><div><strong>Bárbara Dias</strong><span>Cliente Corporativo</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Excelente serviço! A entrega chegou rápido e o motoboy foi muito atencioso. Com certeza usarei novamente."</p>
+          <div class="t-author"><img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Isadora Ferreira" loading="lazy" width="48" height="48"><div><strong>Isadora Ferreira</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Agilidade, eficiência, pontualidade e atenção aos detalhes. Um serviço de confiança que recomendo para todos!"</p>
+          <div class="t-author"><img src="https://i.imgur.com/Hr71goK.jpeg" alt="Daniela Martins" loading="lazy" width="48" height="48"><div><strong>Daniela Martins</strong><span>Cliente Particular</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Precisei de uma entrega urgente de documentos no cartório e o Luan resolveu em menos de 1 hora. Profissional de verdade!"</p>
+          <div class="t-author"><div style="width:48px;height:48px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;border:2px solid var(--orange);flex-shrink:0">R</div><div><strong>Ricardo Almeida</strong><span>Advogado, Vitória</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Usamos a Speedboy para coletar nossos malotes toda semana. Nunca atrasou uma vez sequer. Recomendo para qualquer empresa!"</p>
+          <div class="t-author"><div style="width:48px;height:48px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;border:2px solid var(--blue);flex-shrink:0">M</div><div><strong>Marina Costa</strong><span>Gestora, Serra</span></div></div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>"Motoboy extremamente educado e pontual. Entregou minha notificação extrajudicial com foto e comprovante. Nota 10!"</p>
+          <div class="t-author"><div style="width:48px;height:48px;border-radius:50%;background:#1a6b2f;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;border:2px solid var(--orange);flex-shrink:0">F</div><div><strong>Felipe Souza</strong><span>Cliente Particular</span></div></div>
+        </div>
+
       </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="quote-mark">"</div>
-        <div class="stars">★★★★★</div>
-        <p>"Excelente serviço! A entrega chegou rápido e o motoboy foi muito atencioso. Com certeza usarei novamente."</p>
-        <div class="t-author"><img src="https://i.imgur.com/jxmj7AQ.jpeg" alt="Isadora Ferreira" loading="lazy" width="48" height="48"><div><strong>Isadora Ferreira</strong><span>Cliente Particular</span></div></div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="quote-mark">"</div>
-        <div class="stars">★★★★★</div>
-        <p>"Agilidade, eficiência, pontualidade e atenção aos detalhes. Um serviço de confiança que recomendo para todos!"</p>
-        <div class="t-author"><img src="https://i.imgur.com/Hr71goK.jpeg" alt="Daniela Martins" loading="lazy" width="48" height="48"><div><strong>Daniela Martins</strong><span>Cliente Particular</span></div></div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="moveCarousel(-1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
@@ -348,9 +389,9 @@
       <a href="blog/quanto-custa-motoboy-serra-es.html" class="blog-card reveal">
         <div class="blog-card-img" style="background:linear-gradient(135deg,#001f6b,#002fa7)"><i class="fas fa-motorcycle" style="color:rgba(255,84,0,.8)"></i></div>
         <div class="blog-card-body">
-          <span class="blog-tag">Preços</span>
-          <h3>Quanto custa um motoboy em Serra, ES?</h3>
-          <p>Tabela de preços, fatores que influenciam o valor e como economizar nas entregas.</p>
+          <span class="blog-tag">Orçamento</span>
+          <h3>Como funciona o orçamento de motoboy em Serra, ES?</h3>
+          <p>Entenda o que influencia o valor e como solicitar orçamento rápido pelo WhatsApp.</p>
           <span class="blog-read-more">Ler artigo <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
@@ -369,6 +410,15 @@
           <span class="blog-tag">Empresas</span>
           <h3>Por que sua empresa precisa de um motoboy fixo</h3>
           <p>Como um motoboy terceirizado pode reduzir custos e aumentar a produtividade.</p>
+          <span class="blog-read-more">Ler artigo <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="blog/coleta-shopee-mercado-livre-serra-es.html" class="blog-card reveal">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#ee4d2d,#aa2200)"><i class="fas fa-box-open" style="color:rgba(255,255,255,.9)"></i></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">E-commerce</span>
+          <h3>Coleto seus pacotes da Shopee e Mercado Livre em Serra, ES</h3>
+          <p>Coletamos em galpoes e entregamos nos pontos de coleta pra voce.</p>
           <span class="blog-read-more">Ler artigo <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
@@ -458,7 +508,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <small>Speedboy Motoboy © 2025 — Grande Vitória e Região</small>
+    <small>Speedboy Motoboy © 2026 — Grande Vitória e Região</small>
     <span class="cnpj">CNPJ: 46.178.859/0001-96</span>
   </div>
 </footer>
@@ -469,5 +519,34 @@
 </a>
 
 <script src="assets/main.js"></script>
+<script>
+  // ── CAROUSEL ──
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  if (track) {
+    const cards = track.querySelectorAll('.testimonial-card');
+    let current = 0;
+    let perView = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    const total = Math.ceil(cards.length / perView);
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goTo(i);
+      dotsContainer.appendChild(dot);
+    }
+    function goTo(n) {
+      current = Math.max(0, Math.min(n, total - 1));
+      const cardWidth = cards[0].offsetWidth + 24;
+      track.style.transform = `translateX(-${current * cardWidth * perView}px)`;
+      track.style.transition = 'transform 0.4s ease';
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    window.moveCarousel = (dir) => goTo(current + 1 < total ? (dir > 0 ? current + 1 : current - 1) : 0);
+    setInterval(() => goTo(current + 1 < total ? current + 1 : 0), 4500);
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    track.addEventListener('touchend', e => { const diff = startX - e.changedTouches[0].clientX; if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1); });
+  }
+</script>
 </body>
 </html>
