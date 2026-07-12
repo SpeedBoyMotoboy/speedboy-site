@@ -57,6 +57,54 @@ function toggleFaq(btn) {
   }
 }
 
+// ── CARROSSEL DE AVALIAÇÕES ──
+const revTrack = document.getElementById('revTrack');
+if (revTrack) {
+  const gap = () => parseFloat(getComputedStyle(revTrack).columnGap) || 19;
+  const step = () => {
+    const card = revTrack.querySelector('.rev-card');
+    return card ? card.offsetWidth + gap() : 340;
+  };
+  const atEnd = () => revTrack.scrollLeft + revTrack.clientWidth >= revTrack.scrollWidth - 8;
+  const next = () => {
+    if (atEnd()) revTrack.scrollTo({ left: 0, behavior: 'smooth' });
+    else revTrack.scrollBy({ left: step(), behavior: 'smooth' });
+  };
+  const prev = () => {
+    if (revTrack.scrollLeft <= 8) revTrack.scrollTo({ left: revTrack.scrollWidth, behavior: 'smooth' });
+    else revTrack.scrollBy({ left: -step(), behavior: 'smooth' });
+  };
+
+  // Autoplay: avança sozinho, pausa com mouse/toque/foco e respeita reduced-motion
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timer = null;
+  let resumeTimer = null;
+  const play = () => { if (!reduced && !timer) timer = setInterval(next, 4000); };
+  const stop = () => { clearInterval(timer); timer = null; };
+  const pauseThenResume = () => {
+    stop();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(play, 8000);
+  };
+
+  const prevBtn = document.getElementById('revPrev');
+  const nextBtn = document.getElementById('revNext');
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); pauseThenResume(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); pauseThenResume(); });
+
+  revTrack.addEventListener('mouseenter', stop);
+  revTrack.addEventListener('mouseleave', play);
+  revTrack.addEventListener('touchstart', pauseThenResume, { passive: true });
+  revTrack.addEventListener('wheel', pauseThenResume, { passive: true });
+  revTrack.addEventListener('focusin', stop);
+  revTrack.addEventListener('focusout', play);
+
+  // roda só quando a seção está visível na tela
+  new IntersectionObserver((entries) => {
+    entries[0].isIntersecting ? play() : stop();
+  }, { threshold: 0.2 }).observe(revTrack);
+}
+
 // ── WHATSAPP CLICK TRACKING (Google Ads + GA4) ──
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
   link.addEventListener('click', () => {

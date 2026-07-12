@@ -95,7 +95,21 @@
     .cidade-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.3rem; }
     .cidade-card p { font-size: 0.8rem; color: var(--gray); }
 
-    /* REVIEW CARDS */
+    /* REVIEW CARDS — carrossel automático */
+    .rev-carousel { position: relative; margin-top: 2.5rem; }
+    .rev-track { display: flex; gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.25rem 0.25rem 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .rev-track::-webkit-scrollbar { display: none; }
+    .rev-track .rev-card { flex: 0 0 320px; scroll-snap-align: start; display: flex; flex-direction: column; }
+    .rev-track .rev-card p { flex: 1; }
+    .rev-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--blue); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.25); transition: background 0.2s, transform 0.2s; z-index: 2; }
+    .rev-arrow:hover { background: var(--orange); transform: translateY(-50%) scale(1.08); }
+    .rev-prev { left: -14px; }
+    .rev-next { right: -14px; }
+    @media(max-width:600px) {
+      .rev-track .rev-card { flex-basis: 85%; }
+      .rev-prev { left: 2px; }
+      .rev-next { right: 2px; }
+    }
     .rev-card { background:#fff; border-radius:8px; padding:1.5rem; border:1px solid #e8e5df; }
     .rev-card .stars { color:#ffd700; font-size:0.9rem; margin-bottom:0.8rem; }
     .rev-card p { color:var(--gray); font-size:0.9rem; line-height:1.6; font-style:italic; margin-bottom:1rem; }
@@ -324,7 +338,8 @@
     <span class="section-label">O que dizem sobre nós</span>
     <h2 class="section-title">Avaliações reais no <span>Google</span></h2>
     <p class="section-sub">Mais de 50 clientes satisfeitos. Avaliação 5 estrelas no Google.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem">
+    <div class="rev-carousel">
+    <div class="rev-track" id="revTrack" aria-label="Avaliações de clientes">
 
       <div class="rev-card"><div class="stars" role="img" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div><p>"O Luan é um profissional extremamente trabalhador, honesto e respeitador. Sempre disponível, nunca nega trabalho. Além da rapidez, transmite muita confiança. Super recomendo!"</p><div class="t-author"><div class="t-av" style="background:#e53935">R</div><div><strong>Ritiele Jordao</strong></div></div></div>
 
@@ -360,6 +375,9 @@
 
       <div class="rev-card"><div class="stars" role="img" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div><p>"Excelente, indico o serviço!"</p><div class="t-author"><div class="t-av" style="background:#558b2f">P</div><div><strong>Priscila Moraes</strong></div></div></div>
 
+    </div>
+    <button type="button" class="rev-arrow rev-prev" id="revPrev" aria-label="Avaliação anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <button type="button" class="rev-arrow rev-next" id="revNext" aria-label="Próxima avaliação"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
     </div>
   </div>
 </div>
