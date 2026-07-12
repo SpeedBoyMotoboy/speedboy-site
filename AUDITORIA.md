@@ -2,6 +2,34 @@
 
 Data: 12/07/2026 · Escopo: SEO, infraestrutura, front-end, analytics, segurança, acessibilidade e engenharia.
 
+---
+
+## ✅ Status pós-correções (12/07/2026)
+
+Correções já aplicadas neste branch:
+
+| Item | Status |
+|------|--------|
+| 4. sitemap.xml + robots.txt + canonical em todas as páginas | ✅ Feito |
+| 5. Artigo Shopee no índice do blog | ✅ Feito |
+| 6. `aggregateRating` removido; schema enriquecido (`sameAs`, `areaServed`, horários, e-mail) + `FAQPage` na home + `BlogPosting` nos 4 artigos | ✅ Feito |
+| 7. Fontes via `<link>` + preconnect (fim do `@import`); `charset` no topo do `<head>`; preload do hero; Font Awesome self-hosted (fim do cdnjs) | ✅ Feito |
+| 10. `</div>` extra na home | ✅ Feito |
+| 11. Acentuação do card Shopee | ✅ Feito |
+| 12. Acessibilidade: hamburger e FAQ viram `<button>` com `aria-expanded`/`aria-label`, teclado funciona; estrelas com `aria-label` | ✅ Feito |
+| 13. `rel="noopener noreferrer"` em todos os links externos; FA self-hosted elimina risco do CDN | ✅ Feito |
+| 14. `404.html` personalizado | ✅ Feito |
+| — | Extras: `og:url`/`og:type`/`og:locale`/twitter card em todas as páginas; links internos absolutos (fim do duplicado `/index.html`); ano do rodapé unificado | ✅ Feito |
+
+Pendências que exigem ação do dono (não dá para fazer daqui):
+
+1. **Google Ads (item 2 do P0):** conferir no painel do Ads se o rótulo de conversão é mesmo `whatsapp_click` — se não for, trocar em `assets/main.js` pelo snippet real. **Sem isso a campanha não registra conversões.**
+2. **Imagens do Imgur (item 1):** rodar `bash scripts/migrar-imagens.sh` em uma máquina local (o ambiente desta sessão não tem acesso ao Imgur) e commitar o resultado.
+3. **GA4 (item 3):** criar propriedade no Google Analytics e adicionar `gtag('config','G-XXXXXXX');` ao snippet no `<head>` das páginas.
+4. **Search Console:** enviar `https://www.speedboy.com.br/sitemap.xml`.
+5. **DNS:** confirmar que `speedboy.com.br` (sem www) redireciona para `www.speedboy.com.br` e que "Enforce HTTPS" está ativo nas configurações do GitHub Pages.
+6. Futuro: migração para gerador estático (item 9), conteúdo único por cidade (item 16), banner LGPD (item 15).
+
 O site é estático (HTML/CSS/JS puro) hospedado no GitHub Pages com domínio `www.speedboy.com.br`. A base é pequena (11 páginas) e bem construída visualmente, mas há riscos estruturais que podem derrubar tráfego, conversão e a própria aparência do site sem aviso. Abaixo, em ordem de prioridade.
 
 ---
