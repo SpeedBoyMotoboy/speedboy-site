@@ -1,0 +1,63 @@
+/* ── SPEEDBOY — PÁGINAS EMPRESARIAIS (B2B) ── */
+
+.b2b-intro { max-width: 760px; }
+.b2b-intro p { color: var(--gray); line-height: 1.8; font-size: 1.08rem; margin-bottom: 1.2rem; }
+.b2b-intro p strong { color: var(--blue); }
+
+/* Cards de serviço (hub) */
+.b2b-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.b2b-card { background: #fff; border: 1px solid #e8e5df; border-radius: 10px; padding: 2rem; text-decoration: none; display: flex; flex-direction: column; transition: all 0.25s; }
+.b2b-card:hover { border-color: var(--orange); box-shadow: 0 14px 36px rgba(0,0,0,0.09); transform: translateY(-4px); }
+.b2b-card-icon { width: 52px; height: 52px; background: rgba(0,31,107,0.07); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+.b2b-card-icon i { font-size: 1.3rem; color: var(--blue); }
+.b2b-card:hover .b2b-card-icon { background: rgba(255,84,0,0.12); }
+.b2b-card:hover .b2b-card-icon i { color: var(--orange); }
+.b2b-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.6rem; line-height: 1.15; }
+.b2b-card p { color: var(--gray); font-size: 0.92rem; line-height: 1.6; flex: 1; }
+.b2b-card .go { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--orange); font-weight: 700; font-size: 0.87rem; margin-top: 1.2rem; }
+
+/* Passo a passo */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; counter-reset: step; }
+.step { position: relative; background: #fff; border: 1px solid #e8e5df; border-radius: 10px; padding: 2rem 1.5rem 1.5rem; }
+.step::before { counter-increment: step; content: counter(step); position: absolute; top: -18px; left: 1.5rem; width: 36px; height: 36px; background: var(--orange); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; }
+.step h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.4rem; }
+.step p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+
+/* Lista de entregáveis */
+.deliver { background: var(--blue); border-radius: 12px; padding: 2.5rem; margin-top: 3rem; }
+.deliver h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.6rem; color: #fff; text-transform: uppercase; margin-bottom: 0.5rem; }
+.deliver > p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 0.95rem; }
+.deliver ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.8rem; }
+.deliver li { display: flex; align-items: flex-start; gap: 0.7rem; color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.5; }
+.deliver li i { color: var(--orange); margin-top: 0.25rem; flex-shrink: 0; }
+
+/* Blocos de checagem / público-alvo */
+.who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.who { background: var(--light-gray); border-radius: 8px; padding: 1.5rem; }
+.who i { font-size: 1.5rem; color: var(--orange); display: block; margin-bottom: 0.7rem; }
+.who h3 { font-weight: 700; font-size: 0.95rem; color: var(--blue); margin-bottom: 0.3rem; }
+.who p { color: var(--gray); font-size: 0.85rem; line-height: 1.5; }
+
+/* Aviso de escopo */
+.scope-note { background: rgba(0,31,107,0.05); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin-top: 2.5rem; }
+.scope-note p { color: var(--gray); font-size: 0.9rem; line-height: 1.65; margin: 0; }
+.scope-note strong { color: var(--blue); }
+
+/* Cobertura */
+.coverage { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.5rem; }
+.coverage a, .coverage span { display: inline-flex; align-items: center; gap: 0.4rem; background: #fff; border: 1px solid #ddd; color: var(--blue); padding: 0.45rem 1rem; border-radius: 20px; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.coverage a:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+.coverage i { color: var(--orange); }
+.coverage a:hover i { color: #fff; }
+
+/* CTA final */
+.b2b-cta { background: var(--blue); padding: 5rem 2rem; text-align: center; }
+.b2b-cta h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4vw, 2.8rem); color: #fff; text-transform: uppercase; margin-bottom: 1rem; }
+.b2b-cta h2 span { color: var(--orange); }
+.b2b-cta p { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+.b2b-cta .actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 600px) {
+  .deliver { padding: 1.8rem 1.5rem; }
+  .b2b-card { padding: 1.5rem; }
+}
