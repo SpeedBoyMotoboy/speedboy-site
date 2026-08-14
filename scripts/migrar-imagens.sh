@@ -13,12 +13,12 @@ cd "$(dirname "$0")/.."
 mkdir -p assets/img
 
 declare -A IMAGENS=(
-  [logo.png]="https://i.imgur.com/R6T1goC.png"
-  [hero.jpg]="https://i.imgur.com/mUsPz90.jpeg"
-  [sobre.jpg]="https://i.imgur.com/uobtZ3a.jpeg"
-  [galeria-1.jpg]="https://i.imgur.com/ILupMOh.jpeg"
-  [galeria-2.jpg]="https://i.imgur.com/eVGM97i.jpeg"
-  [galeria-3.jpg]="https://i.imgur.com/mJqAraw.jpeg"
+  [speedboy-logo.png]="https://i.imgur.com/R6T1goC.png"
+  [motoboy-vila-velha-es.jpg]="https://i.imgur.com/mUsPz90.jpeg"
+  [entrega-documentos-vila-velha.jpg]="https://i.imgur.com/uobtZ3a.jpeg"
+  [motoboy-entrega-grande-vitoria.jpg]="https://i.imgur.com/ILupMOh.jpeg"
+  [motoboy-atendimento-vila-velha.jpg]="https://i.imgur.com/eVGM97i.jpeg"
+  [cliente-entrega-speedboy.jpg]="https://i.imgur.com/mJqAraw.jpeg"
 )
 
 echo "Baixando imagens do Imgur..."
