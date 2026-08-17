@@ -81,7 +81,7 @@ nav {
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
   background: linear-gradient(120deg, rgba(0,15,70,0.92) 40%, rgba(255,84,0,0.4) 100%),
-              url('https://i.imgur.com/mUsPz90.jpeg') center/cover no-repeat;
+              url('/assets/img/hero-motoboy-speedboy.webp') center/cover no-repeat;
   min-height: 320px; display: flex; align-items: center;
   padding: 6rem 2rem 3rem; text-align: center;
 }
