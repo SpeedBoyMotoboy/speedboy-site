@@ -56,7 +56,7 @@
     /* SOBRE */
     .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
     .sobre-img-wrap { position: relative; }
-    .sobre-img-wrap img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 4/3; display: block; }
+    .sobre-img-wrap img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; aspect-ratio: 4/3; display: block; }
     .sobre-img-badge { position: absolute; bottom: -20px; right: -20px; background: var(--orange); color: #fff; padding: 1.2rem 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 8px 24px rgba(255,84,0,0.4); }
     .sobre-img-badge strong { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 900; display: block; line-height: 1; }
     .sobre-img-badge span { font-size: 0.75rem; font-weight: 600; }
@@ -103,18 +103,12 @@
     .rev-track::-webkit-scrollbar { display: none; }
     .rev-track .rev-card { flex: 0 0 320px; scroll-snap-align: start; display: flex; flex-direction: column; }
     .rev-track .rev-card p { flex: 1; }
-    .rev-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--blue); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.25); transition: background 0.2s, transform 0.2s; z-index: 2; }
-    .rev-arrow:hover { background: var(--orange); transform: translateY(-50%) scale(1.08); }
-    .rev-prev { left: -14px; }
-    .rev-next { right: -14px; }
-    @media(max-width:600px) {
-      .rev-track .rev-card { flex-basis: 85%; }
-      .rev-prev { left: 2px; }
-      .rev-next { right: 2px; }
-    }
-    .rev-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; background: #fff; border: 1px solid #e8e5df; border-left: 4px solid var(--orange); border-radius: 8px; padding: 1.5rem 1.8rem; margin-top: 1.5rem; }
-    .rev-cta strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; color: var(--blue); text-transform: uppercase; }
-    .rev-cta span { color: var(--gray); font-size: 0.9rem; }
+    /* Setas ficam abaixo da trilha: sobrepostas ao card elas cobriam o texto da avaliação. */
+    .rev-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.4rem; }
+    .rev-arrow { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--blue); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.18); transition: background 0.2s, transform 0.2s; }
+    .rev-arrow:hover { background: var(--orange); transform: scale(1.08); }
+    .rev-count { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--gray); min-width: 66px; text-align: center; letter-spacing: 1px; }
+    .rev-count span { color: var(--blue); }
     .rev-card { background:#fff; border-radius:8px; padding:1.5rem; border:1px solid #e8e5df; }
     .rev-card .stars { color:#ffd700; font-size:0.9rem; margin-bottom:0.8rem; }
     .rev-card p { color:var(--gray); font-size:0.9rem; line-height:1.6; font-style:italic; margin-bottom:1rem; }
@@ -185,20 +179,79 @@
     .btn-white:hover { background: var(--blue); color: #fff; }
 
     @media(max-width:900px) {
-      .sobre-grid, .contact-grid { grid-template-columns: 1fr; }
+      .sobre-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .diff-grid { grid-template-columns: repeat(2,1fr); }
       .testimonials-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { columns: 2; }
+      .diff-bg, .faq-bg { padding: 4rem 1.5rem; }
+      .b2b-strip { padding: 2.75rem 1.5rem; }
     }
     @media(max-width:600px) {
       .hero-content { margin: 0 auto; text-align: center; }
       .hero-actions { justify-content: center; }
       .hero-stats { display: none; }
-      .diff-grid { grid-template-columns: 1fr; }
-      .testimonials-grid, .blog-grid { grid-template-columns: 1fr; }
-      .gallery-grid { columns: 1; }
-      .cidades-grid { grid-template-columns: repeat(2,1fr); }
+      .cidades-grid { grid-template-columns: repeat(2,1fr); gap: 0.7rem; margin-top: 1.6rem; }
       .sobre-img-badge { bottom: -16px; right: 16px; }
+
+      /* ── COMPACTAÇÃO MOBILE ──
+         Antes toda grade caía para 1 coluna e a home passava de 17 telas de
+         rolagem. Aqui as grades voltam a 2 colunas e os cards ficam densos.
+         Nenhum conteúdo é removido — só a densidade muda. */
+      .diff-bg, .faq-bg { padding: 3.25rem 1.25rem; }
+      .b2b-strip { padding: 2.25rem 1.25rem; }
+      .section-title { margin-bottom: 0.6rem; }
+      .section-sub { font-size: 0.95rem; line-height: 1.6; }
+
+      /* diferenciais */
+      .diff-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-top: 1.6rem; }
+      .diff-card { padding: 1.1rem 0.9rem; }
+      .diff-card h3 { font-size: 1.05rem; }
+      .diff-card p { font-size: 0.82rem; line-height: 1.45; }
+
+      /* sobre */
+      .sobre-grid { gap: 2rem; margin-top: 1.6rem; }
+      .sobre-text p { font-size: 0.95rem; line-height: 1.65; margin-bottom: 0.8rem; }
+      .pills { gap: 0.4rem; margin-top: 1rem; }
+      .pill { font-size: 0.78rem; padding: 0.3rem 0.7rem; }
+
+      /* serviços: 12 cards em 2 colunas, ícone acima do texto */
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-top: 1.6rem; }
+      .service-card { flex-direction: column; gap: 0.6rem; padding: 1rem 0.9rem; }
+      .service-icon { width: 38px; height: 38px; }
+      .service-text h3 { font-size: 0.92rem; }
+      .service-text p { font-size: 0.8rem; line-height: 1.45; }
+
+      /* blog: card deitado, miniatura à esquerda */
+      .blog-grid { grid-template-columns: 1fr; gap: 0.7rem; margin-top: 1.6rem; }
+      .blog-card { display: flex; align-items: stretch; }
+      .blog-card-img { width: 84px; height: auto; flex-shrink: 0; font-size: 1.5rem; }
+      .blog-card-body { padding: 0.9rem 1rem; }
+      .blog-card h3 { font-size: 1rem; }
+      .blog-card p { font-size: 0.8rem; }
+
+      /* galeria: 2 colunas */
+      .gallery-grid { columns: 2; column-gap: 0.6rem; margin-top: 1.6rem; }
+      .gallery-item { margin-bottom: 0.6rem; }
+      .gallery-item figcaption { font-size: 0.68rem; padding: 1.1rem 0.55rem 0.5rem; }
+
+      /* contato */
+      .contact-grid { gap: 1.5rem; margin-top: 1.6rem; }
+      .contact-item { padding: 0.85rem 1rem; margin-bottom: 0.6rem; }
+      .map-frame iframe { height: 240px; }
+
+      /* faq */
+      .faq-question { padding: 0.9rem 1.1rem; }
+      .faq-question .faq-q { font-size: 0.92rem; }
+      .faq-answer p { padding: 0 1.1rem 0.9rem; font-size: 0.88rem; line-height: 1.6; }
+
+      /* avaliações: card mais curto, setas fora do texto */
+      .rev-carousel { margin-top: 1.6rem; }
+      .rev-track { gap: 0.7rem; padding-bottom: 0.6rem; }
+      .rev-track .rev-card { flex-basis: 86%; }
+      .rev-card { padding: 1.1rem 1.2rem; }
+      .rev-card p { font-size: 0.875rem; line-height: 1.55; margin-bottom: 0.6rem; }
+      .t-author { margin-top: 0.9rem; padding-top: 0.9rem; }
+      .t-av { width: 34px; height: 34px; font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -383,15 +436,11 @@
       <div class="rev-card"><div class="stars" role="img" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div><p>"Excelente, indico o serviço!"</p><div class="t-author"><div class="t-av" style="background:#558b2f">P</div><div><strong>Priscila Moraes</strong></div></div></div>
 
     </div>
-    <button type="button" class="rev-arrow rev-prev" id="revPrev" aria-label="Avaliação anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-    <button type="button" class="rev-arrow rev-next" id="revNext" aria-label="Próxima avaliação"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+    <div class="rev-nav">
+      <button type="button" class="rev-arrow rev-prev" id="revPrev" aria-label="Avaliação anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+      <span class="rev-count"><span id="revNow">1</span> / 17</span>
+      <button type="button" class="rev-arrow rev-next" id="revNext" aria-label="Próxima avaliação"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
     </div>
-    <div class="rev-cta">
-      <div>
-        <strong>Já fez uma entrega com a gente?</strong>
-        <span>Sua avaliação no Google leva menos de 1 minuto e ajuda muito.</span>
-      </div>
-      <a href="https://g.page/r/CcIvid7UpMymEBE/review" class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-star"></i> Avaliar no Google</a>
     </div>
   </div>
 </div>
