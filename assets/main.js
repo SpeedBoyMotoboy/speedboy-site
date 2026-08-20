@@ -99,6 +99,22 @@ if (revTrack) {
   revTrack.addEventListener('focusin', stop);
   revTrack.addEventListener('focusout', play);
 
+  // contador "n / total" abaixo da trilha
+  const counter = document.getElementById('revNow');
+  const total = revTrack.querySelectorAll('.rev-card').length;
+  if (counter) {
+    let raf = null;
+    const syncCount = () => {
+      raf = null;
+      const i = Math.round(revTrack.scrollLeft / step()) + 1;
+      counter.textContent = Math.min(Math.max(i, 1), total);
+    };
+    revTrack.addEventListener('scroll', () => {
+      if (!raf) raf = requestAnimationFrame(syncCount);
+    }, { passive: true });
+    syncCount();
+  }
+
   // roda só quando a seção está visível na tela
   new IntersectionObserver((entries) => {
     entries[0].isIntersecting ? play() : stop();
