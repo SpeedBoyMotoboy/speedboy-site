@@ -1,0 +1,66 @@
+[
+  {
+    "id": "bbdi",
+    "nome": "BBDI",
+    "nome_completo": "BBDI Distribuidora",
+    "logo": "logos/bbdi.png",
+    "logo_tom": "branca",
+    "site": "https://www.bbdi.com.br/"
+  },
+  {
+    "id": "cranfos",
+    "nome": "CRANFOS",
+    "nome_completo": "CRANFOS Soluções Ambientais",
+    "logo": "logos/cranfos.png",
+    "logo_tom": "escura",
+    "site": "https://www.cranfos.com.br/"
+  },
+  {
+    "id": "fernando-miranda",
+    "nome": "Fernando Miranda",
+    "nome_completo": "Fernando Miranda Advogados Associados",
+    "logo": "logos/fernando-miranda.png",
+    "logo_tom": "branca",
+    "site": "https://fernandomiranda.com.br/"
+  },
+  {
+    "id": "fontana-experts",
+    "nome": "Fontana Experts",
+    "nome_completo": "Fontana Experts Consultoria, Administração Judicial e Perícias",
+    "logo": "logos/fontana-experts.png",
+    "logo_tom": "escura",
+    "site": "https://fontanaexperts.com.br/"
+  },
+  {
+    "id": "fullpower",
+    "nome": "FullPower",
+    "nome_completo": "FullPower Turbocharger",
+    "logo": "logos/fullpower.png",
+    "logo_tom": "escura",
+    "site": "https://fullpowerturbo.com.br/"
+  },
+  {
+    "id": "ks",
+    "nome": "KS",
+    "nome_completo": "KS Loja",
+    "logo": "logos/ks.png",
+    "logo_tom": "escura",
+    "site": "https://www.ksmultimarcas.com.br/"
+  },
+  {
+    "id": "mais-solucoes",
+    "nome": "Mais Soluções",
+    "nome_completo": "Mais Soluções Industriais S/A",
+    "logo": "logos/mais-solucoes.png",
+    "logo_tom": "escura",
+    "site": "https://maisindustrial.com.br/"
+  },
+  {
+    "id": "natlaser",
+    "nome": "Natlaser",
+    "nome_completo": "Natlaser - Projetos Especiais",
+    "logo": "logos/natlaser.png",
+    "logo_tom": "branca",
+    "site": "https://natlaser.com.br/"
+  }
+]

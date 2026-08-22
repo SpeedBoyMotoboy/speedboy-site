@@ -136,3 +136,36 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
   .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* ── MURAL DE CLIENTES ──
+   Logos de tons opostos (3 são brancas, 5 são escuras) não coexistem em um
+   fundo só. Solução: normalizar tudo em silhueta com brightness(0) — o filtro
+   preserva o alfa do PNG, então logo branca e logo escura viram a mesma marca
+   monocromática. Hover sobe a opacidade, sem devolver a cor (logo branca em
+   tile branco sumiria). */
+.clientes-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; margin-top: 2.5rem;
+  background: #e2ded6; border: 1px solid #e2ded6;
+  border-radius: 10px; overflow: hidden;
+}
+.cliente-logo {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white); padding: 1.75rem 1.25rem; min-height: 112px;
+  text-decoration: none; transition: background 0.2s;
+}
+.cliente-logo:hover { background: var(--cream); }
+.cliente-logo img {
+  max-width: 100%; max-height: 46px; width: auto; height: auto;
+  object-fit: contain;
+  filter: brightness(0); opacity: 0.55;
+  transition: opacity 0.25s;
+}
+.cliente-logo:hover img { opacity: 0.95; }
+.clientes-note { margin-top: 1.2rem; font-size: 0.8rem; color: var(--gray); }
+
+@media (max-width: 700px) {
+  .clientes-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.8rem; }
+  .cliente-logo { padding: 1.4rem 1rem; min-height: 92px; }
+  .cliente-logo img { max-height: 38px; }
+}
