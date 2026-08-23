@@ -162,7 +162,6 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
   transition: opacity 0.25s;
 }
 .cliente-logo:hover img { opacity: 0.95; }
-.clientes-note { margin-top: 1.2rem; font-size: 0.8rem; color: var(--gray); }
 
 @media (max-width: 700px) {
   .clientes-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.8rem; }
