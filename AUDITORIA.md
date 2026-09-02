@@ -1,6 +1,6 @@
 # Auditoria Técnica — speedboy.com.br
 
-Data: 12/07/2026 · Atualizado em 14/08/2026 (mudança de sede para Vila Velha).
+Data: 12/07/2026 · Atualizado em 14/08/2026 (mudança de sede) e em 02/09/2026 (expansão do blog).
 
 ---
 
@@ -39,11 +39,34 @@ Os 4 artigos antigos foram mantidos (têm histórico de indexação — apagar d
 - `correspondente-juridico-espirito-santo-como-funciona.html`
 - `relatorio-fotografico-georreferenciado-o-que-e.html`
 
+**02/09/2026 — seis artigos novos**, para cobrir as buscas de motoboy da região que o site
+ainda não respondia (o blog saiu de 6 para 12 artigos, ~5.300 palavras novas):
+
+| Artigo | Busca que ataca |
+|---|---|
+| `quanto-custa-motoboy-vila-velha-es.html` | "quanto custa motoboy vila velha", "preço motoboy ES" |
+| `motoboy-urgente-mesmo-dia-grande-vitoria.html` | "motoboy urgente", "motoboy agora", "motoboy hoje" |
+| `entrega-vila-velha-vitoria-terceira-ponte.html` | "entrega vila velha vitória", corredor da Terceira Ponte |
+| `motoboy-proprio-ou-terceirizado-custo.html` | "vale a pena contratar motoboy CLT", decisão B2B |
+| `cartorio-grande-vitoria-qual-serve-para-cada-documento.html` | "qual cartório", "cartório vila velha/vitória" |
+| `motoboy-clinicas-laboratorios-exames.html` | "motoboy para clínica", "entrega de exames" |
+
+Cada um com `BlogPosting` + `BreadcrumbList` + `FAQPage` e escopo declarado onde cabe
+(o de clínicas diz explicitamente que **não** transportamos material biológico).
+Ligação interna nos dois sentidos: as 5 páginas de cidade ganharam bloco "Leia antes de
+pedir", `empresas.html` aponta para o artigo de custo, e o índice do blog ganhou schema `Blog`.
+Nenhum artigo antigo foi apagado, movido ou redirecionado.
+
 ### Bugs encontrados e corrigidos no caminho
 
 - `.sw` / `.sw-inner` (containers que centralizam o conteúdo) existiam **apenas** no `<style>` da home — todas as páginas internas renderizavam com o texto colado nas bordas da tela. Movidos para `assets/style.css`.
 - Links para `motoboy-aracruz-es.html`, `motoboy-colatina-es.html` e `motoboy-linhares-es.html` apontavam para páginas que nunca existiram: 404 em todas as páginas de cidade.
 - `empresas.html` e `blog/index.html` não tinham nenhum JSON-LD.
+- **(02/09)** O botão de WhatsApp dentro do `.cta-inline` de **todos** os artigos era laranja
+  com texto laranja — ilegível, e é o CTA principal de conversão do blog. Causa: `.article-body a`
+  (especificidade 0,1,1) vencia `.btn-primary` (0,1,0). Corrigido em `assets/style.css`.
+- **(02/09)** O CSS de artigo (`.article-body`, `.highlight-box`, `.related-card`…) vivia duplicado
+  no `<style>` de cada artigo. Movido para `assets/style.css`, como manda a regra do projeto.
 
 ### Correções da auditoria original (12/07)
 
@@ -59,7 +82,8 @@ Canonical, sitemap, robots.txt, Open Graph completo, remoção do `aggregateRati
 2. **Ficha do Google:** confirmar aprovação das edições de horário, área de cobertura e chat.
 3. **Instagram:** bio ainda diz "na Serra" — atualizar nome e bio para Vila Velha.
 4. **Responder a avaliação da Cynthia Lyrio** (única pendente).
-5. **Search Console:** reenviar `https://www.speedboy.com.br/sitemap.xml` e pedir indexação das 8 páginas novas.
+5. **Search Console:** reenviar `https://www.speedboy.com.br/sitemap.xml` e pedir indexação
+   das 8 páginas da mudança de sede **e dos 6 artigos novos de 02/09** (o sitemap já está atualizado).
 
 **No site:**
 
@@ -72,4 +96,7 @@ Canonical, sitemap, robots.txt, Open Graph completo, remoção do `aggregateRati
 
 10. Migrar para gerador estático (Eleventy/Astro) — o site tem 18 páginas HTML com nav, rodapé e schema duplicados em cada uma. Já corrigi as divergências duas vezes; a terceira é questão de tempo.
 11. Banner de consentimento LGPD (Consent Mode v2).
-12. Próximas pautas do blog: diligência de protocolo em Vila Velha; quanto custa um correspondente no ES; coleta em galpão e entrega em agência.
+12. Próximas pautas do blog (as três primeiras já eram da lista antiga e continuam de pé):
+    diligência de protocolo em Vila Velha; quanto custa um correspondente no ES; coleta em
+    galpão e entrega em agência; motoboy para imobiliária (chaves, contratos, vistoria de
+    locação); motoboy para restaurante e delivery próprio; guia de bairros de Vila Velha.

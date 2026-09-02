@@ -168,3 +168,48 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
   .cliente-logo { padding: 1.4rem 1rem; min-height: 92px; }
   .cliente-logo img { max-height: 38px; }
 }
+
+/* ── ARTIGO DE BLOG ──
+   Estas classes viviam duplicadas no <style> de cada artigo. Movidas para cá:
+   artigo novo não precisa carregar cópia do CSS, e correção vale para todos. */
+.article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+.article-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; color: var(--gray); font-size: 0.85rem; }
+.article-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.article-meta i { color: var(--orange); }
+.article-body h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--blue); text-transform: uppercase; margin: 2.5rem 0 1rem; }
+.article-body h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--blue); margin: 2rem 0 0.8rem; }
+.article-body p { color: #444; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.2rem; }
+.article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.5rem; color: #444; }
+.article-body li { margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem; }
+.article-body strong { color: var(--blue); }
+.article-body a { color: var(--orange); font-weight: 600; }
+/* .article-body a (0,1,1) vence .btn-primary (0,1,0) por especificidade: sem esta
+   linha o CTA dos artigos vira botão laranja com texto laranja — ilegível. */
+.article-body a.btn-primary, .article-body a.btn-primary i { color: #fff; }
+.highlight-box { background: rgba(0,31,107,0.05); border-left: 4px solid var(--orange); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; }
+.highlight-box p { margin: 0; color: var(--blue); font-weight: 600; }
+.price-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+.price-table th { background: var(--blue); color: #fff; padding: 0.8rem 1rem; text-align: left; font-size: 0.9rem; }
+.price-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #e8e5df; font-size: 0.95rem; color: #444; }
+.price-table tr:nth-child(even) td { background: var(--light-gray); }
+.cta-inline { background: var(--blue); border-radius: 12px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+.cta-inline h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; color: #fff; text-transform: uppercase; margin-bottom: 0.8rem; }
+.cta-inline p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; }
+.related-posts { border-top: 1px solid #e8e5df; padding-top: 2rem; margin-top: 2rem; }
+.related-posts h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--blue); text-transform: uppercase; margin-bottom: 1.2rem; }
+.related-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+.related-card { background: var(--light-gray); border-radius: 8px; padding: 1.2rem; text-decoration: none; transition: all 0.2s; display: block; }
+.related-card:hover { background: rgba(255,84,0,0.08); }
+.related-card span { display: block; font-size: 0.72rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
+.related-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--blue); text-transform: uppercase; line-height: 1.2; }
+.article-faq { margin: 2rem 0; }
+.article-faq details { border: 1px solid #e8e5df; border-radius: 8px; background: var(--white); margin-bottom: 0.8rem; }
+.article-faq summary { cursor: pointer; padding: 1rem 1.2rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--blue); text-transform: uppercase; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.article-faq summary::-webkit-details-marker { display: none; }
+.article-faq summary::after { content: '+'; color: var(--orange); font-size: 1.4rem; line-height: 1; }
+.article-faq details[open] summary::after { content: '−'; }
+.article-faq details p { padding: 0 1.2rem 1.2rem; margin: 0; font-size: 1rem; }
+.blog-cidades { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 2rem; }
+.blog-cidades a { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--light-gray); border-radius: 20px; padding: 0.4rem 0.9rem; font-size: 0.85rem; font-weight: 600; color: var(--blue); text-decoration: none; transition: all 0.2s; }
+.blog-cidades a:hover { background: rgba(255,84,0,0.1); color: var(--orange); }
+@media(max-width:600px) { .related-grid { grid-template-columns: 1fr; } .article-body { padding: 2.5rem 1.2rem; } }
