@@ -80,7 +80,7 @@
   <!-- Blog -->
   <url>
     <loc>https://www.speedboy.com.br/blog/</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -119,5 +119,41 @@
     <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.speedboy.com.br/blog/quanto-custa-motoboy-vila-velha-es.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.speedboy.com.br/blog/motoboy-urgente-mesmo-dia-grande-vitoria.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.speedboy.com.br/blog/entrega-vila-velha-vitoria-terceira-ponte.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.speedboy.com.br/blog/motoboy-proprio-ou-terceirizado-custo.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.speedboy.com.br/blog/cartorio-grande-vitoria-qual-serve-para-cada-documento.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.speedboy.com.br/blog/motoboy-clinicas-laboratorios-exames.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
