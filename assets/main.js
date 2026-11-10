@@ -121,21 +121,57 @@ if (revTrack) {
   }, { threshold: 0.2 }).observe(revTrack);
 }
 
+// ── ORIGEM DO VISITANTE (anúncio do Google) ──
+// Quem chega por anúncio traz ?gclid= (ou utm_campaign). Guardamos na sessão a
+// campanha e marcamos a mensagem do WhatsApp, para saber de qual anúncio veio a conversa.
+const origemAnuncio = (() => {
+  const CHAVE = 'sb_origem';
+  const nomeDaPagina = (path) => {
+    if (path.includes('correspondente-juridico')) return 'jurídico';
+    if (path.includes('empresas') || path.includes('servicos-empresariais')) return 'empresas';
+    if (path.includes('/cidades/')) return 'cidade';
+    return 'site';
+  };
+  let origem = null;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const utm = (params.get('utm_campaign') || '').replace(/[^\p{L}\p{N} _-]/gu, '').slice(0, 30);
+    if (utm || params.has('gclid') || params.has('gbraid') || params.has('wbraid')) {
+      origem = utm || nomeDaPagina(window.location.pathname);
+    }
+  } catch (e) { /* URL fora do padrão: segue sem origem */ }
+  // sessionStorage pode estar bloqueado (aba anônima): a origem da página atual vale mesmo assim
+  try {
+    if (origem) sessionStorage.setItem(CHAVE, origem);
+    else origem = sessionStorage.getItem(CHAVE);
+  } catch (e) { /* sem armazenamento: vale só nesta página */ }
+  return origem;
+})();
+
 // ── WHATSAPP CLICK TRACKING (Google Ads + GA4) ──
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+  if (origemAnuncio) {
+    try {
+      const url = new URL(link.href);
+      const texto = url.searchParams.get('text') || 'Olá Luan, gostaria de fazer um orçamento.';
+      // encodeURIComponent gera %20 (e não "+"), que o WhatsApp lê como espaço em qualquer aparelho
+      link.href = url.origin + url.pathname + '?text=' +
+        encodeURIComponent(texto + '\n\n(Ref.: anúncio Google · ' + origemAnuncio + ')');
+    } catch (e) { /* link fora do padrão: mantém como está */ }
+  }
   link.addEventListener('click', () => {
-    // Google Ads conversion
+    // Google Ads conversion — ação "Contato WhatsApp - Site" (rótulo real do painel)
     if (typeof gtag !== 'undefined') {
       gtag('event', 'conversion', {
-        'send_to': 'AW-16976838076/whatsapp_click',
-        'event_category': 'contato',
-        'event_label': 'whatsapp_click',
-        'value': 1
+        'send_to': 'AW-16976838076/K-P2CK_K4ukcELz7l58_',
+        'value': 1.0,
+        'currency': 'BRL'
       });
       // GA4 event
       gtag('event', 'whatsapp_click', {
         'event_category': 'engagement',
-        'event_label': window.location.pathname
+        'event_label': window.location.pathname,
+        'origem_anuncio': origemAnuncio || 'organico'
       });
     }
   });
