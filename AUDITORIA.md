@@ -78,7 +78,7 @@ Canonical, sitemap, robots.txt, Open Graph completo, remoção do `aggregateRati
 
 **Fora do site (mais urgente que qualquer código):**
 
-1. **Google Ads — saldo esgotado.** O anúncio não está rodando. Além disso, confira se o rótulo de conversão em `assets/main.js` (`AW-16976838076/whatsapp_click`) é o real do painel — rótulos são códigos gerados, tipo `AbC1dEfG...`. Se estiver errado, a campanha nunca registrou conversão.
+1. **Google Ads — saldo esgotado.** O anúncio não está rodando. **(10/11) Rótulo de conversão corrigido** em `assets/main.js`: era `AW-16976838076/whatsapp_click` (inventado), agora é o real da ação "Contato WhatsApp - Site" (`AW-16976838076/K-P2CK_K4ukcELz7l58_`). Texto antigo: confira se o rótulo é o real do painel — rótulos são códigos gerados, tipo `AbC1dEfG...`. Se estiver errado, a campanha nunca registrou conversão.
 2. **Ficha do Google:** confirmar aprovação das edições de horário, área de cobertura e chat.
 3. **Instagram:** bio ainda diz "na Serra" — atualizar nome e bio para Vila Velha.
 4. **Responder a avaliação da Cynthia Lyrio** (única pendente).
