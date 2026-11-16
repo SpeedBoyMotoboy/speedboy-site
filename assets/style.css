@@ -40,6 +40,10 @@ nav {
 .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 4px; transition: background 0.2s !important; }
 .nav-cta::after { display: none !important; }
 .nav-cta:hover { background: var(--orange-light) !important; }
+.nav-links .nav-pedir { background: var(--white); color: var(--blue); padding: 0.5rem 1.2rem; border-radius: 4px; white-space: nowrap; transition: background 0.2s; }
+.nav-links .nav-pedir::after { display: none; }
+.nav-links .nav-pedir i { color: var(--orange); }
+.nav-links .nav-pedir:hover { background: var(--cream); color: var(--blue); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
 .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -48,12 +52,19 @@ nav {
 .mobile-menu { display: none; position: fixed; top: 64px; left: 0; width: 100%; background: rgba(0,15,70,0.98); padding: 1.5rem 2rem; flex-direction: column; gap: 1.2rem; z-index: 999; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 600; font-size: 1rem; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.mobile-menu .menu-pedir { color: #ffd0b3; }
+.mobile-menu .menu-pedir i { color: var(--orange-light); }
 
 /* ── BUTTONS ── */
 .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--orange); color: var(--white); padding: 0.9rem 2rem; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(255,84,0,0.4); }
 .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,84,0,0.5); }
 .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid var(--blue); color: var(--blue); padding: 0.9rem 2rem; border-radius: 6px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s; }
 .btn-outline:hover { background: var(--blue); color: var(--white); }
+/* Pedido urgente: abre o sistema de pedidos (sem sistema ligado, abre o WhatsApp). Ver assets/main.js */
+.btn-urgente { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); color: var(--blue); border: 2px solid var(--blue); padding: calc(0.9rem - 2px) calc(2rem - 2px); border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; }
+.btn-urgente i { color: var(--orange); transition: color 0.2s; }
+.btn-urgente:hover { background: var(--blue); color: var(--white); transform: translateY(-2px); }
+.btn-urgente:hover i { color: var(--white); }
 
 /* ── SECTION LABELS ── */
 .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
@@ -117,10 +128,29 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .footer-bottom small { font-size: 0.8rem; }
 .footer-bottom .cnpj { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
 
+/* ── PEDIDO URGENTE ── */
+.cta-acoes { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.urgente { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%); }
+.urgente-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; }
+.urgente-texto p { color: rgba(255,255,255,0.82); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.75rem; max-width: 520px; }
+.urgente-nota { display: block; margin-top: 1.1rem; color: rgba(255,255,255,0.65); font-size: 0.85rem; line-height: 1.5; }
+.urgente-passos { list-style: none; counter-reset: passo; display: grid; gap: 1rem; }
+.urgente-passos li { counter-increment: passo; position: relative; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 1.1rem 1.25rem 1.1rem 4.25rem; color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.5; }
+.urgente-passos li::before { content: counter(passo); position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: var(--orange); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; }
+.urgente-passos strong { display: block; color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
 /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
+/* Menu: com o botão "Pedir agora" são 9 itens. Até 1180px o espaço entre eles diminui;
+   até 1024px (tablet deitado) entra o menu hambúrguer, senão o menu vaza pela direita. */
+@media (max-width: 1180px) {
+  .nav-links { gap: 1.15rem; }
+}
+@media (max-width: 1024px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
+}
+@media (max-width: 900px) {
+  .urgente-inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .sw { padding: 4rem 1.5rem; }
   .page-hero { padding: 5.5rem 1.5rem 2.75rem; min-height: 280px; }
@@ -186,6 +216,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 /* .article-body a (0,1,1) vence .btn-primary (0,1,0) por especificidade: sem esta
    linha o CTA dos artigos vira botão laranja com texto laranja — ilegível. */
 .article-body a.btn-primary, .article-body a.btn-primary i { color: #fff; }
+.article-body a.btn-urgente { color: var(--blue); font-weight: 700; }
+.article-body a.btn-urgente:hover { color: var(--white); }
 .highlight-box { background: rgba(0,31,107,0.05); border-left: 4px solid var(--orange); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; }
 .highlight-box p { margin: 0; color: var(--blue); font-weight: 600; }
 .price-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }

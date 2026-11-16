@@ -92,6 +92,10 @@ Canonical, sitemap, robots.txt, Open Graph completo, remoção do `aggregateRati
 8. **Fotos reais da galeria:** substituir pelas novas conforme a pauta fotográfica. Não usar imagem de IA para ilustrar serviço executado — o produto vendido é prova fotográfica.
 9. **DNS:** confirmar que `speedboy.com.br` sem `www` redireciona e que "Enforce HTTPS" está ativo.
 
+**Sistema de pedidos (Speed Despacho):**
+
+- **Ligar os botões de pedido no sistema (16/11):** os botões "Peça um motoboy agora" já estão no menu, na home, nas 5 páginas de cidade e no artigo de motoboy urgente, abrindo o WhatsApp. Quando o Speed Despacho estiver no ar, preencher `SISTEMA_URL` no topo de `assets/main.js` com o endereço dele: todos passam a abrir `/pedir/`. Nesse dia, criar no Google Ads uma ação de conversão para pedido online — o clique no sistema não conta mais como "Contato WhatsApp".
+
 **Futuro:**
 
 10. Migrar para gerador estático (Eleventy/Astro) — o site tem 18 páginas HTML com nav, rodapé e schema duplicados em cada uma. Já corrigi as divergências duas vezes; a terceira é questão de tempo.
