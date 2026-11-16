@@ -1,0 +1,8 @@
+# O GitHub Pages publica tudo o que está no repositório. Os arquivos abaixo são
+# internos (notas de trabalho, auditoria, scripts) e não devem aparecer em
+# www.speedboy.com.br. Sem esta lista, /AUDITORIA.html e /CLAUDE.html ficam públicos.
+exclude:
+  - CLAUDE.md
+  - AUDITORIA.md
+  - README.md
+  - scripts

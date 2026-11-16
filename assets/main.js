@@ -1,5 +1,12 @@
 // ── SPEEDBOY MOTOBOY — SHARED JS ──
 
+// ── SISTEMA DE PEDIDOS (Speed Despacho) ──
+// Endereço do sistema, com https:// e sem barra no fim. Ex.: 'https://despacho.speedboy.com.br'
+// Vazio = desligado: os botões "Peça um motoboy agora" abrem o WhatsApp e nada mais aparece.
+// Preenchido = os botões levam à página de pedido (/pedir/), o menu e o rodapé ganham
+// "Pedir agora" e "Acompanhar pedido", e a seção "Entrega urgente" da home aparece.
+const SISTEMA_PEDIDOS = '';
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 if (navbar) {
@@ -19,6 +26,12 @@ if (hamburger && mobileMenu) {
     hamburger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
   });
 }
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
+    closeMobile();
+    if (hamburger) hamburger.focus();
+  }
+});
 function closeMobile() {
   if (hamburger) {
     hamburger.classList.remove('active');
@@ -147,6 +160,77 @@ const origemAnuncio = (() => {
   } catch (e) { /* sem armazenamento: vale só nesta página */ }
   return origem;
 })();
+
+// ── BOTÕES DE PEDIDO ONLINE ──
+// Marcação nas páginas:
+//   data-pedido="local"   link que vira a página de pedido (o "local" vai junto, para medir de onde veio)
+//   data-acompanhar       link que vira a página de acompanhamento
+//   data-pedido-on        elemento que só aparece com o sistema ligado (vem com hidden no HTML)
+// Roda antes do bloco do WhatsApp para estes links não contarem como conversa de WhatsApp.
+const sistemaPedidos = (() => {
+  try {
+    const u = new URL(SISTEMA_PEDIDOS);
+    return u.protocol === 'https:' ? u.origin : null;
+  } catch (e) { return null; }
+})();
+if (sistemaPedidos) {
+  const urlPedido = (local) => {
+    const u = new URL('/pedir/', sistemaPedidos);
+    u.searchParams.set('origem', local || 'site');
+    if (origemAnuncio) u.searchParams.set('campanha', origemAnuncio);
+    return u.href;
+  };
+  const criarLink = (classe, icone, texto) => {
+    const a = document.createElement('a');
+    if (classe) a.className = classe;
+    const i = document.createElement('i');
+    i.className = icone;
+    i.setAttribute('aria-hidden', 'true');
+    a.append(i, ' ' + texto);
+    return a;
+  };
+
+  // Menu do topo, menu do celular e rodapé: criados aqui para não repetir em cada página
+  const navCta = document.querySelector('.nav-links .nav-cta');
+  if (navCta) {
+    const a = criarLink('nav-pedir', 'fas fa-bolt', 'Pedir agora');
+    a.dataset.pedido = 'menu';
+    navCta.before(a);
+  }
+  if (mobileMenu && mobileMenu.lastElementChild) {
+    const a = criarLink('menu-pedir', 'fas fa-bolt', 'Pedir motoboy agora');
+    a.dataset.pedido = 'menu-celular';
+    mobileMenu.lastElementChild.before(a);
+  }
+  const colunaRodape = document.querySelector('footer .footer-col');
+  if (colunaRodape) {
+    const pedir = criarLink('', 'fas fa-bolt', 'Pedir motoboy agora');
+    pedir.dataset.pedido = 'rodape';
+    const acompanhar = criarLink('', 'fas fa-location-dot', 'Acompanhar pedido');
+    acompanhar.dataset.acompanhar = '';
+    colunaRodape.append(pedir, acompanhar);
+  }
+
+  document.querySelectorAll('[data-pedido-on]').forEach((el) => { el.hidden = false; });
+  document.querySelectorAll('a[data-pedido]').forEach((link) => {
+    const local = link.dataset.pedido;
+    link.href = urlPedido(local);
+    link.removeAttribute('target');
+    link.addEventListener('click', () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'pedido_click', {
+          'event_category': 'engagement',
+          'event_label': local || window.location.pathname,
+          'origem_anuncio': origemAnuncio || 'organico'
+        });
+      }
+    });
+  });
+  document.querySelectorAll('a[data-acompanhar]').forEach((link) => {
+    link.href = new URL('/acompanhar/', sistemaPedidos).href;
+    link.removeAttribute('target');
+  });
+}
 
 // ── WHATSAPP CLICK TRACKING (Google Ads + GA4) ──
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {

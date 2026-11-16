@@ -74,6 +74,54 @@ Canonical, sitemap, robots.txt, Open Graph completo, remoção do `aggregateRati
 
 ---
 
+## ✅ Status (16/11/2026) — preparação para o pedido online, brechas e correções
+
+### Pedido online
+
+Botões "Peça um motoboy agora" prontos para o sistema Speed Despacho (`/pedir/`). Ligam com uma
+linha: `SISTEMA_PEDIDOS` em `assets/main.js`. Desligado, o botão da home abre o WhatsApp com
+mensagem de urgência. Detalhes em `CLAUDE.md`. Clique no botão gera o evento `pedido_click`
+(não conta como conversa de WhatsApp).
+
+### Brechas fechadas
+
+| Item | Situação |
+|------|----------|
+| `AUDITORIA.md`, `CLAUDE.md` e `scripts/` eram publicados no site (`/AUDITORIA.html`, `/CLAUDE.html`): saldo do Google Ads, pendências internas e nome de cliente à vista de qualquer um e do Google | ✅ `_config.yml` com `exclude`. Conferido com build do Jekyll: os 5 itens somem, o resto fica igual |
+| Fontes vinham do Google Fonts: cada visita mandava o IP do visitante ao Google e o texto dependia de um servidor de fora | ✅ Barlow hospedada em `assets/fonts/` (9 arquivos, 228 KB). Sobra só a etiqueta do Google Ads e o mapa como recurso externo |
+| Site sem política de privacidade, com etiqueta de anúncio ativa e pedido online a caminho | ✅ `politica-de-privacidade.html`, com link no rodapé de todas as páginas. **Leia antes de publicar** |
+
+O repositório continua público no GitHub (exigência do GitHub Pages gratuito): quem abrir o
+repositório ainda lê estes arquivos. Não escrever aqui senha, chave ou dado de cliente.
+
+### Erros corrigidos
+
+- Menu do topo quebrava em duas linhas entre 901 e ~1000 px de largura (tablet deitado, notebook
+  pequeno). O menu de celular agora entra abaixo de 1100 px.
+- Rodapé das 5 páginas B2B estourava a largura da tela em celular de 320 px (rolagem lateral).
+- Título das páginas internas podia vazar da tela em celular estreito.
+- Sem JavaScript, todo bloco com animação de entrada (`.reveal`) ficava invisível.
+- Animações (zoom do topo, pulso do WhatsApp) ignoravam a opção "reduzir movimento" do aparelho.
+- Menu do celular deixava o título da página aparecer por trás; agora é opaco e fecha com Esc.
+- Negrito do texto era simulado pelo navegador (a fonte 700 não era carregada); agora é o real.
+
+### Conferido e sem problema
+
+Links internos e âncoras (nenhum quebrado), `rel="noopener noreferrer"` em todo `target="_blank"`,
+JSON-LD válido em todas as páginas, sem `aggregateRating`, telefone e `wa.me` idênticos, sitemap
+batendo com os arquivos, sem recurso `http://`, sem erro de JavaScript em nenhuma página.
+
+### Ficou de fora, de propósito
+
+- **Cabeçalhos de segurança (CSP, X-Frame-Options):** o GitHub Pages não deixa configurar. Para ter,
+  é preciso pôr o Cloudflare na frente do domínio. Risco hoje é baixo: o site não tem formulário,
+  login nem cookie próprio.
+- **Banner de consentimento (item 11):** muda a medição do Google Ads; decisão sua.
+- **Títulos do blog acima de 65 caracteres (11 artigos):** o Google corta no resultado, mas mexer
+  em título de artigo indexado pode custar posição. Não alterado.
+
+---
+
 ## ⏳ Pendências que exigem ação sua
 
 **Fora do site (mais urgente que qualquer código):**
@@ -87,7 +135,11 @@ Canonical, sitemap, robots.txt, Open Graph completo, remoção do `aggregateRati
 
 **No site:**
 
-6. **Imagens do Imgur:** rodar `bash scripts/migrar-imagens.sh` numa máquina com internet livre (este ambiente não alcança o Imgur) e commitar. Os nomes de arquivo já saem descritivos (`motoboy-vila-velha-es.jpg` etc.).
+0. **Ligar o pedido online:** quando o sistema estiver no ar com Pix, preencher `SISTEMA_PEDIDOS` em
+   `assets/main.js` com o endereço dele. No Google Ads, criar a ação de conversão do pedido online
+   (hoje só existe a de WhatsApp) e reenviar o sitemap (entrou a política de privacidade).
+
+6. **Imagens do Imgur:** *(16/11: nenhuma página aponta mais para o Imgur — resolvido.)* Texto antigo: rodar `bash scripts/migrar-imagens.sh` numa máquina com internet livre (este ambiente não alcança o Imgur) e commitar. Os nomes de arquivo já saem descritivos (`motoboy-vila-velha-es.jpg` etc.).
 7. **GA4:** criar propriedade e adicionar `gtag('config','G-XXXXXXX');` — hoje não existe analytics nenhum.
 8. **Fotos reais da galeria:** substituir pelas novas conforme a pauta fotográfica. Não usar imagem de IA para ilustrar serviço executado — o produto vendido é prova fotográfica.
 9. **DNS:** confirmar que `speedboy.com.br` sem `www` redireciona e que "Enforce HTTPS" está ativo.

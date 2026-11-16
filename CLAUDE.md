@@ -60,10 +60,29 @@ sendo cidade atendida — não apagar conteúdo sobre Serra, só não tratar com
 - `empresas.html` — planos mensais
 - `cidades/` — 5 páginas, conteúdo único por cidade (evita doorway page)
 - `blog/` — 6 artigos
-- `assets/` — style.css, b2b.css, main.js, vendor/fontawesome (self-hosted)
+- `politica-de-privacidade.html` — ligada no rodapé de todas as páginas
+- `assets/` — style.css, b2b.css, main.js, fonts (Barlow, self-hosted), vendor/fontawesome (self-hosted)
+- `_config.yml` — lista o que **não** vai para o ar (este arquivo, `AUDITORIA.md`, `scripts/`).
+  Arquivo interno novo na raiz precisa entrar nessa lista.
 - `scripts/migrar-imagens.sh` — tira as imagens do Imgur (rodar em máquina com internet livre)
+
+## Pedido online (Speed Despacho)
+
+O sistema de pedidos fica em outro repositório (`SpeedBoyMotoboy/Speed`) e em outro endereço.
+O site só aponta para ele. **Um único ponto de configuração:** `SISTEMA_PEDIDOS` no topo de
+`assets/main.js` (ex.: `'https://despacho.speedboy.com.br'`).
+
+- **Vazio (desligado):** o botão "Peça um motoboy agora" da home abre o WhatsApp com mensagem de
+  urgência. Nada mais aparece.
+- **Preenchido (ligado):** os botões levam a `/pedir/` do sistema; `main.js` cria "Pedir agora" no menu,
+  no menu do celular e no rodapé, mais "Acompanhar pedido" (`/acompanhar/`); a seção "Entrega urgente"
+  da home e os botões extras das páginas de cidade e dos artigos de preço/urgência aparecem.
+
+Marcação: `data-pedido="local"` (link de pedido; o local vai em `?origem=`), `data-acompanhar`,
+`data-pedido-on` + `hidden` (só aparece ligado). Só ligar depois que o Pix estiver funcionando no
+sistema: o passo 3 da seção da home promete pagamento por Pix.
 
 ## Pendências conhecidas
 
-Ver `AUDITORIA.md`. Resumo: Google Ads com saldo esgotado, imagens ainda no Imgur,
-sem GA4, sitemap a reenviar no Search Console.
+Ver `AUDITORIA.md`. Resumo: Google Ads com saldo esgotado, sem GA4, sitemap a reenviar
+no Search Console, pedido online a ligar (`SISTEMA_PEDIDOS`).

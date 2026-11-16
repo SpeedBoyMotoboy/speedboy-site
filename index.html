@@ -17,9 +17,8 @@
   <meta property="og:site_name" content="SpeedBoy Motoboy">
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="/assets/img/speedboy-logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/barlow-condensed-latin-900-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/barlow-latin-400-normal.woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/img/hero-motoboy-speedboy.webp" fetchpriority="high">
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
@@ -291,6 +290,7 @@
     <p class="hero-sub">Sede no <strong style="color:#fff">Centro de Vila Velha</strong>. Entregas expressas, documentos, cartório, diligências e coleta em galpões — em Vila Velha, Vitória, Serra, Cariacica e Viana.</p>
     <div class="hero-actions">
       <a href="https://wa.me/5527999165959?text=Olá%20Luan,%20gostaria%20de%20fazer%20um%20orçamento." class="btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+      <a href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan%2C%20preciso%20de%20um%20motoboy%20agora%20(entrega%20urgente)." class="btn-urgente" data-pedido="home-topo" target="_blank" rel="noopener noreferrer"><i class="fas fa-bolt" aria-hidden="true"></i> Peça um motoboy agora</a>
       <a href="#servicos" class="btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff"><i class="fas fa-list"></i> Ver Serviços</a>
     </div>
   </div>
@@ -299,6 +299,25 @@
     <div class="stat-item"><span class="stat-num">34</span><span class="stat-label">Avaliações 5★</span></div>
     <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Cidades atendidas</span></div>
     <div class="stat-item"><span class="stat-num"><i class="fas fa-map-marker-alt"></i></span><span class="stat-label">Centro de Vila Velha</span></div>
+  </div>
+</section>
+
+<!-- ENTREGA URGENTE — só aparece com o sistema de pedidos ligado (SISTEMA_PEDIDOS em /assets/main.js) -->
+<section class="urgente" id="pedir-agora" data-pedido-on hidden>
+  <div class="urgente-inner">
+    <span class="section-label">Entrega urgente</span>
+    <h2 class="section-title white">Peça um motoboy <span>agora</span></h2>
+    <p class="section-sub">Para quando não dá para esperar o orçamento. Você informa a coleta e a entrega, vê o valor na hora e acompanha o motoboy até o destino.</p>
+    <ol class="urgente-passos">
+      <li><h3>Informe coleta e entrega</h3><p>Os dois endereços e o que precisa ser feito: entregar um documento, protocolar no cartório, buscar uma encomenda.</p></li>
+      <li><h3>Veja o valor antes de confirmar</h3><p>O preço considera a distância e o tipo de serviço. Aparece na tela antes de você fechar o pedido.</p></li>
+      <li><h3>Pague por Pix e acompanhe</h3><p>Com o pagamento confirmado, o pedido vai para o motoboy disponível mais próximo. Você acompanha cada etapa pelo link.</p></li>
+    </ol>
+    <div class="urgente-acoes">
+      <a href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan%2C%20preciso%20de%20um%20motoboy%20agora%20(entrega%20urgente)." class="btn-primary" data-pedido="home-urgente" target="_blank" rel="noopener noreferrer"><i class="fas fa-bolt" aria-hidden="true"></i> Peça um motoboy agora</a>
+      <a href="/#contato" class="btn-outline" data-acompanhar><i class="fas fa-location-dot" aria-hidden="true"></i> Acompanhar um pedido</a>
+    </div>
+    <p class="urgente-nota">Coletas de segunda a sexta, até 18h, em Vila Velha, Vitória, Serra, Cariacica e Viana.</p>
   </div>
 </section>
 
@@ -634,6 +653,7 @@
   </div>
   <div class="footer-bottom">
     <small>SpeedBoy Motoboy © 2026 — Vila Velha e Grande Vitória</small>
+    <a href="/politica-de-privacidade.html" class="footer-legal">Política de privacidade</a>
     <span class="cnpj">CNPJ: 46.178.859/0001-96</span>
   </div>
 </footer>
