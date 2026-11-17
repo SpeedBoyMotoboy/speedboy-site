@@ -20,7 +20,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/assets/style.css?v=pedir1">
+  <link rel="stylesheet" href="/assets/style.css?v=pedir2">
 </head>
 <body>
 <nav id="navbar">
@@ -51,7 +51,7 @@
 <div class="page-hero">
   <div class="page-hero-inner">
     <h1>Pedir <span>motoboy</span></h1>
-    <p>Diga onde coletar, onde entregar e o que levar. A gente confere e confirma o valor com você pelo WhatsApp antes de sair.</p>
+    <p>Preencha o pedido e envie pelo WhatsApp. Passamos o valor ali mesmo e, com o seu ok, o motoboy mais perto sai.</p>
   </div>
 </div>
 
@@ -66,11 +66,23 @@
         <option value="">Carregando…</option>
       </select>
 
-      <label for="coleta">Onde coletamos?</label>
-      <input id="coleta" name="coleta" required maxlength="200" autocomplete="off" placeholder="Rua, número, bairro e cidade">
+      <label class="pedido-check"><input type="checkbox" id="um-local"> Só tenho um endereço (o serviço é num local só)</label>
 
-      <label for="entrega">Onde entregamos?</label>
-      <input id="entrega" name="entrega" required maxlength="200" autocomplete="off" placeholder="Rua, número, bairro e cidade">
+      <div id="bloco-coleta">
+        <label for="coleta">Onde coletamos?</label>
+        <div class="pedido-endereco">
+          <input id="coleta" name="coleta" required maxlength="200" autocomplete="off" placeholder="Comece a digitar: rua, número, bairro">
+          <ul class="pedido-sugestoes" id="sug-coleta" hidden></ul>
+        </div>
+        <input id="coleta-compl" name="coleta-compl" maxlength="80" placeholder="Complemento: apto, bloco, sala, referência (opcional)">
+      </div>
+
+      <label for="entrega" id="rotulo-entrega">Onde entregamos?</label>
+      <div class="pedido-endereco">
+        <input id="entrega" name="entrega" required maxlength="200" autocomplete="off" placeholder="Comece a digitar: rua, número, bairro">
+        <ul class="pedido-sugestoes" id="sug-entrega" hidden></ul>
+      </div>
+      <input id="entrega-compl" name="entrega-compl" maxlength="80" placeholder="Complemento: apto, bloco, sala, referência (opcional)">
 
       <label for="detalhes">Detalhes da demanda</label>
       <textarea id="detalhes" name="detalhes" required maxlength="500" rows="4" placeholder="O que vamos levar, com quem falar, horário, se precisa esperar ou voltar"></textarea>
@@ -92,18 +104,21 @@
       <label for="telefone">Seu WhatsApp (com DDD)</label>
       <input id="telefone" name="telefone" type="tel" inputmode="tel" required autocomplete="tel-national" placeholder="(27) 99999-0000">
 
+      <label for="cnpj">CNPJ <span class="opcional">(se precisar de nota fiscal)</span></label>
+      <input id="cnpj" name="cnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00">
+
       <input class="pedido-isca" style="position:absolute;left:-9999px" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="pedido-erro" id="erro" role="alert"></div>
-      <button type="submit" class="btn-primary pedido-enviar" id="enviar"><i class="fas fa-paper-plane"></i> Enviar pedido</button>
-      <small class="pedido-dica">Coletas de segunda a sexta, até 18h — Vila Velha, Vitória, Serra, Cariacica e Viana. O pedido só sai depois que confirmarmos o valor com você.</small>
+      <button type="submit" class="btn-primary pedido-enviar" id="enviar"><i class="fab fa-whatsapp"></i> Enviar pedido pelo WhatsApp</button>
+      <small class="pedido-dica">Coletas de segunda a sexta, até 18h — Vila Velha, Vitória, Serra, Cariacica e Viana. Ao enviar, abrimos o WhatsApp da SpeedBoy com o seu pedido pronto: é só mandar a mensagem e passamos o valor ali. O motoboy só sai depois da sua confirmação.</small>
     </form>
 
     <div id="pronto" class="pedido-pronto" hidden>
       <i class="fas fa-check-circle"></i>
-      <h2>Pedido recebido!</h2>
+      <h2>Falta só um passo!</h2>
       <p id="pronto-texto"></p>
-      <a class="btn-primary" href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+      <a class="btn-primary" id="pronto-whats" href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Enviar pedido no WhatsApp</a>
     </div>
   </div>
 </div>
@@ -136,7 +151,7 @@
   </div>
 </footer>
 
-<script src="/assets/main.js?v=pedir1"></script>
-<script src="/assets/pedir.js?v=1"></script>
+<script src="/assets/main.js?v=pedir2"></script>
+<script src="/assets/pedir.js?v=2"></script>
 </body>
 </html>

@@ -76,7 +76,12 @@ Sistema separado, no repositório `SpeedBoyMotoboy/Speed`. Páginas públicas de
 - **Pedido mora no site:** `/pedir/` (`pedir/index.html` + `assets/pedir.js`) é formulário próprio que
   chama a API pública do sistema (`/api/publico/info` e `/api/publico/pedidos`; o sistema libera CORS para
   speedboy.com.br). `PAGINAS_SITE` em `main.js` faz os botões `data-sistema="pedir"` abrirem essa página.
-  Pedido entra retido; a equipe confirma valor pelo WhatsApp. Tipo "Outros" exige descrição maior.
+  Pedido entra retido e o cliente é levado ao WhatsApp da empresa (`WHATS_PEDIDOS`) com o pedido escrito
+  ("Fiz o pedido #N pelo site"); o valor é passado ali. Cliente aceitou → n8n fecha o pedido no sistema
+  (`/api/entrada/demandas/:id/fechar`) e ele vai para o motoboy. Tipo "Outros" exige descrição maior.
+  Opções: "só um endereço" (coleta = entrega), complemento, CNPJ para NF (validado).
+- `GOOGLE_MAPS_CHAVE` em `main.js`: chave de navegador (Maps JavaScript API + Places API New), restrita a
+  speedboy.com.br. Preenchida, o endereço só vale se escolhido da lista do Google e com número.
 - Texto perto do botão tem que ser verdade nos dois modos. Não prometer prazo ("30 minutos")
   nem Pix antes de estar funcionando no sistema.
 - O menu passa a hambúrguer até 1024px (9 itens não cabem abaixo disso).

@@ -5,6 +5,12 @@
 // Ex.: 'https://despacho.speedboy.com.br'
 // Vazio = sistema desligado: os botões [data-sistema] seguem abrindo o WhatsApp.
 const SISTEMA_URL = 'https://despacho.srv2150999.hstgr.cloud';
+// Chave do Google Maps (navegador) para sugerir e validar endereço no /pedir/.
+// Restrita no Google Cloud a https://www.speedboy.com.br/* — Maps JavaScript API + Places API (New).
+// Vazio = formulário aceita endereço digitado (o sistema localiza no mapa depois).
+const GOOGLE_MAPS_CHAVE = '';
+// WhatsApp que recebe o pedido do site (mensagem pronta).
+const WHATS_PEDIDOS = '5527999165959';
 // Página do sistema que cada botão abre. No HTML: <a data-sistema="pedir" href="(link do WhatsApp)">
 const SISTEMA_ROTAS = {
   pedir: '/pedir/'

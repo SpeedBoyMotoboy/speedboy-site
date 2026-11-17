@@ -266,3 +266,13 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .pedido-pronto > i { font-size: 3.5rem; color: #2e7d32; }
 .pedido-pronto h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2rem; color: var(--blue); text-transform: uppercase; margin: 0.75rem 0; }
 .pedido-pronto p { color: var(--dark); line-height: 1.6; margin-bottom: 1.5rem; }
+.pedido-check { display: flex; align-items: center; gap: 0.5rem; font-weight: 500 !important; cursor: pointer; }
+.pedido-check input { width: auto !important; }
+.pedido-endereco { position: relative; }
+.pedido-form input + input, .pedido-endereco + input { margin-top: 0.4rem; }
+.pedido-sugestoes { position: absolute; z-index: 20; left: 0; right: 0; top: 100%; margin: 2px 0 0; padding: 0; list-style: none; background: var(--white); border: 1.5px solid #cfd6e4; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); max-height: 260px; overflow-y: auto; }
+.pedido-sugestoes li { padding: 0.7rem 0.9rem; cursor: pointer; font-size: 0.95rem; border-bottom: 1px solid #eef1f6; }
+.pedido-sugestoes li:last-child { border-bottom: 0; }
+.pedido-sugestoes li:hover, .pedido-sugestoes li.ativo { background: #f1f5ff; }
+.pedido-sugestoes .rodape-google { font-size: 0.7rem; color: var(--gray); text-align: right; cursor: default; background: none; }
+.pedido-form input.endereco-ok { border-color: #2e7d32; }
