@@ -4,7 +4,7 @@
 // Endereço do sistema, com https:// e sem barra no fim.
 // Ex.: 'https://despacho.speedboy.com.br'
 // Vazio = sistema desligado: os botões [data-sistema] seguem abrindo o WhatsApp.
-const SISTEMA_URL = '';
+const SISTEMA_URL = 'https://despacho.srv2150999.hstgr.cloud';
 // Página do sistema que cada botão abre. No HTML: <a data-sistema="pedir" href="(link do WhatsApp)">
 const SISTEMA_ROTAS = {
   pedir: '/pedir/'
