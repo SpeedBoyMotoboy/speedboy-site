@@ -45,8 +45,8 @@ sendo cidade atendida — não apagar conteúdo sobre Serra, só não tratar com
 - **Não usar `aggregateRating` no schema.** Review self-serving viola diretriz do Google
   e pode gerar ação manual. Nota vem do perfil do Google Business.
 - **Não apagar nem redirecionar os artigos antigos do blog.** Têm histórico de indexação.
-- **Não usar imagem de IA para ilustrar serviço executado.** O produto vendido é prova
-  fotográfica; ilustrar com imagem sintética contradiz a proposta. IA só para fundo e ícone.
+- **Imagem de IA liberada pelo dono (17/11/2026)** para capas, fundos e blog. A **galeria de fotos**
+  continua só com fotos reais de serviço feito. Prompts em `Imagens do site — prompts Nano Banana` (doc).
 - **Estilo compartilhado vai em `assets/style.css`**, não no `<style>` de uma página só.
   Já houve bug de página interna sem container por causa disso.
 - Links internos absolutos (`/blog/`, `/empresas.html`), nunca relativos.
