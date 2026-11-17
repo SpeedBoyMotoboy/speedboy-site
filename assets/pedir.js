@@ -222,13 +222,19 @@
       const e = escolhido[campo];
       const compl = $(campo + '-compl').value.trim();
       const base = e ? e.endereco : $(campo).value.trim();
-      return { endereco: compl ? `${base} — ${compl}` : base, lat: e ? e.lat : null, lon: e ? e.lon : null };
+      // Sem coordenada do Google, o sistema procura o endereço no mapa: complemento atrapalha a busca
+      // e vai na descrição. Com coordenada, vai junto do endereço.
+      if (e) return { endereco: compl ? `${base} — ${compl}` : base, lat: e.lat, lon: e.lon, compl: '' };
+      return { endereco: base, lat: null, lon: null, compl };
     };
     const entrega = { ...ponto('entrega'), contato: $('recebe').value.trim() };
-    const coleta = so ? { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon } : ponto('coleta');
+    const coleta = so ? { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon, compl: '' } : ponto('coleta');
+    const comCompl = (p) => (p.compl ? `${p.endereco} — ${p.compl}` : p.endereco);
     const nomeServico = servico.value ? servico.selectedOptions[0].textContent.trim() : '';
     const tamanho = $('requisito').selectedOptions[0].textContent;
-    const desc = [(ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(), cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Um endereço só' : '']
+    const desc = [(ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
+      !so && coleta.compl ? `Compl. coleta: ${coleta.compl}` : '', entrega.compl ? `Compl. entrega: ${entrega.compl}` : '',
+      cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Um endereço só' : '']
       .filter(Boolean).join(' | ');
     const corpo = {
       nome: $('nome').value.trim(),
@@ -237,7 +243,8 @@
       requisito: $('requisito').value,
       servico_id: servico.value ? Number(servico.value) : undefined,
       site: form.querySelector('[name="site"]').value,
-      coleta, entrega,
+      coleta: { endereco: coleta.endereco, lat: coleta.lat, lon: coleta.lon },
+      entrega: { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon, contato: entrega.contato },
     };
     enviar.disabled = true;
     try {
@@ -257,7 +264,7 @@
       const msg = [
         `Olá! Fiz o pedido #${r.id} pelo site 🛵`,
         nomeServico && `*Serviço:* ${nomeServico}`,
-        so ? `*Endereço:* ${entrega.endereco}` : `*Coleta:* ${coleta.endereco}\n*Entrega:* ${entrega.endereco}`,
+        so ? `*Endereço:* ${comCompl(entrega)}` : `*Coleta:* ${comCompl(coleta)}\n*Entrega:* ${comCompl(entrega)}`,
         `*Detalhes:* ${detalhes.value.trim()}`,
         `*Tamanho:* ${tamanho}`,
         entrega.contato && `*Quem recebe:* ${entrega.contato}`,
