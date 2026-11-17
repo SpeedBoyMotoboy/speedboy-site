@@ -245,3 +245,24 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .blog-cidades a { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--light-gray); border-radius: 20px; padding: 0.4rem 0.9rem; font-size: 0.85rem; font-weight: 600; color: var(--blue); text-decoration: none; transition: all 0.2s; }
 .blog-cidades a:hover { background: rgba(255,84,0,0.1); color: var(--orange); }
 @media(max-width:600px) { .related-grid { grid-template-columns: 1fr; } .article-body { padding: 2.5rem 1.2rem; } }
+
+/* ── PEDIDO PELO SITE (/pedir/) ── */
+.pedido-wrap { max-width: 640px; }
+.pedido-form { display: flex; flex-direction: column; gap: 0.35rem; }
+.pedido-titulo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--blue); text-transform: uppercase; margin: 1.5rem 0 0.25rem; }
+.pedido-titulo:first-of-type { margin-top: 0; }
+.pedido-form label { font-weight: 600; color: var(--dark); margin-top: 0.75rem; }
+.pedido-form .opcional { font-weight: 400; color: var(--gray); }
+.pedido-form input, .pedido-form select, .pedido-form textarea { width: 100%; padding: 0.8rem 0.9rem; border: 1.5px solid #cfd6e4; border-radius: 6px; font: inherit; font-size: 1rem; background: var(--white); color: var(--dark); }
+.pedido-form input:focus, .pedido-form select:focus, .pedido-form textarea:focus { outline: none; border-color: var(--blue-mid); box-shadow: 0 0 0 3px rgba(0,47,167,0.15); }
+.pedido-form textarea { resize: vertical; min-height: 6rem; }
+.pedido-dica { color: var(--gray); font-size: 0.85rem; line-height: 1.5; }
+.pedido-isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.pedido-erro { color: #c62828; font-weight: 600; min-height: 1.2rem; margin-top: 0.75rem; }
+.pedido-enviar { justify-content: center; border: 0; cursor: pointer; margin: 0.5rem 0 0.75rem; }
+.pedido-enviar:disabled { opacity: 0.6; cursor: wait; }
+.pedido-aviso { background: #fff4ec; border-left: 4px solid var(--orange); padding: 1rem; border-radius: 6px; }
+.pedido-pronto { text-align: center; padding: 2rem 1rem; }
+.pedido-pronto > i { font-size: 3.5rem; color: #2e7d32; }
+.pedido-pronto h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2rem; color: var(--blue); text-transform: uppercase; margin: 0.75rem 0; }
+.pedido-pronto p { color: var(--dark); line-height: 1.6; margin-bottom: 1.5rem; }

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedir motoboy agora | SpeedBoy Motoboy — Grande Vitória</title>
+  <meta name="description" content="Peça um motoboy em Vila Velha, Vitória, Serra, Cariacica e Viana. Informe coleta, entrega e o que levar; conferimos e confirmamos o valor com você pelo WhatsApp.">
+  <link rel="canonical" href="https://www.speedboy.com.br/pedir/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pedir motoboy agora | SpeedBoy Motoboy">
+  <meta property="og:description" content="Informe coleta, entrega e o que levar. Conferimos e confirmamos o valor com você pelo WhatsApp.">
+  <meta property="og:image" content="https://www.speedboy.com.br/assets/img/og-speedboy.jpg">
+  <meta property="og:url" content="https://www.speedboy.com.br/pedir/">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="SpeedBoy Motoboy">
+  <link rel="icon" type="image/png" href="/assets/img/speedboy-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<nav id="navbar">
+  <a href="/" class="nav-logo">SPEED<span>BOY</span></a>
+  <div class="nav-links">
+    <a href="/">Início</a>
+    <a href="/#servicos">Serviços</a>
+    <a href="/servicos-empresariais.html">Empresarial</a>
+    <a href="/empresas.html">Planos</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#contato">Contato</a>
+    <a href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan%2C%20preciso%20de%20um%20motoboy%20agora." class="nav-pedir" data-sistema="pedir" target="_blank" rel="noopener noreferrer"><i class="fas fa-bolt"></i> Pedir agora</a>
+    <a href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan%2C%20quero%20falar%20sobre%20servi%C3%A7os%20empresariais%20da%20SpeedBoy." class="nav-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Orçamento</a>
+  </div>
+  <button type="button" class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" onclick="closeMobile()">Início</a>
+  <a href="/#servicos" onclick="closeMobile()">Serviços</a>
+  <a href="/servicos-empresariais.html" onclick="closeMobile()">Empresarial</a>
+  <a href="/empresas.html" onclick="closeMobile()">Planos</a>
+  <a href="/blog/" onclick="closeMobile()">Blog</a>
+  <a href="/#contato" onclick="closeMobile()">Contato</a>
+  <a href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan%2C%20preciso%20de%20um%20motoboy%20agora." class="menu-pedir" data-sistema="pedir" target="_blank" rel="noopener noreferrer"><i class="fas fa-bolt"></i> Pedir motoboy agora</a>
+  <a href="https://wa.me/5527999165959?text=Ol%C3%A1%20Luan%2C%20quero%20falar%20sobre%20servi%C3%A7os%20empresariais%20da%20SpeedBoy." target="_blank" rel="noopener noreferrer" style="color:#25D366"><i class="fab fa-whatsapp"></i> Orçamento</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Pedir <span>motoboy</span></h1>
+    <p>Diga onde coletar, onde entregar e o que levar. A gente confere e confirma o valor com você pelo WhatsApp antes de sair.</p>
+  </div>
+</div>
+
+<div class="sw sw-white">
+  <div class="sw-inner pedido-wrap">
+    <form id="pedido" class="pedido-form" novalidate>
+      <noscript><p class="pedido-aviso">Para pedir pelo site, ative o JavaScript. Ou chame no <a href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer">WhatsApp (27) 99916-5959</a>.</p></noscript>
+
+      <h2 class="pedido-titulo">1. O serviço</h2>
+      <label for="servico">O que você precisa?</label>
+      <select id="servico" name="servico" required>
+        <option value="">Carregando…</option>
+      </select>
+
+      <label for="coleta">Onde coletamos?</label>
+      <input id="coleta" name="coleta" required maxlength="200" autocomplete="off" placeholder="Rua, número, bairro e cidade">
+
+      <label for="entrega">Onde entregamos?</label>
+      <input id="entrega" name="entrega" required maxlength="200" autocomplete="off" placeholder="Rua, número, bairro e cidade">
+
+      <label for="detalhes">Detalhes da demanda</label>
+      <textarea id="detalhes" name="detalhes" required maxlength="500" rows="4" placeholder="O que vamos levar, com quem falar, horário, se precisa esperar ou voltar"></textarea>
+      <small class="pedido-dica" id="dica-detalhes">Quanto mais detalhe, mais rápido confirmamos.</small>
+
+      <label for="requisito">Tamanho</label>
+      <select id="requisito" name="requisito">
+        <option value="qualquer">Cabe na mochila</option>
+        <option value="bau">Volume maior (precisa de baú)</option>
+      </select>
+
+      <label for="recebe">Quem recebe na entrega? <span class="opcional">(opcional)</span></label>
+      <input id="recebe" name="recebe" maxlength="120" placeholder="Nome e telefone de quem recebe">
+
+      <h2 class="pedido-titulo">2. Seus dados</h2>
+      <label for="nome">Seu nome</label>
+      <input id="nome" name="nome" required maxlength="80" autocomplete="name">
+
+      <label for="telefone">Seu WhatsApp (com DDD)</label>
+      <input id="telefone" name="telefone" type="tel" inputmode="tel" required autocomplete="tel-national" placeholder="(27) 99999-0000">
+
+      <input class="pedido-isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="pedido-erro" id="erro" role="alert"></div>
+      <button type="submit" class="btn-primary pedido-enviar" id="enviar"><i class="fas fa-paper-plane"></i> Enviar pedido</button>
+      <small class="pedido-dica">Coletas de segunda a sexta, até 18h — Vila Velha, Vitória, Serra, Cariacica e Viana. O pedido só sai depois que confirmarmos o valor com você.</small>
+    </form>
+
+    <div id="pronto" class="pedido-pronto" hidden>
+      <i class="fas fa-check-circle"></i>
+      <h2>Pedido recebido!</h2>
+      <p id="pronto-texto"></p>
+      <a class="btn-primary" href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="font-size:1.6rem">SPEED<span>BOY</span></a>
+      <p>Diligências, vistorias e logística qualificada na Grande Vitória. Sede no Centro de Vila Velha.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços empresariais</h4>
+      <a href="/servicos-empresariais.html">Visão geral</a>
+      <a href="/correspondente-juridico.html">Correspondente jurídico</a>
+      <a href="/vistoria-e-sinistro.html">Vistoria e sinistro</a>
+      <a href="/agente-de-campo.html">Agente de campo</a>
+      <a href="/coleta-qualificada.html">Coleta qualificada</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +55 27 99916-5959</a>
+      <a href="mailto:speedboymotoboy@gmail.com"><i class="fas fa-envelope"></i> speedboymotoboy@gmail.com</a>
+      <address class="footer-address"><i class="fas fa-map-marker-alt"></i> R. Henrique Laranja, 325 — Centro<br>Vila Velha/ES · CEP 29106-690</address>
+      <span class="footer-hours"><i class="fas fa-clock"></i> Seg a sex, 7h–22h · coletas até 18h</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>SpeedBoy Motoboy © 2026 — Vila Velha e Grande Vitória</small>
+    <span class="cnpj">CNPJ: 46.178.859/0001-96</span>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/pedir.js"></script>
+</body>
+</html>

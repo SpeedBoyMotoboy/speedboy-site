@@ -9,6 +9,10 @@ const SISTEMA_URL = 'https://despacho.srv2150999.hstgr.cloud';
 const SISTEMA_ROTAS = {
   pedir: '/pedir/'
 };
+// Páginas que moram no próprio site e conversam com o sistema por trás (têm prioridade sobre SISTEMA_ROTAS).
+const PAGINAS_SITE = {
+  pedir: '/pedir/'
+};
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
@@ -163,10 +167,12 @@ const origemAnuncio = (() => {
 // do sistema. Roda antes do bloco do WhatsApp para o clique não contar como conversa.
 if (SISTEMA_URL) {
   document.querySelectorAll('a[data-sistema]').forEach(link => {
-    const rota = SISTEMA_ROTAS[link.dataset.sistema];
+    const nome = link.dataset.sistema;
+    const noSite = PAGINAS_SITE[nome];
+    const rota = noSite || SISTEMA_ROTAS[nome];
     if (!rota) return; // rota não cadastrada: o botão continua no WhatsApp
     try {
-      const url = new URL(rota, SISTEMA_URL);
+      const url = new URL(rota, noSite ? location.origin : SISTEMA_URL);
       // leva a campanha do anúncio junto, como já acontece na mensagem do WhatsApp
       if (origemAnuncio) url.searchParams.set('origem', origemAnuncio);
       link.href = url.href;

@@ -73,6 +73,10 @@ Sistema separado, no repositório `SpeedBoyMotoboy/Speed`. Páginas públicas de
 - Botão que chama o sistema: `<a data-sistema="pedir" href="(link do WhatsApp)">`. O `href`
   do WhatsApp é o reserva; o JS troca pelo sistema quando `SISTEMA_URL` está preenchido.
 - Página nova do sistema: incluir em `SISTEMA_ROTAS` e usar `data-sistema="nome"`.
+- **Pedido mora no site:** `/pedir/` (`pedir/index.html` + `assets/pedir.js`) é formulário próprio que
+  chama a API pública do sistema (`/api/publico/info` e `/api/publico/pedidos`; o sistema libera CORS para
+  speedboy.com.br). `PAGINAS_SITE` em `main.js` faz os botões `data-sistema="pedir"` abrirem essa página.
+  Pedido entra retido; a equipe confirma valor pelo WhatsApp. Tipo "Outros" exige descrição maior.
 - Texto perto do botão tem que ser verdade nos dois modos. Não prometer prazo ("30 minutos")
   nem Pix antes de estar funcionando no sistema.
 - O menu passa a hambúrguer até 1024px (9 itens não cabem abaixo disso).
