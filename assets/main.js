@@ -1,5 +1,15 @@
 // ── SPEEDBOY MOTOBOY — SHARED JS ──
 
+// ── SISTEMA DE PEDIDOS (Speed Despacho) ──
+// Endereço do sistema, com https:// e sem barra no fim.
+// Ex.: 'https://despacho.speedboy.com.br'
+// Vazio = sistema desligado: os botões [data-sistema] seguem abrindo o WhatsApp.
+const SISTEMA_URL = '';
+// Página do sistema que cada botão abre. No HTML: <a data-sistema="pedir" href="(link do WhatsApp)">
+const SISTEMA_ROTAS = {
+  pedir: '/pedir/'
+};
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 if (navbar) {
@@ -147,6 +157,32 @@ const origemAnuncio = (() => {
   } catch (e) { /* sem armazenamento: vale só nesta página */ }
   return origem;
 })();
+
+// ── BOTÕES DO SISTEMA DE PEDIDOS ──
+// Com SISTEMA_URL preenchido, cada <a data-sistema="rota"> troca o WhatsApp pela página
+// do sistema. Roda antes do bloco do WhatsApp para o clique não contar como conversa.
+if (SISTEMA_URL) {
+  document.querySelectorAll('a[data-sistema]').forEach(link => {
+    const rota = SISTEMA_ROTAS[link.dataset.sistema];
+    if (!rota) return; // rota não cadastrada: o botão continua no WhatsApp
+    try {
+      const url = new URL(rota, SISTEMA_URL);
+      // leva a campanha do anúncio junto, como já acontece na mensagem do WhatsApp
+      if (origemAnuncio) url.searchParams.set('origem', origemAnuncio);
+      link.href = url.href;
+    } catch (e) { return; } // endereço mal escrito: o botão continua no WhatsApp
+    link.removeAttribute('target'); // o pedido abre na mesma aba
+    link.addEventListener('click', () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'pedido_online_click', {
+          'event_category': 'engagement',
+          'event_label': window.location.pathname,
+          'origem_anuncio': origemAnuncio || 'organico'
+        });
+      }
+    });
+  });
+}
 
 // ── WHATSAPP CLICK TRACKING (Google Ads + GA4) ──
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {

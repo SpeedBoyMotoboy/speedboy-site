@@ -63,6 +63,20 @@ sendo cidade atendida — não apagar conteúdo sobre Serra, só não tratar com
 - `assets/` — style.css, b2b.css, main.js, vendor/fontawesome (self-hosted)
 - `scripts/migrar-imagens.sh` — tira as imagens do Imgur (rodar em máquina com internet livre)
 
+## Sistema de pedidos (Speed Despacho)
+
+Sistema separado, no repositório `SpeedBoyMotoboy/Speed`. Páginas públicas dele: `/pedir/`
+(pedido urgente) e `/acompanhar/?c=código`. O site só aponta para lá.
+
+- Endereço do sistema fica em **um lugar só**: `SISTEMA_URL`, no topo de `assets/main.js`.
+  Vazio = desligado, e os botões abrem o WhatsApp.
+- Botão que chama o sistema: `<a data-sistema="pedir" href="(link do WhatsApp)">`. O `href`
+  do WhatsApp é o reserva; o JS troca pelo sistema quando `SISTEMA_URL` está preenchido.
+- Página nova do sistema: incluir em `SISTEMA_ROTAS` e usar `data-sistema="nome"`.
+- Texto perto do botão tem que ser verdade nos dois modos. Não prometer prazo ("30 minutos")
+  nem Pix antes de estar funcionando no sistema.
+- O menu passa a hambúrguer até 1024px (9 itens não cabem abaixo disso).
+
 ## Pendências conhecidas
 
 Ver `AUDITORIA.md`. Resumo: Google Ads com saldo esgotado, imagens ainda no Imgur,
