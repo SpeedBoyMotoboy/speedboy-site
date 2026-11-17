@@ -47,7 +47,7 @@
   const ehOutros = () => OUTROS.test(servico.selectedOptions[0]?.textContent.trim() || '');
   function ajustarDetalhes() {
     if (ehOutros()) {
-      detalhes.placeholder = 'Conte o que precisa: o que fazer, onde, com quem falar, horário, se precisa esperar ou voltar';
+      detalhes.placeholder = 'Qual serviço ou demanda? Conte o que fazer, onde, com quem falar e o horário';
       dica.textContent = `Em "Outros", descreva bem a demanda (pelo menos ${MIN_OUTROS} letras) para avaliarmos.`;
     } else {
       detalhes.placeholder = 'O que vamos levar, com quem falar, horário, se precisa esperar ou voltar';
@@ -234,13 +234,13 @@
     const tamanho = $('requisito').selectedOptions[0].textContent;
     const desc = [(ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
       !so && coleta.compl ? `Compl. coleta: ${coleta.compl}` : '', entrega.compl ? `Compl. entrega: ${entrega.compl}` : '',
-      cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Um endereço só' : '']
+      `Tamanho: ${tamanho}`, cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Apenas um endereço' : '']
       .filter(Boolean).join(' | ');
     const corpo = {
       nome: $('nome').value.trim(),
       telefone: $('telefone').value.trim(),
       descricao: desc,
-      requisito: $('requisito').value,
+      requisito: $('requisito').value === 'grande' ? 'bau' : 'qualquer', // grande pede baú no sistema
       servico_id: servico.value ? Number(servico.value) : undefined,
       site: form.querySelector('[name="site"]').value,
       coleta: { endereco: coleta.endereco, lat: coleta.lat, lon: coleta.lon },

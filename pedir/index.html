@@ -66,7 +66,7 @@
         <option value="">Carregando…</option>
       </select>
 
-      <label class="pedido-check"><input type="checkbox" id="um-local"> Só tenho um endereço (o serviço é num local só)</label>
+      <label class="pedido-check"><input type="checkbox" id="um-local"> Apenas um endereço</label>
 
       <div id="bloco-coleta">
         <label for="coleta">Onde coletamos?</label>
@@ -90,8 +90,9 @@
 
       <label for="requisito">Tamanho</label>
       <select id="requisito" name="requisito">
-        <option value="qualquer">Cabe na mochila</option>
-        <option value="bau">Volume maior (precisa de baú)</option>
+        <option value="pequeno">Pequeno — cabe na mochila</option>
+        <option value="medio">Médio — até uns 20 cm</option>
+        <option value="grande">Grande — até 40 cm</option>
       </select>
 
       <label for="recebe">Quem recebe na entrega? <span class="opcional">(opcional)</span></label>
@@ -152,6 +153,6 @@
 </footer>
 
 <script src="/assets/main.js?v=pedir2"></script>
-<script src="/assets/pedir.js?v=3"></script>
+<script src="/assets/pedir.js?v=4"></script>
 </body>
 </html>
