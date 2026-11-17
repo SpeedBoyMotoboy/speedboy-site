@@ -269,12 +269,14 @@
         entrega.contato && `*Quem recebe:* ${entrega.contato}`,
         `*Nome:* ${corpo.nome}`,
         cnpj && `*CNPJ:* ${fmtCnpj(cnpj)}`,
+        r.codigo && `Acompanhar: https://www.speedboy.com.br/acompanhar/?c=${r.codigo}`,
         'Pode me passar o valor?',
       ].filter(Boolean).join('\n');
       const link = linkWhats(msg);
       form.hidden = true;
       $('pronto-texto').textContent = `Seu pedido #${r.id} foi registrado. Agora envie a mensagem no WhatsApp da SpeedBoy: passamos o valor ali e, com o seu ok, o motoboy sai.`;
       $('pronto-whats').href = link;
+      if (r.codigo) $('pronto-acomp').href = `/acompanhar/?c=${encodeURIComponent(r.codigo)}`;
       $('pronto').hidden = false;
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setTimeout(() => { window.location.href = link; }, 600);
