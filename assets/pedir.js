@@ -172,11 +172,10 @@
   }
   const fmtCnpj = (c) => c.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
 
-  // Lembra nome, WhatsApp e CNPJ de quem já pediu (só neste navegador).
+  // Lembra nome e CNPJ de quem já pediu (só neste navegador).
   try {
     const g = JSON.parse(localStorage.getItem('speed_pedido') || '{}');
     if (g.nome) $('nome').value = g.nome;
-    if (g.telefone) $('telefone').value = g.telefone;
     if (g.cnpj) $('cnpj').value = g.cnpj;
   } catch (e) { /* sem armazenamento */ }
 
@@ -206,7 +205,7 @@
     ev.preventDefault();
     erro.textContent = '';
     const so = umLocal.checked;
-    const campos = ['servico', 'coleta', 'entrega', 'detalhes', 'nome', 'telefone'].map($).filter((c) => c.required && !c.hidden);
+    const campos = ['servico', 'coleta', 'entrega', 'detalhes', 'nome'].map($).filter((c) => c.required && !c.hidden);
     const falta = campos.find((c) => !c.value.trim());
     if (falta) { erro.textContent = 'Preencha: ' + (form.querySelector(`label[for="${falta.id}"]`)?.textContent || 'campo obrigatório') + '.'; falta.focus(); return; }
     if (places) {
@@ -227,7 +226,7 @@
       if (e) return { endereco: compl ? `${base} — ${compl}` : base, lat: e.lat, lon: e.lon, compl: '' };
       return { endereco: base, lat: null, lon: null, compl };
     };
-    const entrega = { ...ponto('entrega'), contato: $('recebe').value.trim() };
+    const entrega = { ...ponto('entrega'), contato: [$('recebe').value.trim(), $('recebe-tel').value.trim()].filter(Boolean).join(' ') };
     const coleta = so ? { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon, compl: '' } : ponto('coleta');
     const comCompl = (p) => (p.compl ? `${p.endereco} — ${p.compl}` : p.endereco);
     const nomeServico = servico.value ? servico.selectedOptions[0].textContent.trim() : '';
@@ -238,7 +237,7 @@
       .filter(Boolean).join(' | ');
     const corpo = {
       nome: $('nome').value.trim(),
-      telefone: $('telefone').value.trim(),
+      contato_whatsapp: true, // o WhatsApp do cliente chega pela mensagem que ele envia em seguida
       descricao: desc,
       requisito: $('requisito').value === 'grande' ? 'bau' : 'qualquer', // grande pede baú no sistema
       servico_id: servico.value ? Number(servico.value) : undefined,
@@ -257,7 +256,7 @@
         servico.value = String(e.dados.servico_id);
         r = await chamar('POST', '/api/publico/pedidos', { ...corpo, servico_id: e.dados.servico_id });
       }
-      try { localStorage.setItem('speed_pedido', JSON.stringify({ nome: corpo.nome, telefone: corpo.telefone, cnpj: cnpj ? fmtCnpj(cnpj) : '' })); } catch (e) { /* sem armazenamento */ }
+      try { localStorage.setItem('speed_pedido', JSON.stringify({ nome: corpo.nome, cnpj: cnpj ? fmtCnpj(cnpj) : '' })); } catch (e) { /* sem armazenamento */ }
       if (typeof gtag !== 'undefined') {
         gtag('event', 'pedido_site_enviado', { event_category: 'conversion', event_label: nomeServico || 'sem_tipo' });
       }
