@@ -82,8 +82,11 @@ Sistema separado, no repositório `SpeedBoyMotoboy/Speed`. Páginas públicas de
   Opções: "só um endereço" (coleta = entrega), complemento, CNPJ para NF (validado).
 - `GOOGLE_MAPS_CHAVE` em `main.js`: chave de navegador (Maps JavaScript API + Places API New), restrita a
   speedboy.com.br. Preenchida, o endereço só vale se escolhido da lista do Google e com número.
-- Texto perto do botão tem que ser verdade nos dois modos. Não prometer prazo ("30 minutos")
-  nem Pix antes de estar funcionando no sistema.
+- Texto perto do botão tem que ser verdade nos dois modos. Não prometer Pix antes de estar funcionando no sistema.
+- **Prazo liberado pelo dono (18/11/2026):** a página `/pedir/` (entrega urgente) promete "motoboy em até
+  30 minutos" para buscar. Será base de campanha no Google Ads. Outras páginas: não prometer prazo sem o dono pedir.
+- **Lojistas:** `/lojista/` leva direto ao pedido de lojas do sistema (`SISTEMA_ROTAS.lojista` = `/loja/`):
+  saída salva, várias entregas, nota fiscal (CNPJ), valor na hora. O `/pedir/` tem um atalho para lá.
 - O menu passa a hambúrguer até 1024px (9 itens não cabem abaixo disso).
 
 ## Pendências conhecidas

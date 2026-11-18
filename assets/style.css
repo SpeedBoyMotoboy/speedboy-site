@@ -293,3 +293,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .pedido-lojista > .fa-store { font-size: 1.6rem; color: var(--orange); flex: none; }
 .pedido-lojista > .fa-chevron-right { color: var(--orange); flex: none; margin-left: auto; }
 .pedido-lojista strong { color: var(--blue); }
+
+/* Selo de prazo da entrega urgente (página /pedir/) */
+.selo-urgente { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 0 0.6rem; padding: 0.4rem 0.95rem; border-radius: 999px; background: var(--orange); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em; text-transform: uppercase; }
+.selo-urgente .fa-bolt { color: #ffd23f; }
