@@ -4,7 +4,7 @@
 // Endereço do sistema, com https:// e sem barra no fim.
 // Ex.: 'https://despacho.speedboy.com.br'
 // Vazio = sistema desligado: os botões [data-sistema] seguem abrindo o WhatsApp.
-const SISTEMA_URL = 'https://despacho.srv2150999.hstgr.cloud';
+const SISTEMA_URL = 'https://speedy.srv2150999.hstgr.cloud';
 // Chave do Google Maps (navegador) para sugerir e validar endereço no /pedir/.
 // Restrita no Google Cloud a https://www.speedboy.com.br/* — Maps JavaScript API + Places API (New).
 // Vazio = formulário aceita endereço digitado (o sistema localiza no mapa depois).
@@ -13,7 +13,8 @@ const GOOGLE_MAPS_CHAVE = 'AIzaSyAkV7OCVmTYqiZ7DZINETZmgKTHCVfgv_M';
 const WHATS_PEDIDOS = '5527999165959';
 // Página do sistema que cada botão abre. No HTML: <a data-sistema="pedir" href="(link do WhatsApp)">
 const SISTEMA_ROTAS = {
-  pedir: '/pedir/'
+  pedir: '/pedir/',
+  lojista: '/loja/' // pedido de lojas de varejo: saída fixa, várias entregas, valor na hora
 };
 // Páginas que moram no próprio site e conversam com o sistema por trás (têm prioridade sobre SISTEMA_ROTAS).
 const PAGINAS_SITE = {
@@ -167,6 +168,14 @@ const origemAnuncio = (() => {
   } catch (e) { /* sem armazenamento: vale só nesta página */ }
   return origem;
 })();
+
+// ── PÁGINA-ATALHO DO SISTEMA ──
+// <body data-ir-sistema="lojista"> leva direto para a página do sistema (ex.: /lojista/ → /loja/ do Speedy).
+// Sem SISTEMA_URL, fica na página, que mostra o WhatsApp como alternativa.
+const irSistema = document.body.dataset.irSistema;
+if (SISTEMA_URL && irSistema && SISTEMA_ROTAS[irSistema]) {
+  try { location.replace(new URL(SISTEMA_ROTAS[irSistema], SISTEMA_URL).href); } catch (e) { /* fica na página */ }
+}
 
 // ── BOTÕES DO SISTEMA DE PEDIDOS ──
 // Com SISTEMA_URL preenchido, cada <a data-sistema="rota"> troca o WhatsApp pela página

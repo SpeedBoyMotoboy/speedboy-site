@@ -286,3 +286,10 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .acomp-etapas li.atual::before { background: var(--orange); box-shadow: 0 0 0 4px rgba(255,84,0,0.2); }
 .acomp-etapas li small { display: block; font-weight: 400; color: var(--gray); }
 .acomp-dados { background: #f6f8fc; border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.95rem; }
+
+/* Atalho para o pedido de lojistas (página /pedir/) */
+.pedido-lojista { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.5rem; padding: 1rem 1.1rem; border: 2px solid var(--orange); border-radius: 12px; background: #fff6f0; color: var(--dark); text-decoration: none; line-height: 1.35; }
+.pedido-lojista:hover { background: #ffece0; }
+.pedido-lojista > .fa-store { font-size: 1.6rem; color: var(--orange); flex: none; }
+.pedido-lojista > .fa-chevron-right { color: var(--orange); flex: none; margin-left: auto; }
+.pedido-lojista strong { color: var(--blue); }
