@@ -207,7 +207,7 @@
   // Entrega urgente (chave): ligada = motoboy em até 30 minutos, valor maior. Anúncio pode abrir com ?urgente=1.
   const urgente = $('urgente');
   const dicaUrgente = $('urgente-dica');
-  // Urgente = formulário curto: sem tipo de serviço, tamanho, quem recebe e CNPJ. Só coleta, entrega,
+  // Urgente = formulário curto: sem tipo de serviço, quem recebe e CNPJ. Só coleta, entrega, tamanho (G/GG cobram a mais),
   // a demanda em texto livre (ou áudio no WhatsApp) e o nome.
   function marcarUrgente() {
     const urg = urgente.checked;
@@ -264,14 +264,15 @@
     const modalidade = urgente.checked ? 'URGENTE — motoboy em até 30 min' : 'Normal — na rota';
     const desc = [`Modalidade: ${modalidade}`, (!urgente.checked && ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
       !so && coleta.compl ? `Compl. coleta: ${coleta.compl}` : '', entrega.compl ? `Compl. entrega: ${entrega.compl}` : '',
-      urgente.checked ? '' : `Tamanho: ${tamanho}`, cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Apenas um endereço' : '']
+      `Tamanho: ${tamanho}`, cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Apenas um endereço' : '']
       .filter(Boolean).join(' | ');
     const corpo = {
       nome: $('nome').value.trim(),
       contato_whatsapp: true, // o WhatsApp do cliente chega pela mensagem que ele envia em seguida
       urgente: urgente.checked,
       descricao: desc,
-      requisito: $('requisito').value === 'grande' ? 'bau' : 'qualquer', // grande pede baú no sistema
+      requisito: ['grande', 'gg'].includes($('requisito').value) ? 'bau' : 'qualquer', // G e GG pedem baú no sistema
+      tamanho: $('requisito').value, // G e GG cobram acréscimo no sistema
       servico_id: !urgente.checked && servico.value ? Number(servico.value) : undefined,
       site: form.querySelector('[name="site"]').value,
       coleta: { endereco: coleta.endereco, lat: coleta.lat, lon: coleta.lon },
@@ -298,7 +299,7 @@
         nomeServico && `*Serviço:* ${nomeServico}`,
         so ? `*Endereço:* ${comCompl(entrega)}` : `*Coleta:* ${comCompl(coleta)}\n*Entrega:* ${comCompl(entrega)}`,
         `*Detalhes:* ${detalhes.value.trim()}`,
-        !urgente.checked && `*Tamanho:* ${tamanho}`,
+        `*Tamanho:* ${tamanho}`,
         entrega.contato && `*Quem recebe:* ${entrega.contato}`,
         `*Nome:* ${corpo.nome}`,
         cnpj && `*CNPJ:* ${fmtCnpj(cnpj)}`,
