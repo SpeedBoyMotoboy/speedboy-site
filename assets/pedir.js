@@ -44,9 +44,19 @@
   }
 
   let temServicos = true;
+  let servMeta = new Map();
   // ── Tipo de serviço ──
   const ehOutros = () => OUTROS.test(servico.selectedOptions[0]?.textContent.trim() || '');
   function ajustarDetalhes() {
+    // Correios: preço fixo em qualquer distância; só precisa do endereço de onde buscar.
+    const sv = servMeta.get(servico.value);
+    if (sv && Number(sv.preco_fixo) > 0 && /correio/i.test(sv.nome)) {
+      if (!umLocal.checked) { umLocal.checked = true; ajustarLocais(); }
+      $('rotulo-entrega').textContent = 'Onde buscamos a encomenda?';
+      detalhes.placeholder = 'O que vai postar e se já tem código de postagem ou de devolução';
+      dica.textContent = `Correios: R$ ${String(sv.preco_fixo).replace('.', ',')} fixo, qualquer distância. O motoboy posta na agência mais próxima.`;
+      return;
+    }
     if (ehOutros()) {
       detalhes.placeholder = 'Qual serviço ou demanda? Conte o que fazer, onde, com quem falar e o horário';
       dica.textContent = `Em "Outros", descreva bem a demanda (pelo menos ${MIN_OUTROS} letras) para avaliarmos.`;
@@ -196,6 +206,7 @@
       o.value = String(s.id); o.textContent = s.nome;
       servico.append(o);
     });
+    servMeta = new Map(lista.map((s) => [String(s.id), s]));
     temServicos = lista.length > 0;
     if (!temServicos) { servico.required = false; form.querySelector('label[for="servico"]').hidden = true; servico.hidden = true; }
     ajustarDetalhes();
