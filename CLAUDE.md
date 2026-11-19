@@ -49,6 +49,9 @@ sendo cidade atendida — não apagar conteúdo sobre Serra, só não tratar com
   continua só com fotos reais de serviço feito. Prompts em `Imagens do site — prompts Nano Banana` (doc).
 - **Estilo compartilhado vai em `assets/style.css`**, não no `<style>` de uma página só.
   Já houve bug de página interna sem container por causa disso.
+- **Paleta oficial (19/11/2026):** verde `#333F22`, ouro `#D4A017`, azul `#002776`, preto `#1A1A1A`. No CSS,
+  `--orange` guarda o ouro (nome antigo). Destaque em texto usa `var(--accent)`: azul no fundo claro, ouro no
+  fundo escuro (lista de blocos escuros no fim de `assets/style.css`). Texto sobre ouro é sempre preto.
 - Links internos absolutos (`/blog/`, `/empresas.html`), nunca relativos.
 - `target="_blank"` sempre com `rel="noopener noreferrer"`.
 
