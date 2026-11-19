@@ -319,7 +319,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 /* ── PALETA OFICIAL (19/11/2026) ──
    Ouro em texto só sobre fundo escuro (no claro o contraste não passa). Dentro destes blocos escuros
    o destaque volta a ser ouro; sobre o próprio ouro, o texto é preto. */
-nav, .mobile-menu, .hero, .hero-content, .page-hero, .breadcrumb, footer, .urgente, .diff-bg, .faq-bg, .deliver,
+nav, .mobile-menu, #inicio, .hero, .hero-content, .page-hero, .breadcrumb, footer, .urgente, .diff-bg, .faq-bg, .deliver,
 .b2b-cta, .cta-inline, .cta-box, .price-table th, .outra-cidade.atual, .contact-empresa, .nf-wrap, .blog-card-img,
 .gallery-item figcaption, .rev-arrow, .btn-outline:hover, .btn-urgente:hover { --accent: var(--orange); }
 .b2b-strip, .sobre-img-badge, .selo-urgente { --accent: var(--dark); }
