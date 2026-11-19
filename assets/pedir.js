@@ -200,6 +200,7 @@
     if (!temServicos) { servico.required = false; form.querySelector('label[for="servico"]').hidden = true; servico.hidden = true; }
     ajustarDetalhes();
     ajustarLocais();
+    aplicarAcrescimos(info.acrescimos);
     marcarUrgente();
     carregarGoogle();
   }
@@ -209,11 +210,23 @@
   const dicaUrgente = $('urgente-dica');
   // Urgente = formulário curto: sem tipo de serviço, quem recebe e CNPJ. Só coleta, entrega, tamanho (G/GG cobram a mais),
   // a demanda em texto livre (ou áudio no WhatsApp) e o nome.
+  // Acréscimos vêm do sistema (Configurações do painel): o cliente vê a porcentagem antes de pedir.
+  let acr = {};
+  function aplicarAcrescimos(a) {
+    acr = a || {};
+    const opTam = (v) => $('requisito').querySelector(`option[value="${v}"]`);
+    if (acr.g_pct && opTam('grande')) opTam('grande').textContent = `Grande (G) — até 40 cm (+${acr.g_pct}%)`;
+    if (acr.gg_pct && opTam('gg')) opTam('gg').textContent = `Gigante (GG) — mais de 40 cm (+${acr.gg_pct}%)`;
+    if ((acr.g_pct || acr.gg_pct) && $('tamanho-dica')) {
+      $('tamanho-dica').textContent = `Pequeno e médio não têm acréscimo. G: +${acr.g_pct}% e GG: +${acr.gg_pct}% sobre o valor da entrega`
+        + (acr.tamanho_ate_km ? ` (em corridas acima de ${acr.tamanho_ate_km} km o tamanho não tem acréscimo).` : '.');
+    }
+  }
   function marcarUrgente() {
     const urg = urgente.checked;
     dicaUrgente.textContent = urg
-      ? 'Ligado: motoboy em até 30 minutos para buscar. Valor maior que a entrega normal.'
-      : 'Desligado: entrega normal, na rota, sem pressa (mais barata).';
+      ? `Ligado: motoboy em até 30 minutos para buscar. ${acr.urgente_pct ? `Acréscimo de ${acr.urgente_pct}% sobre o valor da entrega normal.` : 'Valor maior que a entrega normal.'}`
+      : `Desligado: entrega normal, na rota, sem pressa (mais barata).${acr.urgente_pct ? ` Urgente: +${acr.urgente_pct}%.` : ''}`;
     urgente.closest('.pedido-urgente').classList.toggle('ligado', urg);
     $('bloco-tipo').hidden = urg;
     $('bloco-extra').hidden = urg;
