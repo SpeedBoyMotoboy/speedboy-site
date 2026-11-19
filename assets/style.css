@@ -2,12 +2,18 @@
 /* Fontes carregadas via <link> no <head> de cada página (evita cadeia bloqueante do @import) */
 
 :root {
-  --blue: #001f6b;
-  --blue-mid: #002fa7;
-  --orange: #ff5400;
-  --orange-light: #ff7a2e;
+  /* Paleta oficial SpeedBoy: verde #333F22, ouro #D4A017, azul #002776, preto #1A1A1A.
+     --orange guarda o OURO (nome antigo mantido para não reescrever o site inteiro). */
+  --blue: #002776;
+  --blue-mid: #0b3a94;
+  --orange: #D4A017;
+  --orange-light: #E0B43A;
   --cream: #faf8f3;
-  --dark: #0d0d0d;
+  --dark: #1A1A1A;
+  --green: #333F22;
+  --gold: var(--orange);
+  /* Cor de destaque em TEXTO: azul sobre fundo claro; vira ouro dentro de fundo escuro (regra abaixo). */
+  --accent: #002776;
   --gray: #6b6b6b;
   --light-gray: #f0eeea;
   --white: #ffffff;
@@ -19,7 +25,7 @@ body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(-
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
-::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; color: var(--dark); }
 
 /* ── NAV ── */
 nav {
@@ -27,49 +33,49 @@ nav {
   padding: 0 2rem; height: 64px;
   display: flex; align-items: center; justify-content: space-between;
   transition: background 0.4s, box-shadow 0.4s;
-  background: rgba(0, 15, 70, 0.97);
+  background: rgba(0,27,84, 0.97);
   box-shadow: 0 2px 24px rgba(0,0,0,0.3);
 }
 .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--white); letter-spacing: 1px; text-decoration: none; }
-.nav-logo span { color: var(--orange); }
+.nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; position: relative; }
-.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--orange); transition: width 0.3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--orange); transition: width 0.3s; color: var(--dark); }
 .nav-links a:hover { color: var(--white); }
 .nav-links a:hover::after { width: 100%; }
-.nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 4px; transition: background 0.2s !important; }
+.nav-cta { background: var(--orange) !important; color: var(--dark) !important; padding: 0.5rem 1.2rem; border-radius: 4px; transition: background 0.2s !important; }
 .nav-cta::after { display: none !important; }
-.nav-cta:hover { background: var(--orange-light) !important; }
+.nav-cta:hover { background: var(--orange-light) !important; color: var(--dark); }
 .nav-links .nav-pedir { background: var(--white); color: var(--blue); padding: 0.5rem 1.2rem; border-radius: 4px; white-space: nowrap; transition: background 0.2s; }
 .nav-links .nav-pedir::after { display: none; }
-.nav-links .nav-pedir i { color: var(--orange); }
+.nav-links .nav-pedir i { color: var(--accent); }
 .nav-links .nav-pedir:hover { background: var(--cream); color: var(--blue); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
 .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-menu { display: none; position: fixed; top: 64px; left: 0; width: 100%; background: rgba(0,15,70,0.98); padding: 1.5rem 2rem; flex-direction: column; gap: 1.2rem; z-index: 999; }
+.mobile-menu { display: none; position: fixed; top: 64px; left: 0; width: 100%; background: rgba(0,27,84,0.98); padding: 1.5rem 2rem; flex-direction: column; gap: 1.2rem; z-index: 999; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 600; font-size: 1rem; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .mobile-menu .menu-pedir { color: #ffd0b3; }
-.mobile-menu .menu-pedir i { color: var(--orange-light); }
+.mobile-menu .menu-pedir i { color: var(--accent); }
 
 /* ── BUTTONS ── */
-.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--orange); color: var(--white); padding: 0.9rem 2rem; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(255,84,0,0.4); }
-.btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,84,0,0.5); }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--orange); color: var(--dark); padding: 0.9rem 2rem; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(212,160,23,0.4); }
+.btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,160,23,0.5); color: var(--dark); }
 .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid var(--blue); color: var(--blue); padding: 0.9rem 2rem; border-radius: 6px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s; }
 .btn-outline:hover { background: var(--blue); color: var(--white); }
 /* Pedido urgente: abre o sistema de pedidos (sem sistema ligado, abre o WhatsApp). Ver assets/main.js */
 .btn-urgente { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); color: var(--blue); border: 2px solid var(--blue); padding: calc(0.9rem - 2px) calc(2rem - 2px); border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; }
-.btn-urgente i { color: var(--orange); transition: color 0.2s; }
+.btn-urgente i { color: var(--accent); transition: color 0.2s; }
 .btn-urgente:hover { background: var(--blue); color: var(--white); transform: translateY(-2px); }
 .btn-urgente:hover i { color: var(--white); }
 
 /* ── SECTION LABELS ── */
-.section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+.section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); color: var(--blue); text-transform: uppercase; line-height: 1.1; margin-bottom: 1rem; }
-.section-title span { color: var(--orange); }
+.section-title span { color: var(--accent); }
 .section-title.white { color: var(--white); }
 .section-sub { color: var(--gray); font-size: 1.05rem; line-height: 1.7; max-width: 600px; }
 
@@ -91,21 +97,21 @@ nav {
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
-  background: linear-gradient(120deg, rgba(0,15,70,0.92) 40%, rgba(255,84,0,0.4) 100%),
+  background: linear-gradient(120deg, rgba(0,27,84,0.92) 40%, rgba(212,160,23,0.4) 100%),
               url('/assets/img/hero-motoboy-speedboy.webp') center/cover no-repeat;
   min-height: 320px; display: flex; align-items: center;
   padding: 6rem 2rem 3rem; text-align: center;
 }
 .page-hero-inner { max-width: 700px; margin: 0 auto; }
 .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--white); text-transform: uppercase; line-height: 1; margin-bottom: 1rem; }
-.page-hero h1 span { color: var(--orange); }
+.page-hero h1 span { color: var(--accent); }
 .page-hero p { color: rgba(255,255,255,0.75); font-size: 1.1rem; line-height: 1.6; }
 
 /* ── BREADCRUMB ── */
 .breadcrumb { background: var(--blue); padding: 0.7rem 2rem; }
 .breadcrumb-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0.5rem; align-items: center; font-size: 0.82rem; }
 .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--orange); }
+.breadcrumb a:hover { color: var(--accent); }
 .breadcrumb span { color: rgba(255,255,255,0.35); }
 .breadcrumb strong { color: rgba(255,255,255,0.85); }
 
@@ -121,9 +127,9 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.7; margin-top: 0.8rem; max-width: 340px; }
 .footer-col h4 { color: var(--white); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
 .footer-col a { display: block; color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; transition: color 0.2s; }
-.footer-col a:hover { color: var(--orange); }
+.footer-col a:hover { color: var(--accent); }
 .footer-address, .footer-hours { display: block; color: rgba(255,255,255,0.55); font-size: 0.9rem; font-style: normal; line-height: 1.6; margin-bottom: 0.5rem; }
-.footer-address i, .footer-hours i { color: var(--orange); margin-right: 0.3rem; }
+.footer-address i, .footer-hours i { color: var(--accent); margin-right: 0.3rem; }
 .footer-bottom { max-width: 1100px; margin: 1.5rem auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
 .footer-bottom small { font-size: 0.8rem; }
 .footer-bottom .cnpj { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
@@ -136,7 +142,7 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .urgente-nota { display: block; margin-top: 1.1rem; color: rgba(255,255,255,0.65); font-size: 0.85rem; line-height: 1.5; }
 .urgente-passos { list-style: none; counter-reset: passo; display: grid; gap: 1rem; }
 .urgente-passos li { counter-increment: passo; position: relative; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 1.1rem 1.25rem 1.1rem 4.25rem; color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.5; }
-.urgente-passos li::before { content: counter(passo); position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: var(--orange); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; }
+.urgente-passos li::before { content: counter(passo); position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: var(--orange); color: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; }
 .urgente-passos strong { display: block; color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* ── RESPONSIVE ── */
@@ -205,20 +211,20 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
 .article-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; color: var(--gray); font-size: 0.85rem; }
 .article-meta span { display: flex; align-items: center; gap: 0.4rem; }
-.article-meta i { color: var(--orange); }
+.article-meta i { color: var(--accent); }
 .article-body h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--blue); text-transform: uppercase; margin: 2.5rem 0 1rem; }
 .article-body h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--blue); margin: 2rem 0 0.8rem; }
 .article-body p { color: #444; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.2rem; }
 .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.5rem; color: #444; }
 .article-body li { margin-bottom: 0.5rem; line-height: 1.7; font-size: 1.05rem; }
 .article-body strong { color: var(--blue); }
-.article-body a { color: var(--orange); font-weight: 600; }
+.article-body a { color: var(--accent); font-weight: 600; }
 /* .article-body a (0,1,1) vence .btn-primary (0,1,0) por especificidade: sem esta
    linha o CTA dos artigos vira botão laranja com texto laranja — ilegível. */
 .article-body a.btn-primary, .article-body a.btn-primary i { color: #fff; }
 .article-body a.btn-urgente { color: var(--blue); font-weight: 700; }
 .article-body a.btn-urgente:hover { color: var(--white); }
-.highlight-box { background: rgba(0,31,107,0.05); border-left: 4px solid var(--orange); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; }
+.highlight-box { background: rgba(0,39,118,0.05); border-left: 4px solid var(--orange); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; }
 .highlight-box p { margin: 0; color: var(--blue); font-weight: 600; }
 .price-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
 .price-table th { background: var(--blue); color: #fff; padding: 0.8rem 1rem; text-align: left; font-size: 0.9rem; }
@@ -231,19 +237,19 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .related-posts h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--blue); text-transform: uppercase; margin-bottom: 1.2rem; }
 .related-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
 .related-card { background: var(--light-gray); border-radius: 8px; padding: 1.2rem; text-decoration: none; transition: all 0.2s; display: block; }
-.related-card:hover { background: rgba(255,84,0,0.08); }
-.related-card span { display: block; font-size: 0.72rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
+.related-card:hover { background: rgba(212,160,23,0.08); }
+.related-card span { display: block; font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
 .related-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--blue); text-transform: uppercase; line-height: 1.2; }
 .article-faq { margin: 2rem 0; }
 .article-faq details { border: 1px solid #e8e5df; border-radius: 8px; background: var(--white); margin-bottom: 0.8rem; }
 .article-faq summary { cursor: pointer; padding: 1rem 1.2rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--blue); text-transform: uppercase; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .article-faq summary::-webkit-details-marker { display: none; }
-.article-faq summary::after { content: '+'; color: var(--orange); font-size: 1.4rem; line-height: 1; }
+.article-faq summary::after { content: '+'; color: var(--accent); font-size: 1.4rem; line-height: 1; }
 .article-faq details[open] summary::after { content: '−'; }
 .article-faq details p { padding: 0 1.2rem 1.2rem; margin: 0; font-size: 1rem; }
 .blog-cidades { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 2rem; }
 .blog-cidades a { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--light-gray); border-radius: 20px; padding: 0.4rem 0.9rem; font-size: 0.85rem; font-weight: 600; color: var(--blue); text-decoration: none; transition: all 0.2s; }
-.blog-cidades a:hover { background: rgba(255,84,0,0.1); color: var(--orange); }
+.blog-cidades a:hover { background: rgba(212,160,23,0.1); color: var(--accent); }
 @media(max-width:600px) { .related-grid { grid-template-columns: 1fr; } .article-body { padding: 2.5rem 1.2rem; } }
 
 /* ── PEDIDO PELO SITE (/pedir/) ── */
@@ -283,13 +289,13 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .acomp-etapas li::before { content: ''; position: absolute; left: -0.6rem; top: 0.8rem; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: #cfd6e4; }
 .acomp-etapas li.feita { color: var(--dark); font-weight: 600; border-left-color: #2e7d32; }
 .acomp-etapas li.feita::before { background: #2e7d32; }
-.acomp-etapas li.atual::before { background: var(--orange); box-shadow: 0 0 0 4px rgba(255,84,0,0.2); }
+.acomp-etapas li.atual::before { background: var(--orange); box-shadow: 0 0 0 4px rgba(212,160,23,0.2); color: var(--dark); }
 .acomp-etapas li small { display: block; font-weight: 400; color: var(--gray); }
 .acomp-dados { background: #f6f8fc; border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.95rem; }
 
 /* Selo de prazo da entrega urgente (página /pedir/) */
-.selo-urgente { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 0 0.6rem; padding: 0.4rem 0.95rem; border-radius: 999px; background: var(--orange); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em; text-transform: uppercase; }
-.selo-urgente .fa-bolt { color: #ffd23f; }
+.selo-urgente { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 0 0.6rem; padding: 0.4rem 0.95rem; border-radius: 999px; background: var(--orange); color: var(--dark); font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em; text-transform: uppercase; }
+.selo-urgente .fa-bolt { color: #002776; }
 
 /* Chave "Entrega urgente" (página /pedir/) */
 .pedido-urgente { display: flex; align-items: center; gap: 0.9rem; padding: 0.95rem 1.1rem; margin-bottom: 0.5rem; border: 2px solid var(--light-gray); border-radius: 12px; background: #fff; cursor: pointer; font-weight: 400; transition: border-color .2s, background .2s; }
@@ -299,13 +305,27 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .pedido-urgente .texto { display: flex; flex-direction: column; gap: 0.15rem; line-height: 1.3; }
 .pedido-urgente strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--blue); text-transform: uppercase; }
 .pedido-urgente small { color: var(--gray); font-size: 0.92rem; }
-.pedido-urgente.ligado { border-color: var(--orange); background: #fff6f0; }
-.pedido-urgente.ligado .chave { background: var(--orange); }
+.pedido-urgente.ligado { border-color: var(--orange); background: #fbf5e3; }
+.pedido-urgente.ligado .chave { background: var(--orange); color: var(--dark); }
 .pedido-urgente.ligado .chave::after { transform: translateX(22px); }
-.pedido-urgente.ligado .fa-bolt { color: var(--orange); }
+.pedido-urgente.ligado .fa-bolt { color: var(--accent); }
 .pedido-urgente input:focus-visible + .chave { outline: 3px solid var(--orange); outline-offset: 2px; }
 
 /* Atalho de áudio na entrega urgente (página /pedir/) */
-.pedido-audio { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; padding: 0.6rem 0.9rem; border: 2px solid var(--orange); border-radius: 10px; color: var(--blue); font-weight: 600; text-decoration: none; background: #fff6f0; }
+.pedido-audio { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; padding: 0.6rem 0.9rem; border: 2px solid var(--orange); border-radius: 10px; color: var(--blue); font-weight: 600; text-decoration: none; background: #fbf5e3; }
 .pedido-audio[hidden] { display: none; }
-.pedido-audio .fa-microphone { color: var(--orange); }
+.pedido-audio .fa-microphone { color: var(--accent); }
+
+/* ── PALETA OFICIAL (19/11/2026) ──
+   Ouro em texto só sobre fundo escuro (no claro o contraste não passa). Dentro destes blocos escuros
+   o destaque volta a ser ouro; sobre o próprio ouro, o texto é preto. */
+nav, .mobile-menu, .hero, .hero-content, .page-hero, .breadcrumb, footer, .urgente, .diff-bg, .faq-bg, .deliver,
+.b2b-cta, .cta-inline, .cta-box, .price-table th, .outra-cidade.atual, .contact-empresa, .nf-wrap, .blog-card-img,
+.gallery-item figcaption, .rev-arrow, .btn-outline:hover, .btn-urgente:hover { --accent: var(--orange); }
+.b2b-strip, .sobre-img-badge, .selo-urgente { --accent: var(--dark); }
+.section-title span { color: inherit; background: linear-gradient(transparent 66%, var(--orange) 66%); padding: 0 0.12em; }
+.section-title.white span, .page-hero h1 span { background: none; color: var(--orange); }
+.article-body a.btn-primary, .article-body a.btn-primary i { color: var(--dark); }
+.section-label { color: var(--green); }
+.urgente .section-label, .diff-bg .section-label, .faq-bg .section-label, .b2b-cta .section-label { color: var(--orange); }
+footer { border-top: 4px solid var(--orange); }

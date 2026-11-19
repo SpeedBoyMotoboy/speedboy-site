@@ -24,7 +24,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css?v=paleta1">
   
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.speedboy.com.br/#localbusiness", "name": "SpeedBoy Motoboy", "url": "https://www.speedboy.com.br/", "logo": "https://www.speedboy.com.br/assets/img/speedboy-logo.png", "image": "https://www.speedboy.com.br/assets/img/speedboy-logo.png", "telephone": "+5527999165959", "email": "speedboymotoboy@gmail.com", "priceRange": "$$", "taxID": "46.178.859/0001-96", "address": {"@type": "PostalAddress", "streetAddress": "R. Henrique Laranja, 325 - Centro", "addressLocality": "Vila Velha", "addressRegion": "ES", "postalCode": "29106-690", "addressCountry": "BR"}, "geo": {"@type": "GeoCoordinates", "latitude": -20.3357855, "longitude": -40.2968724}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "22:00"}], "sameAs": ["https://www.instagram.com/speedboy_motoboy"]}
@@ -36,22 +36,22 @@
     .plans-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
     .plan-card { background: #fff; border: 2px solid #e8e5df; border-radius: 12px; padding: 2.5rem 2rem; text-align: center; position: relative; transition: all 0.3s; }
     .plan-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
-    .plan-card.featured { border-color: var(--orange); box-shadow: 0 8px 32px rgba(255,84,0,0.2); }
-    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 20px; white-space: nowrap; }
+    .plan-card.featured { border-color: var(--orange); box-shadow: 0 8px 32px rgba(212,160,23,0.2); }
+    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--orange); color: var(--dark); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 20px; white-space: nowrap; }
     .plan-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem; }
-    .plan-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; color: var(--orange); line-height: 1; margin: 1rem 0 0.3rem; }
+    .plan-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; color: var(--accent); line-height: 1; margin: 1rem 0 0.3rem; }
     .plan-price small { font-size: 1rem; font-weight: 600; color: var(--gray); }
     .plan-note { color: var(--gray); font-size: 0.8rem; margin-bottom: 1.5rem; }
     .plan-features { list-style: none; margin: 1.5rem 0; text-align: left; }
     .plan-features li { display: flex; align-items: center; gap: 0.6rem; color: var(--gray); font-size: 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid #f0eeea; }
     .plan-features li:last-child { border-bottom: none; }
-    .plan-features li i { color: var(--orange); font-size: 0.85rem; flex-shrink: 0; }
+    .plan-features li i { color: var(--accent); font-size: 0.85rem; flex-shrink: 0; }
     .plan-features li.no i { color: #ccc; }
     .plan-features li.no { color: #bbb; }
 
     .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
     .why-card { padding: 2rem; }
-    .why-icon { width: 56px; height: 56px; background: rgba(0,31,107,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+    .why-icon { width: 56px; height: 56px; background: rgba(0,39,118,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
     .why-icon i { font-size: 1.4rem; color: var(--blue); }
     .why-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem; }
     .why-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
@@ -98,7 +98,7 @@
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,84,0,.15);border:1px solid rgba(255,84,0,.5);color:#ff9a6b;padding:.35rem .9rem;border-radius:20px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem"><i class="fas fa-building" style="font-size:.75rem"></i> Soluções Empresariais</div>
+    <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.5);color:#ff9a6b;padding:.35rem .9rem;border-radius:20px;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem"><i class="fas fa-building" style="font-size:.75rem"></i> Soluções Empresariais</div>
     <h1>Motoboy para <span>Empresas</span></h1>
     <p>Planos mensais, nota fiscal, relatório de entregas e suporte prioritário. Sede no Centro de Vila Velha.</p>
   </div>
