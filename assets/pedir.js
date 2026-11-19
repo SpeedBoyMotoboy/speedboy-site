@@ -76,6 +76,19 @@
   }
   umLocal.addEventListener('change', ajustarLocais);
 
+  // ── Horário: entregar até / coletar a partir de / agendar dia e hora ──
+  const horaTipo = $('hora-tipo');
+  function ajustarHora() {
+    $('hora').hidden = !['ate', 'apartir'].includes(horaTipo.value);
+    $('hora-dia').hidden = horaTipo.value !== 'agendar';
+  }
+  horaTipo.addEventListener('change', ajustarHora);
+  $('pronto-pix-copiar').addEventListener('click', async () => {
+    const campo = $('pronto-pix-codigo');
+    try { await navigator.clipboard.writeText(campo.value); } catch (e) { campo.select(); document.execCommand('copy'); }
+    $('pronto-pix-copiar').textContent = 'Copiado!';
+  });
+
   // ── Endereço com sugestões do Google (Places API New) ──
   const escolhido = { coleta: null, entrega: null }; // { endereco, lat, lon }
   let places = null;
@@ -236,12 +249,13 @@
   function marcarUrgente() {
     const urg = urgente.checked;
     dicaUrgente.textContent = urg
-      ? `Ligado: motoboy em até 30 minutos para buscar. ${acr.urgente_pct ? `Acréscimo de ${acr.urgente_pct}% sobre o valor da entrega normal.` : 'Valor maior que a entrega normal.'}`
+      ? `Ligado: motoboy em até 30 minutos para buscar. ${acr.urgente_pct ? `Acréscimo de ${acr.urgente_pct}% sobre o valor da entrega normal.` : 'Valor maior que a entrega normal.'} Pagamento por Pix na hora (pode pagar durante o trajeto).`
       : `Desligado: entrega normal, na rota, sem pressa (mais barata).${acr.urgente_pct ? ` Urgente: +${acr.urgente_pct}%.` : ''}`;
     urgente.closest('.pedido-urgente').classList.toggle('ligado', urg);
     $('bloco-tipo').hidden = urg;
     $('bloco-extra').hidden = urg;
     $('bloco-cnpj').hidden = urg;
+    $('bloco-hora').hidden = urg;
     $('urgente-audio').hidden = !urg;
     servico.required = !urg && temServicos;
     if (urg && umLocal.checked) { umLocal.checked = false; ajustarLocais(); }
@@ -270,6 +284,12 @@
     if (!urgente.checked && ehOutros() && detalhes.value.trim().length < MIN_OUTROS) { erro.textContent = 'Em "Outros", descreva melhor a demanda.'; detalhes.focus(); return; }
     const cnpj = urgente.checked ? '' : $('cnpj').value.replace(/\D/g, '');
     if (cnpj && !cnpjValido(cnpj)) { erro.textContent = 'CNPJ inválido. Confira os números ou deixe em branco.'; $('cnpj').focus(); return; }
+    const ht = urgente.checked ? '' : horaTipo.value;
+    const janela = ['ate', 'apartir'].includes(ht);
+    if (janela && !$('hora').value) { erro.textContent = 'Informe o horário.'; $('hora').focus(); return; }
+    if (ht === 'agendar' && !$('hora-dia').value) { erro.textContent = 'Escolha o dia e a hora.'; $('hora-dia').focus(); return; }
+    const textoHora = ht === 'ate' ? `Entregar até ${$('hora').value}` : ht === 'apartir' ? `Coletar a partir de ${$('hora').value}`
+      : ht === 'agendar' ? `Agendado para ${new Date($('hora-dia').value).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}` : '';
 
     const ponto = (campo) => {
       const e = escolhido[campo];
@@ -299,6 +319,9 @@
       tamanho: $('requisito').value, // G e GG cobram acréscimo no sistema
       servico_id: !urgente.checked && servico.value ? Number(servico.value) : undefined,
       site: form.querySelector('[name="site"]').value,
+      hora_tipo: janela ? ht : undefined,
+      hora: janela ? $('hora').value : undefined,
+      agendada_para: ht === 'agendar' ? $('hora-dia').value : undefined,
       coleta: { endereco: coleta.endereco, lat: coleta.lat, lon: coleta.lon },
       entrega: { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon, contato: entrega.contato },
     };
@@ -324,20 +347,28 @@
         so ? `*Endereço:* ${comCompl(entrega)}` : `*Coleta:* ${comCompl(coleta)}\n*Entrega:* ${comCompl(entrega)}`,
         `*Detalhes:* ${detalhes.value.trim()}`,
         `*Tamanho:* ${tamanho}`,
+        textoHora && `*Horário:* ${textoHora}`,
         entrega.contato && `*Quem recebe:* ${entrega.contato}`,
         `*Nome:* ${corpo.nome}`,
         cnpj && `*CNPJ:* ${fmtCnpj(cnpj)}`,
         r.codigo && `Acompanhar: https://www.speedboy.com.br/acompanhar/?c=${r.codigo}`,
-        'Pode me passar o valor?',
+        r.pix && r.pix.codigo ? `Vou pagar pelo Pix (R$ ${Number(r.valor).toFixed(2).replace('.', ',')}).` : 'Pode me passar o valor?',
       ].filter(Boolean).join('\n');
       const link = linkWhats(msg);
       form.hidden = true;
       $('pronto-texto').textContent = `Seu pedido #${r.id} foi registrado. Agora envie a mensagem no WhatsApp da SpeedBoy: passamos o valor ali e, com o seu ok, o motoboy sai.`;
       $('pronto-whats').href = link;
       if (r.codigo) $('pronto-acomp').href = `/acompanhar/?c=${encodeURIComponent(r.codigo)}`;
+      const comPix = Boolean(r.pix && r.pix.codigo);
+      if (comPix) {
+        $('pronto-texto').textContent = `Pedido urgente #${r.id} registrado: o motoboy já está sendo chamado. Pague pelo Pix abaixo e envie a mensagem no WhatsApp da SpeedBoy (o Pix vai lá também).`;
+        $('pronto-pix-valor').textContent = `💰 Valor: R$ ${Number(r.valor).toFixed(2).replace('.', ',')}`;
+        $('pronto-pix-codigo').value = r.pix.codigo;
+        $('pronto-pix').hidden = false;
+      }
       $('pronto').hidden = false;
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => { window.location.href = link; }, 600);
+      if (!comPix) setTimeout(() => { window.location.href = link; }, 600);
     } catch (e) {
       erro.textContent = e.message || 'Não foi possível enviar agora. Tente de novo ou chame no WhatsApp.';
       enviar.disabled = false;

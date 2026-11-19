@@ -20,7 +20,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/assets/style.css?v=paleta1">
+  <link rel="stylesheet" href="/assets/style.css?v=pix1">
 </head>
 <body>
 <nav id="navbar">
@@ -109,6 +109,18 @@
       </select>
       <small class="pedido-dica" id="tamanho-dica">Grande (G) e Gigante (GG) têm acréscimo no valor.</small>
 
+      <div id="bloco-hora">
+        <label for="hora-tipo">Horário</label>
+        <select id="hora-tipo" name="hora-tipo">
+          <option value="">Sem horário — o quanto antes</option>
+          <option value="ate">Entregar até…</option>
+          <option value="apartir">Coletar a partir de…</option>
+          <option value="agendar">Agendar dia e hora</option>
+        </select>
+        <input id="hora" name="hora" type="time" hidden aria-label="Hora">
+        <input id="hora-dia" name="hora-dia" type="datetime-local" hidden aria-label="Dia e hora">
+      </div>
+
       <div id="bloco-extra">
 
       <label for="recebe">Quem recebe na entrega?</label>
@@ -136,6 +148,12 @@
       <i class="fas fa-check-circle"></i>
       <h2>Falta só um passo!</h2>
       <p id="pronto-texto"></p>
+      <div class="pedido-pix" id="pronto-pix" hidden>
+        <strong id="pronto-pix-valor"></strong>
+        <textarea id="pronto-pix-codigo" rows="3" readonly aria-label="Pix copia e cola"></textarea>
+        <button type="button" class="btn-primary" id="pronto-pix-copiar"><i class="fas fa-copy"></i> Copiar Pix</button>
+        <small class="pedido-dica">Pode pagar durante o trajeto. Mande o comprovante no WhatsApp: a entrega é finalizada depois do pagamento confirmado.</small>
+      </div>
       <a class="btn-primary" id="pronto-whats" href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Enviar pedido no WhatsApp</a>
       <p class="pedido-dica" style="margin-top:1rem"><a id="pronto-acomp" href="/acompanhar/">Acompanhar este pedido</a></p>
     </div>
@@ -171,6 +189,6 @@
 </footer>
 
 <script src="/assets/main.js?v=pedir4"></script>
-<script src="/assets/pedir.js?v=11"></script>
+<script src="/assets/pedir.js?v=12"></script>
 </body>
 </html>

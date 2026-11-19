@@ -63,6 +63,26 @@
     $('acomp-msg').hidden = true;
     $('acomp-titulo').hidden = false;
     $('acomp-titulo').textContent = `Pedido #${p.id}`;
+    // Urgente: Pix copia e cola até a central confirmar o pagamento.
+    const caixaPix = $('acomp-pix');
+    caixaPix.innerHTML = '';
+    caixaPix.hidden = !(p.pix && p.pix.codigo);
+    if (!caixaPix.hidden) {
+      const titulo = document.createElement('strong');
+      titulo.textContent = `💰 Pagamento por Pix${p.valor != null ? ` — R$ ${Number(p.valor).toFixed(2).replace('.', ',')}` : ''}`;
+      const codigoPix = document.createElement('textarea');
+      codigoPix.rows = 3; codigoPix.readOnly = true; codigoPix.value = p.pix.codigo; codigoPix.setAttribute('aria-label', 'Pix copia e cola');
+      const copiar = document.createElement('button');
+      copiar.type = 'button'; copiar.className = 'btn-primary'; copiar.textContent = 'Copiar Pix';
+      copiar.onclick = async () => {
+        try { await navigator.clipboard.writeText(p.pix.codigo); } catch (e) { codigoPix.select(); document.execCommand('copy'); }
+        copiar.textContent = 'Copiado!';
+      };
+      const nota = document.createElement('small');
+      nota.className = 'pedido-dica';
+      nota.textContent = 'Pode pagar durante o trajeto. Mande o comprovante no WhatsApp: a entrega é finalizada depois do pagamento confirmado.';
+      caixaPix.append(titulo, codigoPix, copiar, nota);
+    }
     const cancelado = p.status === 'cancelada';
     const etapas = cancelado
       ? [['Pedido recebido', hora(p.criada_em), true], ['Pedido cancelado', hora(p.cancelada_em), true]]
