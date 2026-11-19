@@ -304,3 +304,8 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .pedido-urgente.ligado .chave::after { transform: translateX(22px); }
 .pedido-urgente.ligado .fa-bolt { color: var(--orange); }
 .pedido-urgente input:focus-visible + .chave { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+/* Atalho de áudio na entrega urgente (página /pedir/) */
+.pedido-audio { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; padding: 0.6rem 0.9rem; border: 2px solid var(--orange); border-radius: 10px; color: var(--blue); font-weight: 600; text-decoration: none; background: #fff6f0; }
+.pedido-audio[hidden] { display: none; }
+.pedido-audio .fa-microphone { color: var(--orange); }

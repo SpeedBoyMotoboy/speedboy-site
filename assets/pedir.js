@@ -43,6 +43,7 @@
     return dados;
   }
 
+  let temServicos = true;
   // ── Tipo de serviço ──
   const ehOutros = () => OUTROS.test(servico.selectedOptions[0]?.textContent.trim() || '');
   function ajustarDetalhes() {
@@ -195,21 +196,37 @@
       o.value = String(s.id); o.textContent = s.nome;
       servico.append(o);
     });
-    if (!lista.length) { servico.required = false; form.querySelector('label[for="servico"]').hidden = true; servico.hidden = true; }
+    temServicos = lista.length > 0;
+    if (!temServicos) { servico.required = false; form.querySelector('label[for="servico"]').hidden = true; servico.hidden = true; }
     ajustarDetalhes();
     ajustarLocais();
+    marcarUrgente();
     carregarGoogle();
   }
 
   // Entrega urgente (chave): ligada = motoboy em até 30 minutos, valor maior. Anúncio pode abrir com ?urgente=1.
   const urgente = $('urgente');
   const dicaUrgente = $('urgente-dica');
-  const marcarUrgente = () => {
-    dicaUrgente.textContent = urgente.checked
+  // Urgente = formulário curto: sem tipo de serviço, tamanho, quem recebe e CNPJ. Só coleta, entrega,
+  // a demanda em texto livre (ou áudio no WhatsApp) e o nome.
+  function marcarUrgente() {
+    const urg = urgente.checked;
+    dicaUrgente.textContent = urg
       ? 'Ligado: motoboy em até 30 minutos para buscar. Valor maior que a entrega normal.'
       : 'Desligado: entrega normal, na rota, sem pressa (mais barata).';
-    urgente.closest('.pedido-urgente').classList.toggle('ligado', urgente.checked);
-  };
+    urgente.closest('.pedido-urgente').classList.toggle('ligado', urg);
+    $('bloco-tipo').hidden = urg;
+    $('bloco-extra').hidden = urg;
+    $('bloco-cnpj').hidden = urg;
+    $('urgente-audio').hidden = !urg;
+    servico.required = !urg && temServicos;
+    if (urg && umLocal.checked) { umLocal.checked = false; ajustarLocais(); }
+    $('rotulo-detalhes').textContent = urg ? 'Qual é a sua demanda?' : 'Detalhes da demanda';
+    if (urg) {
+      detalhes.placeholder = 'Conte rapidinho: o que é e se tem algo importante (horário, com quem falar)';
+      dica.textContent = 'Só o essencial. O resto a gente confirma com você no WhatsApp.';
+    } else ajustarDetalhes();
+  }
   if (/[?&]urgente=(1|sim|true)\b/i.test(location.search)) urgente.checked = true;
   urgente.addEventListener('change', marcarUrgente);
   marcarUrgente();
@@ -226,8 +243,8 @@
         if (!escolhido[campo]) { erro.textContent = 'Escolha o endereço na lista de sugestões (com número).'; $(campo).focus(); return; }
       }
     }
-    if (ehOutros() && detalhes.value.trim().length < MIN_OUTROS) { erro.textContent = 'Em "Outros", descreva melhor a demanda.'; detalhes.focus(); return; }
-    const cnpj = $('cnpj').value.replace(/\D/g, '');
+    if (!urgente.checked && ehOutros() && detalhes.value.trim().length < MIN_OUTROS) { erro.textContent = 'Em "Outros", descreva melhor a demanda.'; detalhes.focus(); return; }
+    const cnpj = urgente.checked ? '' : $('cnpj').value.replace(/\D/g, '');
     if (cnpj && !cnpjValido(cnpj)) { erro.textContent = 'CNPJ inválido. Confira os números ou deixe em branco.'; $('cnpj').focus(); return; }
 
     const ponto = (campo) => {
@@ -242,12 +259,12 @@
     const entrega = { ...ponto('entrega'), contato: [$('recebe').value.trim(), $('recebe-tel').value.trim()].filter(Boolean).join(' ') };
     const coleta = so ? { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon, compl: '' } : ponto('coleta');
     const comCompl = (p) => (p.compl ? `${p.endereco} — ${p.compl}` : p.endereco);
-    const nomeServico = servico.value ? servico.selectedOptions[0].textContent.trim() : '';
+    const nomeServico = !urgente.checked && servico.value ? servico.selectedOptions[0].textContent.trim() : '';
     const tamanho = $('requisito').selectedOptions[0].textContent;
     const modalidade = urgente.checked ? 'URGENTE — motoboy em até 30 min' : 'Normal — na rota';
-    const desc = [`Modalidade: ${modalidade}`, (ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
+    const desc = [`Modalidade: ${modalidade}`, (!urgente.checked && ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
       !so && coleta.compl ? `Compl. coleta: ${coleta.compl}` : '', entrega.compl ? `Compl. entrega: ${entrega.compl}` : '',
-      `Tamanho: ${tamanho}`, cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Apenas um endereço' : '']
+      urgente.checked ? '' : `Tamanho: ${tamanho}`, cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Apenas um endereço' : '']
       .filter(Boolean).join(' | ');
     const corpo = {
       nome: $('nome').value.trim(),
@@ -255,7 +272,7 @@
       urgente: urgente.checked,
       descricao: desc,
       requisito: $('requisito').value === 'grande' ? 'bau' : 'qualquer', // grande pede baú no sistema
-      servico_id: servico.value ? Number(servico.value) : undefined,
+      servico_id: !urgente.checked && servico.value ? Number(servico.value) : undefined,
       site: form.querySelector('[name="site"]').value,
       coleta: { endereco: coleta.endereco, lat: coleta.lat, lon: coleta.lon },
       entrega: { endereco: entrega.endereco, lat: entrega.lat, lon: entrega.lon, contato: entrega.contato },
@@ -281,7 +298,7 @@
         nomeServico && `*Serviço:* ${nomeServico}`,
         so ? `*Endereço:* ${comCompl(entrega)}` : `*Coleta:* ${comCompl(coleta)}\n*Entrega:* ${comCompl(entrega)}`,
         `*Detalhes:* ${detalhes.value.trim()}`,
-        `*Tamanho:* ${tamanho}`,
+        !urgente.checked && `*Tamanho:* ${tamanho}`,
         entrega.contato && `*Quem recebe:* ${entrega.contato}`,
         `*Nome:* ${corpo.nome}`,
         cnpj && `*CNPJ:* ${fmtCnpj(cnpj)}`,

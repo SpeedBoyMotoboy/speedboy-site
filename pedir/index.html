@@ -20,7 +20,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/assets/style.css?v=pedir6">
+  <link rel="stylesheet" href="/assets/style.css?v=pedir7">
 </head>
 <body>
 <nav id="navbar">
@@ -70,12 +70,14 @@
       </label>
 
       <h2 class="pedido-titulo">1. O serviço</h2>
-      <label for="servico">O que você precisa?</label>
-      <select id="servico" name="servico" required>
-        <option value="">Carregando…</option>
-      </select>
+      <div id="bloco-tipo">
+        <label for="servico">O que você precisa?</label>
+        <select id="servico" name="servico" required>
+          <option value="">Carregando…</option>
+        </select>
 
-      <label class="pedido-check"><input type="checkbox" id="um-local"> Apenas um endereço</label>
+        <label class="pedido-check"><input type="checkbox" id="um-local"> Apenas um endereço</label>
+      </div>
 
       <div id="bloco-coleta">
         <label for="coleta">Onde coletamos?</label>
@@ -93,9 +95,12 @@
       </div>
       <input id="entrega-compl" name="entrega-compl" maxlength="80" placeholder="Complemento: apto, bloco, sala, referência (opcional)">
 
-      <label for="detalhes">Detalhes da demanda</label>
+      <label for="detalhes" id="rotulo-detalhes">Detalhes da demanda</label>
       <textarea id="detalhes" name="detalhes" required maxlength="500" rows="4" placeholder="O que vamos levar, com quem falar, horário, se precisa esperar ou voltar"></textarea>
       <small class="pedido-dica" id="dica-detalhes">Quanto mais detalhe, mais rápido confirmamos.</small>
+      <a class="pedido-audio" id="urgente-audio" hidden href="https://wa.me/5527999165959?text=%E2%9A%A1%20URGENTE%3A%20vou%20mandar%20um%20%C3%A1udio%20com%20o%20pedido." target="_blank" rel="noopener noreferrer"><i class="fas fa-microphone" aria-hidden="true"></i> Prefere falar? Mande um áudio no WhatsApp</a>
+
+      <div id="bloco-extra">
 
       <label for="requisito">Tamanho</label>
       <select id="requisito" name="requisito">
@@ -107,13 +112,16 @@
       <label for="recebe">Quem recebe na entrega?</label>
       <input id="recebe" name="recebe" maxlength="80" placeholder="Nome de quem recebe">
       <input id="recebe-tel" name="recebe-tel" type="tel" inputmode="tel" maxlength="20" placeholder="Telefone de quem recebe">
+      </div>
 
       <h2 class="pedido-titulo">2. Seus dados</h2>
       <label for="nome">Seu nome</label>
       <input id="nome" name="nome" required maxlength="80" autocomplete="name">
 
-      <label for="cnpj">CNPJ <span class="opcional">(se precisar de nota fiscal)</span></label>
-      <input id="cnpj" name="cnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00">
+      <div id="bloco-cnpj">
+        <label for="cnpj">CNPJ <span class="opcional">(se precisar de nota fiscal)</span></label>
+        <input id="cnpj" name="cnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00">
+      </div>
 
       <input class="pedido-isca" style="position:absolute;left:-9999px" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -161,6 +169,6 @@
 </footer>
 
 <script src="/assets/main.js?v=pedir4"></script>
-<script src="/assets/pedir.js?v=7"></script>
+<script src="/assets/pedir.js?v=8"></script>
 </body>
 </html>
