@@ -361,7 +361,10 @@
       if (r.codigo) $('pronto-acomp').href = `/acompanhar/?c=${encodeURIComponent(r.codigo)}`;
       const comPix = Boolean(r.pix && r.pix.codigo);
       if (comPix) {
-        $('pronto-texto').textContent = `Pedido urgente #${r.id} registrado: o motoboy já está sendo chamado. Pague pelo Pix abaixo e envie a mensagem no WhatsApp da SpeedBoy (o Pix vai lá também).`;
+        $('pronto-texto').textContent = urgente.checked
+          ? `Pedido urgente #${r.id} registrado: o motoboy já está sendo chamado. Pague pelo Pix abaixo e envie a mensagem no WhatsApp da SpeedBoy.`
+          : `Pedido #${r.id} registrado. Pague pelo Pix abaixo e envie a mensagem no WhatsApp da SpeedBoy.`;
+        if (r.pix.qr) { $('pronto-pix-qr').src = r.pix.qr; $('pronto-pix-qr').hidden = false; }
         $('pronto-pix-valor').textContent = `💰 Valor: R$ ${Number(r.valor).toFixed(2).replace('.', ',')}`;
         $('pronto-pix-codigo').value = r.pix.codigo;
         $('pronto-pix').hidden = false;

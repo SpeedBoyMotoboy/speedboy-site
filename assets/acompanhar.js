@@ -70,6 +70,11 @@
     if (!caixaPix.hidden) {
       const titulo = document.createElement('strong');
       titulo.textContent = `💰 Pagamento por Pix${p.valor != null ? ` — R$ ${Number(p.valor).toFixed(2).replace('.', ',')}` : ''}`;
+      const aviso = document.createElement('div');
+      aviso.className = 'pix-aviso';
+      aviso.textContent = '⚠️ Pagamento obrigatório por Pix antes do fim da entrega. O motoboy só finaliza a entrega depois do pagamento confirmado.';
+      caixaPix.append(aviso);
+      if (p.pix.qr) { const img = document.createElement('img'); img.className = 'pix-qr'; img.alt = 'QR Code do Pix'; img.src = p.pix.qr; caixaPix.append(img); }
       const codigoPix = document.createElement('textarea');
       codigoPix.rows = 3; codigoPix.readOnly = true; codigoPix.value = p.pix.codigo; codigoPix.setAttribute('aria-label', 'Pix copia e cola');
       const copiar = document.createElement('button');
@@ -80,7 +85,7 @@
       };
       const nota = document.createElement('small');
       nota.className = 'pedido-dica';
-      nota.textContent = 'Pode pagar durante o trajeto. Mande o comprovante no WhatsApp: a entrega é finalizada depois do pagamento confirmado.';
+      nota.textContent = 'Abra o app do seu banco, escolha Pix copia e cola (ou ler QR Code) e pague o valor exato. Depois mande o comprovante no WhatsApp.';
       caixaPix.append(titulo, codigoPix, copiar, nota);
     }
     const cancelado = p.status === 'cancelada';

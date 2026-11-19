@@ -331,5 +331,7 @@ nav, .mobile-menu, #inicio, .hero, .hero-content, .page-hero, .breadcrumb, foote
 footer { border-top: 4px solid var(--orange); }
 /* Acompanhar pedido: mapa com o motoboy */
 .pedido-pix { border: 2px solid var(--orange); border-radius: 12px; padding: 1rem; margin: 1rem 0; display: grid; gap: 0.6rem; text-align: left; }
+.pix-aviso { background: #FFF1E6; border: 2px solid #E8590C; color: #9A3412; font-weight: 700; padding: 0.75rem; border-radius: 10px; }
+.pix-qr { width: 220px; max-width: 100%; height: auto; margin: 0 auto; image-rendering: pixelated; background: #fff; }
 .pedido-pix textarea { width: 100%; font-family: monospace; font-size: 0.8rem; resize: none; }
 .acomp-mapa { height: 320px; border-radius: 12px; overflow: hidden; margin: 0.5rem 0 1.25rem; border: 1px solid var(--light-gray); }

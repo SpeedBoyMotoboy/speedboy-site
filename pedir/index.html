@@ -20,7 +20,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/assets/style.css?v=pix1">
+  <link rel="stylesheet" href="/assets/style.css?v=pix2">
 </head>
 <body>
 <nav id="navbar">
@@ -141,7 +141,7 @@
 
       <div class="pedido-erro" id="erro" role="alert"></div>
       <button type="submit" class="btn-primary pedido-enviar" id="enviar"><i class="fab fa-whatsapp"></i> Enviar pedido pelo WhatsApp</button>
-      <small class="pedido-dica">Coletas de segunda a sexta, até 18h — Vila Velha, Vitória, Serra, Cariacica e Viana. Ao enviar, abrimos o WhatsApp da SpeedBoy com o seu pedido pronto: é só mandar a mensagem e passamos o valor ali. O motoboy só sai depois da sua confirmação.</small>
+      <small class="pedido-dica">Coletas de segunda a sexta, até 18h — Vila Velha, Vitória, Serra, Cariacica e Viana. Ao enviar, aparece o valor e o Pix para pagamento. O motoboy só finaliza a entrega depois do pagamento confirmado. Depois é só mandar a mensagem no WhatsApp da SpeedBoy.</small>
     </form>
 
     <div id="pronto" class="pedido-pronto" hidden>
@@ -149,10 +149,13 @@
       <h2>Falta só um passo!</h2>
       <p id="pronto-texto"></p>
       <div class="pedido-pix" id="pronto-pix" hidden>
+        <div class="pix-aviso"><i class="fas fa-exclamation-triangle"></i> Pagamento obrigatório por Pix antes do fim da entrega. O motoboy só finaliza a entrega depois do pagamento confirmado.</div>
         <strong id="pronto-pix-valor"></strong>
-        <textarea id="pronto-pix-codigo" rows="3" readonly aria-label="Pix copia e cola"></textarea>
+        <img id="pronto-pix-qr" class="pix-qr" alt="QR Code do Pix" hidden>
+        <label for="pronto-pix-codigo">Pix copia e cola</label>
+        <textarea id="pronto-pix-codigo" rows="3" readonly></textarea>
         <button type="button" class="btn-primary" id="pronto-pix-copiar"><i class="fas fa-copy"></i> Copiar Pix</button>
-        <small class="pedido-dica">Pode pagar durante o trajeto. Mande o comprovante no WhatsApp: a entrega é finalizada depois do pagamento confirmado.</small>
+        <small class="pedido-dica">Abra o app do seu banco, escolha Pix copia e cola (ou ler QR Code) e pague o valor exato. Depois mande o comprovante no WhatsApp.</small>
       </div>
       <a class="btn-primary" id="pronto-whats" href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Enviar pedido no WhatsApp</a>
       <p class="pedido-dica" style="margin-top:1rem"><a id="pronto-acomp" href="/acompanhar/">Acompanhar este pedido</a></p>
@@ -189,6 +192,6 @@
 </footer>
 
 <script src="/assets/main.js?v=pedir4"></script>
-<script src="/assets/pedir.js?v=12"></script>
+<script src="/assets/pedir.js?v=13"></script>
 </body>
 </html>
