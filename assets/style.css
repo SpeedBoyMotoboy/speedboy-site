@@ -329,3 +329,5 @@ nav, .mobile-menu, #inicio, .hero, .hero-content, .page-hero, .breadcrumb, foote
 .section-label { color: var(--green); }
 .urgente .section-label, .diff-bg .section-label, .faq-bg .section-label, .b2b-cta .section-label { color: var(--orange); }
 footer { border-top: 4px solid var(--orange); }
+/* Acompanhar pedido: mapa com o motoboy */
+.acomp-mapa { height: 320px; border-radius: 12px; overflow: hidden; margin: 0.5rem 0 1.25rem; border: 1px solid var(--light-gray); }
