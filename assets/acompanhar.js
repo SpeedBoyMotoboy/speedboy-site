@@ -34,7 +34,7 @@
     $('acomp-mapa-info').hidden = !ativo;
     if (!ativo) return false;
     const min = m.ult_ts ? Math.max(0, Math.round((p.agora - m.ult_ts) / 60000)) : null;
-    $('acomp-mapa-info').textContent = `${m.nome} está aqui${min == null ? '' : min < 1 ? ' (agora)' : ` (há ${min} min)`}. Atualiza sozinho.`;
+    $('acomp-mapa-info').textContent = `${m.nome} ${p.status === 'atribuida' ? 'está indo buscar' : 'está a caminho da entrega'}${min == null ? '' : min < 1 ? ' (agora)' : ` (há ${min} min)`}. Atualiza sozinho.`;
     try {
       const L = await carregarLeaflet();
       if (!mapa) {
@@ -45,7 +45,8 @@
       camada.clearLayers();
       const pontos = [[m.lat, m.lon]];
       L.marker([m.lat, m.lon], { icon: pino(L, '🛵', '#002776'), zIndexOffset: 500 }).addTo(camada);
-      const destino = p.status === 'coletada' ? p.entrega : (p.entrega.lat != null ? p.entrega : p.coleta);
+      // Indo buscar: destino é a coleta. Já coletado: a entrega.
+      const destino = p.status === 'atribuida' && p.coleta.lat != null ? p.coleta : p.entrega;
       if (destino && destino.lat != null) {
         L.marker([destino.lat, destino.lon], { icon: pino(L, '🏁', '#333F22') }).addTo(camada);
         pontos.push([destino.lat, destino.lon]);
