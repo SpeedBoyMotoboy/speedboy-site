@@ -287,13 +287,20 @@ footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 3rem 2r
 .acomp-etapas li small { display: block; font-weight: 400; color: var(--gray); }
 .acomp-dados { background: #f6f8fc; border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.95rem; }
 
-/* Atalho para o pedido de lojistas (página /pedir/) */
-.pedido-lojista { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.5rem; padding: 1rem 1.1rem; border: 2px solid var(--orange); border-radius: 12px; background: #fff6f0; color: var(--dark); text-decoration: none; line-height: 1.35; }
-.pedido-lojista:hover { background: #ffece0; }
-.pedido-lojista > .fa-store { font-size: 1.6rem; color: var(--orange); flex: none; }
-.pedido-lojista > .fa-chevron-right { color: var(--orange); flex: none; margin-left: auto; }
-.pedido-lojista strong { color: var(--blue); }
-
 /* Selo de prazo da entrega urgente (página /pedir/) */
 .selo-urgente { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 0 0.6rem; padding: 0.4rem 0.95rem; border-radius: 999px; background: var(--orange); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em; text-transform: uppercase; }
 .selo-urgente .fa-bolt { color: #ffd23f; }
+
+/* Chave "Entrega urgente" (página /pedir/) */
+.pedido-urgente { display: flex; align-items: center; gap: 0.9rem; padding: 0.95rem 1.1rem; margin-bottom: 0.5rem; border: 2px solid var(--light-gray); border-radius: 12px; background: #fff; cursor: pointer; font-weight: 400; transition: border-color .2s, background .2s; }
+.pedido-urgente input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pedido-urgente .chave { flex: none; width: 52px; height: 30px; border-radius: 999px; background: #cfcac0; position: relative; transition: background .2s; }
+.pedido-urgente .chave::after { content: ''; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .2s; }
+.pedido-urgente .texto { display: flex; flex-direction: column; gap: 0.15rem; line-height: 1.3; }
+.pedido-urgente strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--blue); text-transform: uppercase; }
+.pedido-urgente small { color: var(--gray); font-size: 0.92rem; }
+.pedido-urgente.ligado { border-color: var(--orange); background: #fff6f0; }
+.pedido-urgente.ligado .chave { background: var(--orange); }
+.pedido-urgente.ligado .chave::after { transform: translateX(22px); }
+.pedido-urgente.ligado .fa-bolt { color: var(--orange); }
+.pedido-urgente input:focus-visible + .chave { outline: 3px solid var(--orange); outline-offset: 2px; }

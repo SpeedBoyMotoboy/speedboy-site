@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motoboy em até 30 minutos | Entrega urgente — SpeedBoy Motoboy</title>
-  <meta name="description" content="Entrega urgente com motoboy em até 30 minutos em Vila Velha, Vitória, Serra, Cariacica e Viana. Informe coleta e entrega; confirmamos o valor pelo WhatsApp.">
+  <title>Pedir motoboy | Entrega urgente em até 30 minutos — SpeedBoy Motoboy</title>
+  <meta name="description" content="Peça motoboy em Vila Velha, Vitória, Serra, Cariacica e Viana: entrega normal na rota ou urgente, com motoboy em até 30 minutos. Confirmamos o valor pelo WhatsApp.">
   <link rel="canonical" href="https://www.speedboy.com.br/pedir/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pedir motoboy agora | SpeedBoy Motoboy">
@@ -20,7 +20,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16976838076"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16976838076');</script>
   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/assets/style.css?v=pedir5">
+  <link rel="stylesheet" href="/assets/style.css?v=pedir6">
 </head>
 <body>
 <nav id="navbar">
@@ -50,21 +50,24 @@
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="selo-urgente"><i class="fas fa-bolt" aria-hidden="true"></i> Motoboy em até 30 minutos</p>
-    <h1>Entrega <span>urgente</span></h1>
-    <p>Preencha o pedido e envie pelo WhatsApp. Passamos o valor ali mesmo e, com o seu ok, o motoboy mais perto sai para buscar em até meia hora.</p>
+    <h1>Pedir <span>motoboy</span></h1>
+    <p>Entrega normal na rota ou <strong>urgente, com motoboy em até 30 minutos</strong>. Preencha o pedido e envie pelo WhatsApp: passamos o valor ali e, com o seu ok, o motoboy sai.</p>
   </div>
 </div>
 
 <div class="sw sw-white">
   <div class="sw-inner pedido-wrap">
-    <a class="pedido-lojista" data-sistema="lojista" href="https://wa.me/5527999165959?text=Ol%C3%A1%2C%20sou%20lojista%20e%20quero%20pedir%20entregas.">
-      <i class="fas fa-store" aria-hidden="true"></i>
-      <span><strong>É lojista?</strong> Peça as entregas da sua loja por aqui: saída salva, várias entregas e valor na hora.</span>
-      <i class="fas fa-chevron-right" aria-hidden="true"></i>
-    </a>
     <form id="pedido" class="pedido-form" novalidate>
       <noscript><p class="pedido-aviso">Para pedir pelo site, ative o JavaScript. Ou chame no <a href="https://wa.me/5527999165959" target="_blank" rel="noopener noreferrer">WhatsApp (27) 99916-5959</a>.</p></noscript>
+
+      <label class="pedido-urgente" for="urgente">
+        <input type="checkbox" id="urgente" name="urgente" role="switch">
+        <span class="chave" aria-hidden="true"></span>
+        <span class="texto">
+          <strong><i class="fas fa-bolt" aria-hidden="true"></i> Entrega urgente</strong>
+          <small id="urgente-dica">Desligado: entrega normal, na rota, sem pressa (mais barata).</small>
+        </span>
+      </label>
 
       <h2 class="pedido-titulo">1. O serviço</h2>
       <label for="servico">O que você precisa?</label>
@@ -158,6 +161,6 @@
 </footer>
 
 <script src="/assets/main.js?v=pedir4"></script>
-<script src="/assets/pedir.js?v=6"></script>
+<script src="/assets/pedir.js?v=7"></script>
 </body>
 </html>

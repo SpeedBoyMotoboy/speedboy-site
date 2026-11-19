@@ -201,6 +201,19 @@
     carregarGoogle();
   }
 
+  // Entrega urgente (chave): ligada = motoboy em até 30 minutos, valor maior. Anúncio pode abrir com ?urgente=1.
+  const urgente = $('urgente');
+  const dicaUrgente = $('urgente-dica');
+  const marcarUrgente = () => {
+    dicaUrgente.textContent = urgente.checked
+      ? 'Ligado: motoboy em até 30 minutos para buscar. Valor maior que a entrega normal.'
+      : 'Desligado: entrega normal, na rota, sem pressa (mais barata).';
+    urgente.closest('.pedido-urgente').classList.toggle('ligado', urgente.checked);
+  };
+  if (/[?&]urgente=(1|sim|true)\b/i.test(location.search)) urgente.checked = true;
+  urgente.addEventListener('change', marcarUrgente);
+  marcarUrgente();
+
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     erro.textContent = '';
@@ -231,13 +244,15 @@
     const comCompl = (p) => (p.compl ? `${p.endereco} — ${p.compl}` : p.endereco);
     const nomeServico = servico.value ? servico.selectedOptions[0].textContent.trim() : '';
     const tamanho = $('requisito').selectedOptions[0].textContent;
-    const desc = [(ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
+    const modalidade = urgente.checked ? 'URGENTE — motoboy em até 30 min' : 'Normal — na rota';
+    const desc = [`Modalidade: ${modalidade}`, (ehOutros() ? 'OUTROS: ' : '') + detalhes.value.trim(),
       !so && coleta.compl ? `Compl. coleta: ${coleta.compl}` : '', entrega.compl ? `Compl. entrega: ${entrega.compl}` : '',
       `Tamanho: ${tamanho}`, cnpj ? `CNPJ: ${fmtCnpj(cnpj)}` : '', so ? 'Apenas um endereço' : '']
       .filter(Boolean).join(' | ');
     const corpo = {
       nome: $('nome').value.trim(),
       contato_whatsapp: true, // o WhatsApp do cliente chega pela mensagem que ele envia em seguida
+      urgente: urgente.checked,
       descricao: desc,
       requisito: $('requisito').value === 'grande' ? 'bau' : 'qualquer', // grande pede baú no sistema
       servico_id: servico.value ? Number(servico.value) : undefined,
@@ -262,6 +277,7 @@
       }
       const msg = [
         `Olá! Fiz o pedido #${r.id} pelo site 🛵`,
+        `*Modalidade:* ${urgente.checked ? '⚡ Urgente (motoboy em até 30 min)' : 'Normal (na rota)'}`,
         nomeServico && `*Serviço:* ${nomeServico}`,
         so ? `*Endereço:* ${comCompl(entrega)}` : `*Coleta:* ${comCompl(coleta)}\n*Entrega:* ${comCompl(entrega)}`,
         `*Detalhes:* ${detalhes.value.trim()}`,

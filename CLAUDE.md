@@ -83,10 +83,12 @@ Sistema separado, no repositório `SpeedBoyMotoboy/Speed`. Páginas públicas de
 - `GOOGLE_MAPS_CHAVE` em `main.js`: chave de navegador (Maps JavaScript API + Places API New), restrita a
   speedboy.com.br. Preenchida, o endereço só vale se escolhido da lista do Google e com número.
 - Texto perto do botão tem que ser verdade nos dois modos. Não prometer Pix antes de estar funcionando no sistema.
-- **Prazo liberado pelo dono (18/11/2026):** a página `/pedir/` (entrega urgente) promete "motoboy em até
-  30 minutos" para buscar. Será base de campanha no Google Ads. Outras páginas: não prometer prazo sem o dono pedir.
-- **Lojistas:** `/lojista/` leva direto ao pedido de lojas do sistema (`SISTEMA_ROTAS.lojista` = `/loja/`):
-  saída salva, várias entregas, nota fiscal (CNPJ), valor na hora. O `/pedir/` tem um atalho para lá.
+- **Prazo liberado pelo dono (18/11/2026):** no `/pedir/` a chave "Entrega urgente" (desligada = entrega normal,
+  na rota, mais barata; ligada = motoboy em até 30 minutos, valor maior). `?urgente=1` abre com a chave ligada
+  (página de destino do Google Ads). O pedido vai com `urgente` e a modalidade na descrição e na mensagem.
+  Outras páginas: não prometer prazo sem o dono pedir.
+- **Lojistas — NÃO mostrar no site.** `/lojista/` existe (noindex, sem link no site) e leva ao pedido de lojas do
+  sistema (`SISTEMA_ROTAS.lojista` = `/loja/`). O dono manda o link direto para cada loja. Não criar botão/menu para ela.
 - O menu passa a hambúrguer até 1024px (9 itens não cabem abaixo disso).
 
 ## Pendências conhecidas
