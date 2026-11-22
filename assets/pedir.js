@@ -225,8 +225,30 @@
     ajustarDetalhes();
     ajustarLocais();
     aplicarAcrescimos(info.acrescimos);
+    soAgendamento(info.horario);
     marcarUrgente();
     carregarGoogle();
+  }
+
+  // Sábado, domingo, feriado nacional ou fora do horário: só corrida agendada (o sistema diz o motivo).
+  function soAgendamento(hz) {
+    if (!hz || !hz.ativo || hz.aberto) return;
+    const aviso = document.createElement('p');
+    aviso.className = 'pedido-aviso';
+    aviso.setAttribute('role', 'status');
+    aviso.textContent = `${hz.motivo || 'Agora só aceitamos corridas agendadas.'} Pedido na hora: ${hz.texto}.`;
+    form.prepend(aviso);
+    urgente.checked = false;
+    urgente.disabled = true;
+    urgente.closest('.pedido-urgente').style.display = 'none';
+    for (const o of horaTipo.options) o.disabled = o.value !== 'agendar';
+    horaTipo.value = 'agendar';
+    if (hz.primeiro) {
+      const local = new Date(hz.primeiro - 3 * 3600e3).toISOString().slice(0, 16); // hora de Brasília
+      $('hora-dia').min = local;
+      if (!$('hora-dia').value) $('hora-dia').value = local;
+    }
+    ajustarHora();
   }
 
   // Entrega urgente (chave): ligada = motoboy em até 30 minutos, valor maior. Anúncio pode abrir com ?urgente=1.
@@ -249,7 +271,7 @@
   function marcarUrgente() {
     const urg = urgente.checked;
     dicaUrgente.textContent = urg
-      ? `Ligado: motoboy em até 30 minutos para buscar. ${acr.urgente_pct ? `Acréscimo de ${acr.urgente_pct}% sobre o valor da entrega normal.` : 'Valor maior que a entrega normal.'} Pagamento por Pix na hora (pode pagar durante o trajeto).`
+      ? `Ligado: motoboy em até 30 minutos para buscar. ${acr.urgente_pct ? `Acréscimo de ${acr.urgente_pct}% sobre o valor da entrega normal.` : 'Valor maior que a entrega normal.'} Pagamento por Pix na hora.`
       : `Desligado: entrega normal, na rota, sem pressa (mais barata).${acr.urgente_pct ? ` Urgente: +${acr.urgente_pct}%.` : ''}`;
     urgente.closest('.pedido-urgente').classList.toggle('ligado', urg);
     $('bloco-tipo').hidden = urg;
