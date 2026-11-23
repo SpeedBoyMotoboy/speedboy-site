@@ -263,8 +263,14 @@
     const opTam = (v) => $('requisito').querySelector(`option[value="${v}"]`);
     if (acr.g_pct && opTam('grande')) opTam('grande').textContent = `Grande (G) — até 40 cm (+${acr.g_pct}%)`;
     if (acr.gg_pct && opTam('gg')) opTam('gg').textContent = `Gigante (GG) — mais de 40 cm (+${acr.gg_pct}%)`;
+    // GGG (mais de 20 kg) só aparece quando o sistema avisa que cobra por ele.
+    if (acr.ggg_pct && opTam('ggg')) {
+      opTam('ggg').hidden = false;
+      opTam('ggg').disabled = false;
+      opTam('ggg').textContent = `Muito pesado (GGG) — mais de 20 kg (+${acr.ggg_pct}%)`;
+    }
     if ((acr.g_pct || acr.gg_pct) && $('tamanho-dica')) {
-      $('tamanho-dica').textContent = `Pequeno e médio não têm acréscimo. G: +${acr.g_pct}% e GG: +${acr.gg_pct}% sobre o valor da entrega`
+      $('tamanho-dica').textContent = `Pequeno e médio não têm acréscimo. G: +${acr.g_pct}%${acr.ggg_pct ? ',' : ' e'} GG: +${acr.gg_pct}%${acr.ggg_pct ? ` e GGG: +${acr.ggg_pct}%` : ''} sobre o valor da entrega`
         + (acr.tamanho_ate_km ? ` (em corridas acima de ${acr.tamanho_ate_km} km o tamanho não tem acréscimo).` : '.');
     }
   }
@@ -337,8 +343,8 @@
       contato_whatsapp: true, // o WhatsApp do cliente chega pela mensagem que ele envia em seguida
       urgente: urgente.checked,
       descricao: desc,
-      requisito: ['grande', 'gg'].includes($('requisito').value) ? 'bau' : 'qualquer', // G e GG pedem baú no sistema
-      tamanho: $('requisito').value, // G e GG cobram acréscimo no sistema
+      requisito: ['grande', 'gg', 'ggg'].includes($('requisito').value) ? 'bau' : 'qualquer', // G, GG e GGG pedem baú no sistema
+      tamanho: $('requisito').value, // G, GG e GGG cobram acréscimo no sistema
       servico_id: !urgente.checked && servico.value ? Number(servico.value) : undefined,
       site: form.querySelector('[name="site"]').value,
       hora_tipo: janela ? ht : undefined,
